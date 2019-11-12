@@ -1,0 +1,10 @@
+stages:
+  - build
+
+build_project:
+  stage: build
+  script:
+    - xcodebuild clean -project MeeKouluun.xcodeproj -scheme SchemeName | xcpretty
+    - xcodebuild test -project MeeKouluun.xcodeproj -scheme SchemeName -destination 'platform=iOS Simulator,name=iPhone XR,OS=12.1' | xcpretty -s
+  tags:
+    - iOS
