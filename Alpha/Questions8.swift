@@ -1,5 +1,5 @@
 //
-//  Questions2.swift
+//  Questions8.swift
 //  Alpha
 //
 //  Created by iosdev on 19/11/2019.
@@ -8,10 +8,8 @@
 
 import UIKit
 
-class Questions2: UIViewController {
+class Questions8: UIViewController {
 
-    @IBOutlet weak var questions2Label: UILabel!
-    
     let layer = CAGradientLayer()
     
     override func viewDidLoad() {
@@ -24,6 +22,15 @@ class Questions2: UIViewController {
         view.layer.insertSublayer(layer, at: 0)
     }
     
-    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
 
 }
