@@ -1,15 +1,15 @@
 //
-//  MeeKouluunTests.swift
-//  MeeKouluunTests
+//  AlphaTests.swift
+//  AlphaTests
 //
-//  Created by Oskari Sieranen on 12.11.2019.
-//  Copyright © 2019 Empathy Slayers. All rights reserved.
+//  Created by iosdev on 19/11/2019.
+//  Copyright © 2019 Jari Pietikäinen. All rights reserved.
 //
 
 import XCTest
-@testable import MeeKouluun
+@testable import Alpha
 
-class MeeKouluunTests: XCTestCase {
+class AlphaTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
