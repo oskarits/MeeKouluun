@@ -1,3 +1,4 @@
+<<<<<<< README.md
 {\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf200
 {\fonttbl\f0\fmodern\fcharset0 Courier;}
 {\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
@@ -13,6 +14,10 @@
 \cf2 ![Screenshot]()\
 \pard\pardeftab720\sl280\partightenfactor0
 \cf2 \
----
 
 }
+test from Otto
+Maria-Kristiina IS DEAD
+
+build test x2
+>>>>>>> README.md
