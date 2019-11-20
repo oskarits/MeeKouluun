@@ -1,5 +1,5 @@
 //
-//  BasicQuestions1.swift
+//  Questions10.swift
 //  Alpha
 //
 //  Created by iosdev on 19/11/2019.
@@ -8,36 +8,28 @@
 
 import UIKit
 
-class BasicQuestions1: UIViewController {
+class Questions10: UIViewController {
 
+    let layer = CAGradientLayer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let layer = CAGradientLayer()
+        
         layer.frame = view.bounds
-        layer.colors = [UIColor.red.cgColor, UIColor.white.cgColor]
+        layer.colors = [UIColor.yellow.cgColor, UIColor.white.cgColor]
         layer.startPoint = CGPoint(x: 0, y: 0)
         layer.endPoint = CGPoint(x:1, y:1)
-        //view.layer.addSublayer(layer)
         view.layer.insertSublayer(layer, at: 0)
-
-        // Do any additional setup after loading the view.
+    }
+    @IBAction func QResultsButton(_ sender: UIButton) {
+        Transition(sender.self)
+        print("To Results Boi")
     }
     
-    @IBAction func BasicQuestionButton(_ sender: UIButton) {
-        Transition(sender.self)
-        print("basicQ button 1")
-    }
-    
-    @IBAction func BasicQuestionButton2(_ sender: UIButton!) {
-        Transition(sender.self)
-        print("basicQ button 2")
-        
-    }
     private func Transition(_ sender: UIButton!) {
-        performSegue(withIdentifier: "segue1", sender: self)
+        performSegue(withIdentifier: "results", sender: self)
     }
-        
-    
+
     /*
     // MARK: - Navigation
 

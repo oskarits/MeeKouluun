@@ -13,9 +13,19 @@ import UIKit
         @IBOutlet weak var tableview: UITableView!
         var articles: [Article]? = []
         
+        let layer = CAGradientLayer()
+        
         override func viewDidLoad() {
             super.viewDidLoad()
+            layer.frame = view.bounds
+            layer.colors = [UIColor.blue.cgColor, UIColor.white.cgColor]
+            layer.startPoint = CGPoint(x: 0, y: 0)
+            layer.endPoint = CGPoint(x:1, y:1)
+            view.layer.insertSublayer(layer, at: 0)
             fetchArticles()
+        }
+        func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+            return 0
         }
         
         func fetchArticles(){

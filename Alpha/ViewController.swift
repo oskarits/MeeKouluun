@@ -10,9 +10,17 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var SignInButton: UIButton!
+    let layer = CAGradientLayer()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        layer.frame = view.bounds
+        layer.colors = [UIColor.purple.cgColor, UIColor.white.cgColor]
+        layer.startPoint = CGPoint(x: 0, y: 0)
+        layer.endPoint = CGPoint(x:1, y:1)
+        view.layer.insertSublayer(layer, at: 0)
     }
     
     @IBAction func SignInWithGoogle(_ sender: UIButton!){
