@@ -51,11 +51,5 @@ class ResultsViewController: UIViewController {
         singleAmkUni.text = amkUni
         singleDuration.text = duration
         singleUrl.text = url
-        // singleImage.image = image
-        // singleImage.downloadImage(from: image)
-        // singleTitle?.text = titleText
-        // sigleText?.text = articleText
-        // singleAuthor?.text = authorText
-        
     }
 }

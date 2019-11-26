@@ -11,7 +11,6 @@ import UIKit
 class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableview: UITableView!
-    //var articles: [Article]? = []
     
     var results: [SingleResult] = []
     
@@ -70,17 +69,8 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "resultsCell", for: indexPath) as! ResultsCell
-        /*
-         cell.title.text = self.articles?[indexPath.item].headline
-         cell.desc.text = self.articles?[indexPath.item].desc
-         cell.author.text = self.articles?[indexPath.item].author
-         print("\(String(describing: self.articles?[indexPath.item].headline))")
-         print("\(String(describing: self.articles?[indexPath.item].desc))")
-         print("\(String(describing: self.articles?[indexPath.item].author))")
-         cell.imgView.image = UIImage(named: "defaultImage")
-         cell.imgView.downloadImage(from: (self.articles?[indexPath.item].imageUrl ?? "defaultImage")!)
-         */        //Bind to cell outlets here like above.
-
+        
+        //Bind to cell outlets here like above.
         cell.organisation.text = self.results[indexPath.item].organisation
         cell.faculty.text = self.results[indexPath.item].faculty
         cell.location.text = self.results[indexPath.item].location
@@ -94,18 +84,7 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ResultsViewController") as? ResultsViewController
-        /*
-         vc?.image = self.articles?[indexPath.item].imageUrl ?? "defaultImage"
-         
-         vc?.titleText = self.articles?[indexPath.item].headline ?? "fail title"
-         vc?.articleText = self.articles?[indexPath.item].desc ?? "fail text"
-         
-         vc?.authorText = self.articles?[indexPath.item].author ?? "fail author"
-         print(vc?.image ?? "no image")
-         print(vc?.titleText  ?? "no title")
-         print(vc?.articleText  ?? "no text")
-         print(vc?.authorText ?? "no author")
-         */
+        
         // BIND HERE
         vc?.organisation = self.results[indexPath.item].organisation ?? "fail organisation"
         vc?.faculty = self.results[indexPath.item].faculty ?? "fail faculty"
