@@ -600,6 +600,7 @@
                                             <outlet property="location" destination="erx-yU-R37" id="X4I-D5-GME"/>
                                             <outlet property="organisation" destination="d0h-4Q-4bE" id="GpI-fB-Lcd"/>
                                             <outlet property="url" destination="h9a-7W-csU" id="iXL-HG-BzO"/>
+                                            <segue destination="f2R-AD-OIe" kind="show" id="Edl-cl-CcO"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -639,13 +640,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9HV-kp-0bO">
-                                <rect key="frame" x="260" y="623" width="99" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Organisation" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvK-ME-LK8">
                                 <rect key="frame" x="16" y="28" width="250" height="49"/>
                                 <constraints>
@@ -720,7 +714,6 @@
                     </view>
                     <connections>
                         <outlet property="singleAmkUni" destination="ryf-Ue-28m" id="Bsc-RG-rSv"/>
-                        <outlet property="singleAuthor" destination="9HV-kp-0bO" id="ox2-yB-uIE"/>
                         <outlet property="singleDuration" destination="HQz-CL-IqM" id="gvW-Ik-AMd"/>
                         <outlet property="singleFaculty" destination="ZiI-KA-5Mg" id="TNs-ME-N0S"/>
                         <outlet property="singleLanguage" destination="Yyg-zU-5Mi" id="jTX-EJ-UVj"/>

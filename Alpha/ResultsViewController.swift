@@ -27,11 +27,6 @@ class ResultsViewController: UIViewController {
     var duration = ""
     var url = ""
     
-   /* var image = ""
-    var titleText = ""
-    var articleText = ""
-    var authorText = "" */
-    
     let layer = CAGradientLayer()
     
     override func viewDidLoad() {
