@@ -86,13 +86,13 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ResultsViewController") as? ResultsViewController
         
         // BIND HERE
-        vc?.organisation = self.results[indexPath.item].organisation ?? "fail organisation"
-        vc?.faculty = self.results[indexPath.item].faculty ?? "fail faculty"
-        vc?.location = self.results[indexPath.item].location ?? "fail location"
-        vc?.language = self.results[indexPath.item].language ?? "fail language"
-        vc?.amkUni = self.results[indexPath.item].amkUni ?? "fail amkUni"
-        vc?.duration = self.results[indexPath.item].duration ?? "fail duration"
-        vc?.url = self.results[indexPath.item].url ?? "fail url"
+        vc?.organisationTitle = self.results[indexPath.item].organisation ?? "fail organisation"
+        vc?.facultyTitle = self.results[indexPath.item].faculty ?? "fail faculty"
+        vc?.locationTitle = self.results[indexPath.item].location ?? "fail location"
+        vc?.languageTitle = self.results[indexPath.item].language ?? "fail language"
+        vc?.amkUniTitle = self.results[indexPath.item].amkUni ?? "fail amkUni"
+        vc?.durationTitle = self.results[indexPath.item].duration ?? "fail duration"
+        vc?.urlTitle = self.results[indexPath.item].url ?? "fail url"
         
         self.navigationController?.pushViewController(vc!, animated: true)
     }

@@ -19,13 +19,13 @@ class ResultsViewController: UIViewController {
     @IBOutlet weak var singleUrl: UILabel!
     // Add single view outlets here!
     
-    var organisation = ""
-    var faculty = ""
-    var location = ""
-    var language = ""
-    var amkUni = ""
-    var duration = ""
-    var url = ""
+    var organisationTitle = ""
+    var facultyTitle = ""
+    var locationTitle = ""
+    var languageTitle = ""
+    var amkUniTitle = ""
+    var durationTitle = ""
+    var urlTitle = ""
     
     let layer = CAGradientLayer()
     
@@ -39,12 +39,12 @@ class ResultsViewController: UIViewController {
         view.layer.insertSublayer(layer, at: 0)
         
         // Set variable to outlets here!
-        singleOrganisation.text = organisation
-        singleFaculty.text = faculty
-        singleLocation.text = location
-        singleLanguage.text = language
-        singleAmkUni.text = amkUni
-        singleDuration.text = duration
-        singleUrl.text = url
+        singleOrganisation.text = organisationTitle
+        singleFaculty.text = facultyTitle
+        singleLocation.text = locationTitle
+        singleLanguage.text = languageTitle
+        singleAmkUni.text = amkUniTitle
+        singleDuration.text = durationTitle
+        singleUrl.text = urlTitle
     }
 }
