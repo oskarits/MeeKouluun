@@ -79,47 +79,42 @@ import UIKit
             return cell
         }
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            print("vc -------------------------------------------")
-            
-            
-            //let vc = storyboard?.instantiateViewController(withIdentifier: "ArticleViewController") as? ArticleViewController
-            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ArticleViewController") as? ArticleViewController
-            
-            
+            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(
+                withIdentifier: "ArticleViewController") as? ArticleViewController
             vc?.image = self.articles?[indexPath.item].imageUrl ?? "defaultImage"
-            
             vc?.titleText = self.articles?[indexPath.item].headline ?? "fail title"
             vc?.articleText = self.articles?[indexPath.item].desc ?? "fail text"
-            
             vc?.authorText = self.articles?[indexPath.item].author ?? "fail author"
-            print(vc?.image ?? "no image")
-            print(vc?.titleText  ?? "no title")
-            print(vc?.articleText  ?? "no text")
-            print(vc?.authorText ?? "no author")
-
-
-            //performSegue(withIdentifier: "Singleview", sender: self)
-
-
-            //let next = self.storyboard?.instantiateViewControllerWithIdentifier("DashboardController") as! DashboardController
-            //self.presentViewController(next, animated: true, completion: nil)
-            
-            
-//            if let navController = self.navigationController, let viewController = self.storyboard?.instantiateViewController(withIdentifier: "ArticleViewController"){
-//                navController.pushViewController(viewController, animated: true)
-//            }
-            
             self.navigationController?.pushViewController(vc!, animated: true)
-
-            //self.navigationController?.pushViewController(vc!, animated: true)
-            
-            
-            /*
-             // vc?.image = UIImage(named: "defaultImage")!
-             */
             
         }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
