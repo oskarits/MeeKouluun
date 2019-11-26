@@ -5,7 +5,7 @@
 //  Created by iosdev on 17/11/2019.
 //  Copyright © 2019 Jari Pietikäinen. All rights reserved.
 //
-
+/*
 import UIKit
 
 class ArticleViewController: UIViewController {
@@ -53,3 +53,4 @@ class ArticleViewController: UIViewController {
     */
 
 }
+*/

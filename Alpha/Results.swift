@@ -5,7 +5,7 @@
 //  Created by iosdev on 19/11/2019.
 //  Copyright © 2019 Jari Pietikäinen. All rights reserved.
 //
-
+/*
 import UIKit
 
     class Results: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -175,4 +175,4 @@ import UIKit
 
 
 
-
+ */

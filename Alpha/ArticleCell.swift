@@ -5,7 +5,7 @@
 //  Created by iosdev on 17/11/2019.
 //  Copyright © 2019 Jari Pietikäinen. All rights reserved.
 //
-
+/*
 import UIKit
 
 class ArticleCell: UITableViewCell {
@@ -27,4 +27,4 @@ class ArticleCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-}
+ }*/
