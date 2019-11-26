@@ -1,0 +1,26 @@
+ func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        CLGeocoder().reverseGeocodeLocation(manager.location, completionHandler: {(placemarks, error)-> Void in
+            if error != nil {
+                println("Reverse geocoder failed with error: \(error.localizedDescription)")
+                return
+            }
+
+            if placemarks.count > 0 {
+                let placemark = placemarks[0] as! CLPlacemark
+                self.locationManager.stopUpdatingLocation()
+                self.postalCode = (placemark.postalCode != nil) ? placemark.postalCode : ""
+                println("Postal code updated to: \(self.postalCode)")
+            }else{
+                println("No placemarks found.")
+            }
+        })
+    }
+
+    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+        println("Location manager error: \(error.localizedDescription)")
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
