@@ -56,7 +56,7 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
                         }
                         self.results.append(result)
                     }
-                    print("RESPONSE: \n\(self.results)")
+                    print("RESPONSE: \n\(json)")
                 }
                 DispatchQueue.main.async {
                     self.tableview.reloadData()
@@ -69,7 +69,7 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "results Cell", for: indexPath) as! ResultsCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "resultsCell", for: indexPath) as! ResultsCell
         /*
          cell.title.text = self.articles?[indexPath.item].headline
          cell.desc.text = self.articles?[indexPath.item].desc
