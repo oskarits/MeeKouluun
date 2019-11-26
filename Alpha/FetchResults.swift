@@ -56,6 +56,7 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
                         }
                         self.results.append(result)
                     }
+                    print("RESPONSE: \n\(self.results)")
                 }
                 DispatchQueue.main.async {
                     self.tableview.reloadData()

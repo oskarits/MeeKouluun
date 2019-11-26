@@ -308,7 +308,7 @@
                         <viewLayoutGuide key="safeArea" id="kvb-Yq-AEi"/>
                     </view>
                     <connections>
-                        <segue destination="d0w-Z0-sDn" kind="show" identifier="results" id="hrV-ZE-nxu"/>
+                        <segue destination="d0w-Z0-sDn" kind="show" identifier="results" id="zm4-vR-T8e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YVy-xO-XiE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -630,7 +630,7 @@
         <!--Results View Controller-->
         <scene sceneID="Odf-AR-Xd3">
             <objects>
-                <viewController storyboardIdentifier="ArticleViewController" id="f2R-AD-OIe" customClass="ResultsViewController" customModule="Alpha" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResultsViewController" id="f2R-AD-OIe" customClass="ResultsViewController" customModule="Alpha" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MWV-gZ-pTX"/>
                         <viewControllerLayoutGuide type="bottom" id="7ik-Ne-XmI"/>
@@ -753,7 +753,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="hrV-ZE-nxu"/>
+        <segue reference="zm4-vR-T8e"/>
         <segue reference="nF9-9e-zop"/>
     </inferredMetricsTieBreakers>
 </document>
