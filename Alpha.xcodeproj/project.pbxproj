@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A18D08A238C044400A66EF9 /* SingleResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A18D089238C044400A66EF9 /* SingleResult.swift */; };
+		6A18D08C238C0A3C00A66EF9 /* ResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A18D08B238C0A3C00A66EF9 /* ResultsCell.swift */; };
+		6A18D08E238C0B2800A66EF9 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A18D08D238C0B2800A66EF9 /* ResultsViewController.swift */; };
+		6A18D090238C0FB400A66EF9 /* FetchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A18D08F238C0FB400A66EF9 /* FetchResults.swift */; };
 		1D89BCA204DA0AE88D99D43F /* Pods_Alpha_AlphaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ACEA5D0206DAF77858CF0CC /* Pods_Alpha_AlphaUITests.framework */; };
 		6A3D11EC23844B8D0073EFB9 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3D11EB23844B8D0073EFB9 /* PageViewController.swift */; };
 		6A3D11EE23844D4E0073EFB9 /* PageViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3D11ED23844D4E0073EFB9 /* PageViewControllerTest.swift */; };
@@ -55,6 +59,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+
+		6A18D089238C044400A66EF9 /* SingleResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SingleResult.swift; path = "../../../MeeKouluun/mee-kouluun/Alpha/SingleResult.swift"; sourceTree = "<group>"; };
+		6A18D08B238C0A3C00A66EF9 /* ResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ResultsCell.swift; path = "../../../MeeKouluun/mee-kouluun/Alpha/ResultsCell.swift"; sourceTree = "<group>"; };
+		6A18D08D238C0B2800A66EF9 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ResultsViewController.swift; path = "../../../MeeKouluun/mee-kouluun/Alpha/ResultsViewController.swift"; sourceTree = "<group>"; };
+		6A18D08F238C0FB400A66EF9 /* FetchResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FetchResults.swift; path = "../../../MeeKouluun/mee-kouluun/Alpha/FetchResults.swift"; sourceTree = "<group>"; };
 		4438564146E3EA683A82F40A /* Pods-Alpha-AlphaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alpha-AlphaUITests.debug.xcconfig"; path = "Target Support Files/Pods-Alpha-AlphaUITests/Pods-Alpha-AlphaUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5ACEA5D0206DAF77858CF0CC /* Pods_Alpha_AlphaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Alpha_AlphaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D24C89B7CF0602DF34CE6B1 /* Pods-Alpha.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alpha.release.xcconfig"; path = "Target Support Files/Pods-Alpha/Pods-Alpha.release.xcconfig"; sourceTree = "<group>"; };
