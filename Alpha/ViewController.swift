@@ -9,14 +9,16 @@
 import UIKit
 import FacebookCore
 import FacebookLogin
-
+import GoogleSignIn
 import FacebookShare
 import SDWebImage
 import MobileCoreServices
 import DropDown
 
 class ViewController: UIViewController, LoginButtonDelegate {
-
+    
+    @IBOutlet weak var googleButton: GIDSignInButton!
+    
     let layer = CAGradientLayer()
     
     override func viewDidLoad() {
@@ -32,6 +34,20 @@ class ViewController: UIViewController, LoginButtonDelegate {
         view.addSubview(loginButton)
         loginButton.frame = CGRect(x: 40, y: 400, width: 250, height: 50)
         loginButton.center = view.center
+        
+        
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        // Automatically sign in the user.
+        GIDSignIn.sharedInstance()?.restorePreviousSignIn()
+
+        // ...
+        
+        
+    }
+    
+    @IBAction func didTapSignOut(_ sender: UIButton) {
+      GIDSignIn.sharedInstance().signOut()
+    print("Google Sign out")
     }
     
     func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {

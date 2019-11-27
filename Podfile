@@ -22,5 +22,7 @@ pod 'FacebookLogin'
 pod 'FacebookShare'
 pod 'SDWebImage'
 pod 'DropDown'
+pod 'GoogleSignIn'
+
 
 end
