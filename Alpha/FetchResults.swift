@@ -30,7 +30,7 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func fetch(){
-        let urlRequest = URLRequest(url: URL(string: "http://localhost:7000/")!)
+        let urlRequest = URLRequest(url: URL(string: "http://users.metropolia.fi/~tuomamp/testDb.json")!)
         let task = URLSession.shared.dataTask(with: urlRequest) { (data,response,error) in
             if error != nil {
                 print(error!)
@@ -43,13 +43,12 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
                 if let resultsFromJson = json["results"] as? [[String: AnyObject]] {
                     for resultFromJson in resultsFromJson {
                         let result = SingleResult()
-                        if let organisation = resultFromJson["organisation"] as? String, let faculty = resultFromJson["faculty"] as? String, let location = resultFromJson["location"] as? String, let language = resultFromJson["language"] as? String, let amkUni = resultFromJson["amkUni"] as? String, let duration = resultFromJson["duration"] as? String, let url = resultFromJson["url"] as? String
+                        if let organisation = resultFromJson["organisation"] as? String, let faculty = resultFromJson["faculty"] as? String, let location = resultFromJson["location"] as? String, let language = resultFromJson["language"] as? String, /*let amkUni = resultFromJson["amkUni"] as? String, */ let duration = resultFromJson["duration"] as? String, let url = resultFromJson["url"] as? String
                         {
                             result.organisation = organisation
                             result.faculty = faculty
                             result.location = location
                             result.language = language
-                            result.amkUni = amkUni
                             result.duration = duration
                             result.url = url
                         }
@@ -75,7 +74,7 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
         cell.faculty.text = self.results[indexPath.item].faculty
         cell.location.text = self.results[indexPath.item].location
         cell.language.text = self.results[indexPath.item].language
-        cell.amkUni.text = self.results[indexPath.item].amkUni
+        //cell.description.text = self.results[indexPath.item].description
         cell.duration.text = self.results[indexPath.item].duration
         cell.url.text = self.results[indexPath.item].url
         
@@ -90,7 +89,7 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
         vc?.facultyTitle = self.results[indexPath.item].faculty ?? "fail faculty"
         vc?.locationTitle = self.results[indexPath.item].location ?? "fail location"
         vc?.languageTitle = self.results[indexPath.item].language ?? "fail language"
-        vc?.amkUniTitle = self.results[indexPath.item].amkUni ?? "fail amkUni"
+        //vc?.descriptionTitle = self.results[indexPath.item].description ?? "fail description"
         vc?.durationTitle = self.results[indexPath.item].duration ?? "fail duration"
         vc?.urlTitle = self.results[indexPath.item].url ?? "fail url"
         
