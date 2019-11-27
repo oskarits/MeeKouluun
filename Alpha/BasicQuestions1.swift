@@ -12,7 +12,8 @@ class BasicQuestions1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     
     // pickerview data variable
     var ageData = (15...100).map{ String($0)}
-    let person = Person.init(name: "user", age: 23, weight: 99, height: 196)
+    
+    public var person = Person.init(age: 23)
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -24,6 +25,7 @@ class BasicQuestions1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if component == 0 {
+            person.setAge(newAge: Int(ageData[row])!)
             return ageData[row]
         }
         return ""
