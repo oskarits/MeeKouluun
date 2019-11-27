@@ -103,7 +103,7 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.results.count ?? 0
+        return self.results.count
     }
     
 }
