@@ -14,18 +14,28 @@ class ResultsViewController: UIViewController {
     @IBOutlet weak var singleFaculty: UILabel!
     @IBOutlet weak var singleLocation: UILabel!
     @IBOutlet weak var singleLanguage: UILabel!
+    @IBOutlet weak var singleDuration: UILabel!
+    @IBOutlet weak var singleUrl: UILabel!
+    @IBOutlet weak var singleDescription: UILabel!
+    /*
+    @IBOutlet weak var singleOrganisation: UILabel!
+    @IBOutlet weak var singleFaculty: UILabel!
+    @IBOutlet weak var singleLocation: UILabel!
+    @IBOutlet weak var singleLanguage: UILabel!
     @IBOutlet weak var singleAmkUni: UILabel!
     @IBOutlet weak var singleDuration: UILabel!
     @IBOutlet weak var singleUrl: UILabel!
+ */
     // Add single view outlets here!
     
     var organisationTitle = ""
     var facultyTitle = ""
     var locationTitle = ""
     var languageTitle = ""
-    var amkUniTitle = ""
+   // var amkUniTitle = ""
     var durationTitle = ""
     var urlTitle = ""
+    var descriptionTitle = ""
     
     let layer = CAGradientLayer()
     
@@ -43,8 +53,10 @@ class ResultsViewController: UIViewController {
         singleFaculty.text = facultyTitle
         singleLocation.text = locationTitle
         singleLanguage.text = languageTitle
-        singleAmkUni.text = amkUniTitle
+        //singleAmkUni.text = amkUniTitle
         singleDuration.text = durationTitle
         singleUrl.text = urlTitle
+        singleDescription.text = descriptionTitle
+        
     }
 }
