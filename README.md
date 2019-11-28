@@ -1,27 +1,11 @@
-<<<<<<< README.md
->>>>>>> README.md
-{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf200
-{\fonttbl\f0\fmodern\fcharset0 Courier;}
-{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
-{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
-\deftab720
-\pard\pardeftab720\sl280\partightenfactor0
+# MeeKouluun
 
-\f0\fs24 \cf2 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 # mee-kouluun\
-\
-\pard\pardeftab720\sl280\partightenfactor0
-\cf2 ![Screenshot]()\
-\pard\pardeftab720\sl280\partightenfactor0
-\cf2 \
-<<<<<<< README.md
-}
+MeeKouluun is a revolutionary app to see wether you are more of a captain or a nurse.
 
-}
-test from Otto
-Maria-Kristiina IS DEAD
 
-build test x2
->>>>>>> README.md
->>>>>>> README.md
+# Instructions
+
+## Requirements
+* Latest XCode
+* Latest Swift
+* Hyvä mieli :)
