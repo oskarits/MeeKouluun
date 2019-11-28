@@ -45,7 +45,6 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-<<<<<<< HEAD
     
 
     <key>CFBundleURLTypes</key>
@@ -72,9 +71,7 @@
     </array>
     
     
-=======
     <key>NSLocationWhenInUseUsageDescription</key>
     <string>meekouluun needs your postal code to sort the results.</string>
->>>>>>> otto
 </dict>
 </plist>
