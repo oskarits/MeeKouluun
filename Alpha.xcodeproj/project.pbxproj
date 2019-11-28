@@ -33,8 +33,18 @@
 		6A673A792383D98000F96C07 /* BasicQuestions1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A673A782383D98000F96C07 /* BasicQuestions1.swift */; };
 		6A673A7B2383D99200F96C07 /* Questions1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A673A7A2383D99200F96C07 /* Questions1.swift */; };
 		6A673A7D2383D9A200F96C07 /* Questions2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A673A7C2383D9A200F96C07 /* Questions2.swift */; };
+<<<<<<< HEAD
 		9B3E241253E41EE3CC59B23E /* Pods_Alpha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A595ECD1D3F8D142360549B /* Pods_Alpha.framework */; };
 		ED30D8DEEEB0D8E94853FDE3 /* Pods_AlphaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D428F006CFDDF0A8523A6180 /* Pods_AlphaTests.framework */; };
+=======
+		6A673A7F2383D9B700F96C07 /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A673A7E2383D9B700F96C07 /* Results.swift */; };
+		6A793E92238550D30075DE6E /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A793E91238550D30075DE6E /* Person.swift */; };
+		6A793E94238567060075DE6E /* BasicQuestions2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A793E93238567060075DE6E /* BasicQuestions2.swift */; };
+		6A793E96238569880075DE6E /* BasicQuestions3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A793E95238569880075DE6E /* BasicQuestions3.swift */; };
+		6ACA28482383EFD300AE947D /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACA28472383EFD300AE947D /* ArticleViewController.swift */; };
+		6ACA284A2383EFF600AE947D /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACA28492383EFF600AE947D /* Article.swift */; };
+		6ACA284C2383EFFA00AE947D /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACA284B2383EFFA00AE947D /* ArticleCell.swift */; };
+>>>>>>> otto
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,12 +99,22 @@
 		6A673A782383D98000F96C07 /* BasicQuestions1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicQuestions1.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6A673A7A2383D99200F96C07 /* Questions1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questions1.swift; sourceTree = "<group>"; };
 		6A673A7C2383D9A200F96C07 /* Questions2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questions2.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		8A595ECD1D3F8D142360549B /* Pods_Alpha.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Alpha.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9833769063201280B2273DB2 /* Pods-Alpha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alpha.debug.xcconfig"; path = "Target Support Files/Pods-Alpha/Pods-Alpha.debug.xcconfig"; sourceTree = "<group>"; };
 		AA8F7BE3A90E4128226F44BB /* Pods-AlphaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlphaTests.release.xcconfig"; path = "Target Support Files/Pods-AlphaTests/Pods-AlphaTests.release.xcconfig"; sourceTree = "<group>"; };
 		B59EE7B248FFB0781F97755F /* Pods-AlphaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlphaTests.debug.xcconfig"; path = "Target Support Files/Pods-AlphaTests/Pods-AlphaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D428F006CFDDF0A8523A6180 /* Pods_AlphaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlphaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB1AC82DDE93249C24262926 /* Pods-Alpha-AlphaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alpha-AlphaUITests.release.xcconfig"; path = "Target Support Files/Pods-Alpha-AlphaUITests/Pods-Alpha-AlphaUITests.release.xcconfig"; sourceTree = "<group>"; };
+=======
+		6A673A7E2383D9B700F96C07 /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
+		6A793E91238550D30075DE6E /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		6A793E93238567060075DE6E /* BasicQuestions2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicQuestions2.swift; sourceTree = "<group>"; };
+		6A793E95238569880075DE6E /* BasicQuestions3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicQuestions3.swift; sourceTree = "<group>"; };
+		6ACA28472383EFD300AE947D /* ArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
+		6ACA28492383EFF600AE947D /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		6ACA284B2383EFFA00AE947D /* ArticleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
+>>>>>>> otto
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +170,7 @@
 		6A673A442383D93700F96C07 /* Alpha */ = {
 			isa = PBXGroup;
 			children = (
+				6A793E91238550D30075DE6E /* Person.swift */,
 				6A673A452383D93700F96C07 /* AppDelegate.swift */,
 				6A673A472383D93700F96C07 /* ViewController.swift */,
 				6A673A492383D93700F96C07 /* Main.storyboard */,
@@ -158,6 +179,8 @@
 				6A673A542383D93900F96C07 /* Info.plist */,
 				6A673A4C2383D93700F96C07 /* Alpha.xcdatamodeld */,
 				6A673A782383D98000F96C07 /* BasicQuestions1.swift */,
+				6A793E93238567060075DE6E /* BasicQuestions2.swift */,
+				6A793E95238569880075DE6E /* BasicQuestions3.swift */,
 				6A673A7A2383D99200F96C07 /* Questions1.swift */,
 				6A673A7C2383D9A200F96C07 /* Questions2.swift */,
 				6A411483238469400073B802 /* Questions3.swift */,
@@ -468,8 +491,14 @@
 				6A673A482383D93700F96C07 /* ViewController.swift in Sources */,
 				6A673A4E2383D93700F96C07 /* Alpha.xcdatamodeld in Sources */,
 				6A3D11EC23844B8D0073EFB9 /* PageViewController.swift in Sources */,
+				6A793E96238569880075DE6E /* BasicQuestions3.swift in Sources */,
 				6A41148C238469A50073B802 /* Questions7.swift in Sources */,
 				6A3D11EE23844D4E0073EFB9 /* PageViewControllerTest.swift in Sources */,
+<<<<<<< HEAD
+=======
+				6A793E94238567060075DE6E /* BasicQuestions2.swift in Sources */,
+				6A673A7F2383D9B700F96C07 /* Results.swift in Sources */,
+>>>>>>> otto
 				6A411492238469CE0073B802 /* Questions10.swift in Sources */,
 				6A411486238469580073B802 /* Questions4.swift in Sources */,
 				6A673A792383D98000F96C07 /* BasicQuestions1.swift in Sources */,
@@ -480,6 +509,7 @@
 				6A673A462383D93700F96C07 /* AppDelegate.swift in Sources */,
 				6A41148A238469830073B802 /* Questions6.swift in Sources */,
 				6A411484238469400073B802 /* Questions3.swift in Sources */,
+				6A793E92238550D30075DE6E /* Person.swift in Sources */,
 				6A673A7D2383D9A200F96C07 /* Questions2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
