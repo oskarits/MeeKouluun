@@ -64,10 +64,31 @@
                                     <action selector="SignInWithGoogle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bvl-q9-ZCA"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dK1-sN-DUc">
+                                <rect key="frame" x="148" y="499" width="79" height="30"/>
+                                <state key="normal" title="Test Button"/>
+                                <connections>
+                                    <action selector="loginWithReadPermissions" destination="BYZ-38-t0r" eventType="touchUpInside" id="t33-j0-j2b"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QHw-jN-ahg" customClass="GIDSignInButton">
+                                <rect key="frame" x="87" y="109" width="200" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NbG-CC-uzS">
+                                <rect key="frame" x="164" y="451" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="didTapSignOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d4c-9C-RRv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="kp5-X7-fi9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="3LM-IE-P4x"/>
+                            <constraint firstItem="dK1-sN-DUc" firstAttribute="top" secondItem="NbG-CC-uzS" secondAttribute="bottom" constant="18" id="5JB-YW-9Xn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NbG-CC-uzS" secondAttribute="trailing" constant="165" id="7xF-xO-Idx"/>
                             <constraint firstItem="kp5-X7-fi9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="HYb-47-ZgA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VN3-Vx-VoR" secondAttribute="bottom" constant="100" id="NI6-sb-idW"/>
                             <constraint firstItem="Eh8-Pz-tsE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="NwC-Ek-pSw"/>
@@ -76,16 +97,18 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kp5-X7-fi9" secondAttribute="trailing" constant="88" id="de1-xv-mCj"/>
                             <constraint firstItem="Eh8-Pz-tsE" firstAttribute="top" secondItem="kp5-X7-fi9" secondAttribute="bottom" constant="40" id="diC-yW-PRo"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Eh8-Pz-tsE" secondAttribute="trailing" constant="88" id="nv6-Q7-ybw"/>
+                            <constraint firstItem="NbG-CC-uzS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="164" id="ryZ-uS-Ypb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="googleButton" destination="QHw-jN-ahg" id="R3k-qI-SnG"/>
                         <segue destination="x4z-dJ-yWJ" kind="show" identifier="signedIn" id="HEi-ts-0iZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1703" y="566"/>
+            <point key="canvasLocation" x="124" y="158.77061469265368"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="lwd-5w-83p">
