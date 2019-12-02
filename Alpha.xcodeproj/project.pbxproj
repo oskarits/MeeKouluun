@@ -15,7 +15,6 @@
 		6A18D090238C0FB400A66EF9 /* FetchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A18D08F238C0FB400A66EF9 /* FetchResults.swift */; };
 		6A18D09323952E7300A66EF9 /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A18D09223952E7300A66EF9 /* Results.storyboard */; };
 		6A18D09623952E9B00A66EF9 /* Questions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A18D09523952E9B00A66EF9 /* Questions.storyboard */; };
-		6A18D09823952ED100A66EF9 /* QuestionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A18D09723952ED100A66EF9 /* QuestionsVC.swift */; };
 		6A3D11EC23844B8D0073EFB9 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3D11EB23844B8D0073EFB9 /* PageViewController.swift */; };
 		6A3D11EE23844D4E0073EFB9 /* PageViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3D11ED23844D4E0073EFB9 /* PageViewControllerTest.swift */; };
 		6A411492238469CE0073B802 /* Questions10.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A411491238469CE0073B802 /* Questions10.swift */; };
@@ -65,7 +64,6 @@
 		6A18D08F238C0FB400A66EF9 /* FetchResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchResults.swift; sourceTree = "<group>"; };
 		6A18D09223952E7300A66EF9 /* Results.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Results.storyboard; sourceTree = "<group>"; };
 		6A18D09523952E9B00A66EF9 /* Questions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Questions.storyboard; sourceTree = "<group>"; };
-		6A18D09723952ED100A66EF9 /* QuestionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsVC.swift; sourceTree = "<group>"; };
 		6A3D11EB23844B8D0073EFB9 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		6A3D11ED23844D4E0073EFB9 /* PageViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewControllerTest.swift; sourceTree = "<group>"; };
 		6A411491238469CE0073B802 /* Questions10.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questions10.swift; sourceTree = "<group>"; };
@@ -150,7 +148,6 @@
 				6A673A7A2383D99200F96C07 /* Questions1.swift */,
 				6A18D09523952E9B00A66EF9 /* Questions.storyboard */,
 				6A673A7C2383D9A200F96C07 /* Questions2.swift */,
-				6A18D09723952ED100A66EF9 /* QuestionsVC.swift */,
 				6A3D11ED23844D4E0073EFB9 /* PageViewControllerTest.swift */,
 				6A3D11EB23844B8D0073EFB9 /* PageViewController.swift */,
 				6A411491238469CE0073B802 /* Questions10.swift */,
@@ -530,7 +527,6 @@
 				6A673A4E2383D93700F96C07 /* Alpha.xcdatamodeld in Sources */,
 				6A3D11EC23844B8D0073EFB9 /* PageViewController.swift in Sources */,
 				6A793E96238569880075DE6E /* BasicQuestions3.swift in Sources */,
-				6A18D09823952ED100A66EF9 /* QuestionsVC.swift in Sources */,
 				6A3D11EE23844D4E0073EFB9 /* PageViewControllerTest.swift in Sources */,
 				6A793E94238567060075DE6E /* BasicQuestions2.swift in Sources */,
 				6A411492238469CE0073B802 /* Questions10.swift in Sources */,
