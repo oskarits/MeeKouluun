@@ -4,7 +4,7 @@ import UIKit
 class PageViewControllerTest: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     lazy var viewControllerList: [UIViewController] = {
-        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let sb = UIStoryboard(name: "Questions", bundle: nil)
         let vc1 = sb.instantiateViewController(withIdentifier: "Questions1")
         let vc2 = sb.instantiateViewController(withIdentifier: "Questions2")
         //let vc3 = sb.instantiateViewController(withIdentifier: "Questions2")
