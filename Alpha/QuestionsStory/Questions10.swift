@@ -25,10 +25,10 @@ class Questions10: UIViewController {
         Transition(sender.self)
         print("To Results Boi")
     }
-    
+
     private func Transition(_ sender: UIButton!) {
         performSegue(withIdentifier: "results", sender: self)
-    }
+   }
 
     /*
     // MARK: - Navigation
