@@ -11,7 +11,7 @@
         <!--Fetch Results-->
         <scene sceneID="Dhx-DC-XHw">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="1jl-Th-3ow" customClass="FetchResults" customModule="Alpha" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResultsTable" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1jl-Th-3ow" customClass="FetchResults" customModule="Alpha" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ahu-da-Rre"/>
                         <viewControllerLayoutGuide type="bottom" id="h0g-Eo-GKV"/>
@@ -111,6 +111,7 @@
                     <navigationItem key="navigationItem" id="XMB-za-GWO"/>
                     <connections>
                         <outlet property="tableview" destination="kFp-gK-0Sv" id="bim-Ep-0IH"/>
+                        <segue destination="mdb-KC-R94" kind="show" id="mzI-19-Xpo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qrQ-vL-qN1" sceneMemberID="firstResponder"/>
@@ -120,7 +121,7 @@
         <!--Results View Controller-->
         <scene sceneID="BXK-Xi-UFR">
             <objects>
-                <viewController id="mdb-KC-R94" customClass="ResultsViewController" customModule="Alpha" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResultsSingle" id="mdb-KC-R94" customClass="ResultsViewController" customModule="Alpha" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kts-Xf-75E"/>
                         <viewControllerLayoutGuide type="bottom" id="37v-Il-8fF"/>
@@ -180,6 +181,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="tKy-0U-ClS"/>
                     </view>
+                    <navigationItem key="navigationItem" id="xcB-Lf-8pc"/>
                     <connections>
                         <outlet property="singleDescription" destination="Hj0-7o-tmq" id="Aec-qu-dqC"/>
                         <outlet property="singleDuration" destination="RfA-pO-l4L" id="lWd-Ip-IGd"/>
