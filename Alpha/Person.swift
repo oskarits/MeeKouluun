@@ -37,17 +37,14 @@ class Person {
         print("A new person /name has been created!")
     }
 
-    func setAge(newAge: Int) -> Void {
+    func setAge(newAge: Int) {
             age = newAge
             print("setAge \(age)")
     }
-    
-    func addToScore(_ brain: Int) -> Void {
-        if brain > 1 {
-            NSLog("No such score...yet")
-        } else {
-            quizScore[brain] = quizScore[brain] + 1
-        }
+   
+    func addToScore(leftScore: Int = 0, rightScore: Int = 0) -> Void {
+        quizScore[0] = quizScore[0] + leftScore
+        quizScore[1] = quizScore[1] + rightScore
     }
 }
 
