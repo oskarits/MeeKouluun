@@ -9,6 +9,9 @@
 import Foundation
 import CoreLocation
 
+// TODO
+// funcs for: Printing array(?),
+
 class Person {
    // private let name: String
     private(set) var age = 1
@@ -40,14 +43,20 @@ class Person {
             age = newAge
             print("setAge \(age)")
     }
-    
-    // Way to print the array neatly?
 
     // Allows adding to whole array at once in order
     func addToScore(scores: Int...) {
-        for i in quizScore {
-            quizScore[i] = quizScore[i] + scores[i]
+        for place in quizScore {
+            quizScore[place] = quizScore[place] + scores[place]
         }
+    }
+    // TODO Move to tests
+    private var testingScore = [0, 12] // Lähihoitaja
+    private var qScore = [8, 3] // Test userscore
+    
+    func compareScores(comparisonArray: [Int]) -> Double {
+        let result = pow(Double(testingScore[0]) - Double(qScore[0]), 2) + pow(Double(testingScore[1]) - Double(qScore[1]), 2)
+        return result
     }
 }
 
