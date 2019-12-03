@@ -11,5 +11,9 @@ import Foundation
 
 struct Page {
     
-    let titleText: String
+    let titleText: String?
+
 }
+
+
+

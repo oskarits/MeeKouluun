@@ -13,16 +13,17 @@ import UIKit
 //}
 
 class CollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
     let pages = [
-        Page(titleText: "aaa"),
-        Page(titleText: "bbb"),
-        Page(titleText: "ccc")
+        Page(titleText: "Kysymys: 1: \nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."),
+        Page(titleText: "Kysymys: 2: \nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."),
+        Page(titleText: "Kysymys: 3: \nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."),
+        Page(titleText: "Kysymys: 4: \nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."),
     ]
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
 
         view.backgroundColor = .white
         view.addSubview(collectionView)
@@ -31,6 +32,8 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         collectionView.register(PageCell.self,
                                 forCellWithReuseIdentifier: "cell")
         collectionView.isPagingEnabled = true
+
+        self.navigationController?.isNavigationBarHidden = true
 
         setupCollectionConstraints()
     }
@@ -49,7 +52,7 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
     
     func setupCollectionConstraints() {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+        collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
         
         collectionView.heightAnchor.constraint(equalToConstant: view.frame.height).isActive = true
         collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
@@ -66,7 +69,6 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
 
         //cell.backgroundColor = .white
         cell.textView1.text = page.titleText
-
         return cell
     }
     
