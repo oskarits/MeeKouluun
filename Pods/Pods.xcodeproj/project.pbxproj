@@ -1428,10 +1428,30 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		99FA88120811071F717286109D9F71A1 /* Frameworks */ = {
+		98AB3B5AFE6FC96417A7790B3B87727A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				E5A1E798700C8CBB18F8D57DD8BFD778 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B190FD15C79C9AC1F57A4C2DA61FB78D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC5B0D06EF0FBFCD9A97264DB19DB75E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EACD2BB90F40BE3C0FE723191EED480D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9422258B50D37E557B61BE867E8165F1 /* FacebookCore.framework in Frameworks */,
+				1BA0CA44C8EEC37BE98CF54F1EB07D62 /* FBSDKCoreKit.framework in Frameworks */,
+				EA00B8E0D791E0217184C772299562BF /* FBSDKLoginKit.framework in Frameworks */,
+				1593664EF04CDA11A7914287167FF888 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1459,15 +1479,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A0827337CF7C303A1C1694FDFB6B653 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F2FC8158B58B1D5A19E4AD92576F00C0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5ED505FD1C70BD69999423CD62CE1E2F /* Foundation.framework in Frameworks */,
-				64B210E126671B28A850DA4F8FDD2A57 /* SafariServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2251,6 +2262,18 @@
 				775D0657F31D0E9C87AE6E0F99D9139F /* FacebookLogin-Info.plist */,
 				82918ADA6FE12694A08AA2CFD65B4547 /* FacebookLogin-prefix.pch */,
 				673A582E04D725A7F4A60A84DE6987AA /* FacebookLogin-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/FacebookLogin";
+			sourceTree = "<group>";
+		};
+		C0B445480E24458A98319395D8F7A781 /* GoogleSignIn */ = {
+			isa = PBXGroup;
+			children = (
+				98412ED541EEE5EB597F5367388023B3 /* Frameworks */,
+				8F984C4962577E293CD08867C570982E /* Resources */,
+				AA4E33AABDAAD08472B76B19105EE66F /* Support Files */,
+			);
 			);
 			name = "Support Files";
 			path = "../Target Support Files/FacebookLogin";
@@ -3554,6 +3577,15 @@
 		};
 		97AB0B664483B86ECD30F00FDD5F4E0A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+		};
+		9775049C7AC3AB07CD8A0EE47EF9D7C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FBSDKCoreKit;
+			target = 28907903AF6DD0AD321D92CD660E7E23 /* FBSDKCoreKit */;
+			targetProxy = 9805DECAD1349FE11165E53C90DC13CB /* PBXContainerItemProxy */;
+		};
+		97AB0B664483B86ECD30F00FDD5F4E0A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
 			name = FacebookLogin;
 			target = 063386C78BA04CFC605AF41C9F9AAE03 /* FacebookLogin */;
 			targetProxy = 538A3995B24CA6E8AC4659108AFD45D6 /* PBXContainerItemProxy */;
@@ -4268,6 +4300,7 @@
 		8EA39F1332A9636FCAEDB49DE9409ECF /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C2FF68879CC8E8E25BC849B9C8F706BD /* GTMSessionFetcher.xcconfig */;
+			baseConfigurationReference = 47C4F5632562816DA1AAD3DC7B85B7E3 /* FacebookLogin.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";

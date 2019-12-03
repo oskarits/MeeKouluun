@@ -7,97 +7,74 @@
 //
 
 import UIKit
+//
+//struct CustomData {
+//    var title: String
+//}
 
-struct CustomData {
-    var title: String
-}
-
-class CollectionViewController: UIViewController {
+class CollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    let pages = [
+        Page(titleText: "Kysymys: 1: \nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."),
+        Page(titleText: "Kysymys: 2: \nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."),
+        Page(titleText: "Kysymys: 3: \nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."),
+        Page(titleText: "Kysymys: 4: \nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."),
+    ]
     
-    fileprivate let data = [
-        CustomData(title: "The Islands!"),
-        CustomData(title: "Subscribe to maxcodes boiiii!"),
-        CustomData(title: "StoreKit Course!"),
-        CustomData(title: "Collection Views!"),
-        CustomData(title: "MapKit!"),
-        ]
-    //, url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "islandOne")
-    fileprivate let collectionView:UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.translatesAutoresizingMaskIntoConstraints = false
-        cv.register(CustomCell.self, forCellWithReuseIdentifier: "cell")
-        return cv
-    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        view.backgroundColor = .white
         view.addSubview(collectionView)
-        collectionView.backgroundColor = .blue
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
-        collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
-        collectionView.heightAnchor.constraint(equalToConstant: view.frame.width/2).isActive = true
+        collectionView.register(PageCell.self,
+                                forCellWithReuseIdentifier: "cell")
+        collectionView.isPagingEnabled = true
+
+        self.navigationController?.isNavigationBarHidden = true
+
+        setupCollectionConstraints()
     }
     
-}
-
-extension CollectionViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width/2.5, height: collectionView.frame.width/2)
+    let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.backgroundColor = .blue
+        return cv
+    }()
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
+    
+    func setupCollectionConstraints() {
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+        
+        collectionView.heightAnchor.constraint(equalToConstant: view.frame.height).isActive = true
+        collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.count
+        return pages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
-        cell.data = self.data[indexPath.item]
+        let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PageCell
+        let page = pages[indexPath.item]
+
+        //cell.backgroundColor = .white
+        cell.textView1.text = page.titleText
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: view.frame.height)
+        //return CGSize(width: 250, height: 100)
+    }
+    
 }
-
-
-class CustomCell: UICollectionViewCell {
-    
-    var data: CustomData? {
-        didSet {
-            guard let data = data else { return }
-            //bg.image = data.backgroundImage
-            
-        }
-    }
-    
-    fileprivate let bg: UIImageView = {
-        let iv = UIImageView()
-        iv.translatesAutoresizingMaskIntoConstraints = false
-        iv.contentMode = .scaleAspectFill
-        iv.clipsToBounds = true
-        iv.layer.cornerRadius = 12
-        return iv
-    }()
-    
-    override init(frame: CGRect) {
-        super.init(frame: .zero)
-        
-        
-        
-        
-        contentView.addSubview(bg)
-        
-        bg.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        bg.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
-        bg.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
-        bg.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
