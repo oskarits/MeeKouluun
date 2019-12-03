@@ -15,8 +15,7 @@ class ResultsViewController: UIViewController {
     @IBOutlet weak var singleLocation: UILabel!
     @IBOutlet weak var singleLanguage: UILabel!
     @IBOutlet weak var singleDuration: UILabel!
-    //@IBOutlet weak var singleUrl: UILabel!
-    @IBOutlet weak var clickableUrl: UITextView!
+    @IBOutlet weak var singleUrl: UILabel!
     @IBOutlet weak var singleDescription: UILabel!
     @IBOutlet weak var singleAmkUni: UILabel!
 
@@ -42,7 +41,7 @@ class ResultsViewController: UIViewController {
         singleLanguage.text = languageTitle
         singleAmkUni.text = amkUniTitle
         singleDuration.text = durationTitle
-        clickableUrl.text = urlTitle
+        singleUrl.text = urlTitle
         singleDescription.text = descriptionTitle
         
     }
