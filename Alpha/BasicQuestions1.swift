@@ -13,7 +13,7 @@ class BasicQuestions1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     // pickerview data variable
     var ageData = (15...100).map{ String($0)}
     
-    public var person = Person.init(age: 23)
+    public var person = Person.init(age: 2)
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
