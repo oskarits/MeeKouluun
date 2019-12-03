@@ -30,10 +30,9 @@ class Person {
         print("A new person /name has been created!")
     }*/
     
-    init(email: String) {
-        // self.age = (age < 0 ? 0 : age)
+    init(age: Int) {
+        self.age = (age < 0 ? 0 : age)
         // self.location  = CLLocation(latitude: latitude, longitude: longitude)
-        self.email = email
         print("A new person /name has been created!")
     }
 
@@ -41,10 +40,14 @@ class Person {
             age = newAge
             print("setAge \(age)")
     }
-   
-    func addToScore(leftScore: Int = 0, rightScore: Int = 0) -> Void {
-        quizScore[0] = quizScore[0] + leftScore
-        quizScore[1] = quizScore[1] + rightScore
+    
+    // Way to print the array neatly?
+
+    // Allows adding to whole array at once in order
+    func addToScore(scores: Int...) {
+        for i in quizScore {
+            quizScore[i] = quizScore[i] + scores[i]
+        }
     }
 }
 
