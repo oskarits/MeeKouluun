@@ -75,7 +75,6 @@
 #import "OIDURLSessionProvider.h"
 #import "OIDAuthorizationService+IOS.h"
 #import "OIDAuthState+IOS.h"
-#import "OIDExternalUserAgentCatalyst.h"
 #import "OIDExternalUserAgentIOS.h"
 #import "OIDExternalUserAgentIOSCustomBrowser.h"
 
