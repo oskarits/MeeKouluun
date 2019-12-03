@@ -17,6 +17,8 @@ class Person {
 //    private var longitude: CLLocationDegrees = 24.6
 //    private var location: CLLocation
     private(set) var email = ""
+    // First iteration is a 2 score system where the first space is reserved for STEM-related points
+    // And the second one for everything else
     private(set) var quizScore = [0, 0]
 
     /*
@@ -24,7 +26,7 @@ class Person {
         self.name = name
         self.age = (age < 0 ? 0 : age)
 
-        //self.location  = CLLocation(latitude: latitude, longitude: longitude)
+        self.location  = CLLocation(latitude: latitude, longitude: longitude)
         print("A new person /name has been created!")
     }*/
     
@@ -40,5 +42,12 @@ class Person {
             print("setAge \(age)")
     }
     
+    func addToScore(_ brain: Int) -> Void {
+        if brain > 1 {
+            NSLog("No such score...yet")
+        } else {
+            quizScore[brain] = quizScore[brain] + 1
+        }
+    }
 }
 
