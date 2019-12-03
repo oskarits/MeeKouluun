@@ -17,18 +17,10 @@ class ResultsCell: UITableViewCell {
     @IBOutlet weak var language: UILabel!
     @IBOutlet weak var duration: UILabel!
     @IBOutlet weak var url: UILabel!
-    //@IBOutlet weak var description: UILabel!
-    
-    /*
-    @IBOutlet weak var organisation: UILabel!
-    @IBOutlet weak var faculty: UILabel!
-    @IBOutlet weak var location: UILabel!
-    @IBOutlet weak var language: UILabel!
     @IBOutlet weak var amkUni: UILabel!
-    @IBOutlet weak var duration: UILabel!
-    @IBOutlet weak var url: UILabel! */
+   // @IBOutlet weak var description: UILabel!
     
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

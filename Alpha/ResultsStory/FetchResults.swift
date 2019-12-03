@@ -14,15 +14,15 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     var results: [SingleResult] = []
     
-    let layer = CAGradientLayer()
+    //let layer = CAGradientLayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        layer.frame = view.bounds
+      /*  layer.frame = view.bounds
         layer.colors = [UIColor.blue.cgColor, UIColor.white.cgColor]
         layer.startPoint = CGPoint(x: 0, y: 0)
         layer.endPoint = CGPoint(x:1, y:1)
-        view.layer.insertSublayer(layer, at: 0)
+        view.layer.insertSublayer(layer, at: 0) */
         fetch()
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -43,14 +43,16 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
                 if let resultsFromJson = json["results"] as? [[String: AnyObject]] {
                     for resultFromJson in resultsFromJson {
                         let result = SingleResult()
-                        if let organisation = resultFromJson["organisation"] as? String, let faculty = resultFromJson["faculty"] as? String, let location = resultFromJson["location"] as? String, let language = resultFromJson["language"] as? String, /*let amkUni = resultFromJson["amkUni"] as? String, */ let duration = resultFromJson["duration"] as? String, let url = resultFromJson["url"] as? String
+                        if let organisation = resultFromJson["organisation"] as? String, let faculty = resultFromJson["faculty"] as? String, let location = resultFromJson["location"] as? String, let language = resultFromJson["language"] as? String, let amkUni = resultFromJson["amkUni"] as? String, let duration = resultFromJson["duration"] as? String, let url = resultFromJson["url"] as? String, let about = resultFromJson["description"] as? String
                         {
                             result.organisation = organisation
                             result.faculty = faculty
                             result.location = location
                             result.language = language
+                            result.amkUni = amkUni
                             result.duration = duration
                             result.url = url
+                            result.about = about
                         }
                         self.results.append(result)
                     }
@@ -74,9 +76,10 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
         cell.faculty.text = self.results[indexPath.item].faculty
         cell.location.text = self.results[indexPath.item].location
         cell.language.text = self.results[indexPath.item].language
+        cell.amkUni.text = self.results[indexPath.item].amkUni
         //cell.description.text = self.results[indexPath.item].description
         cell.duration.text = self.results[indexPath.item].duration
-        cell.url.text = self.results[indexPath.item].url
+     //   cell.url.text = self.results[indexPath.item].url
         
         return cell
     }
@@ -89,7 +92,8 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
         vc?.facultyTitle = self.results[indexPath.item].faculty ?? "fail faculty"
         vc?.locationTitle = self.results[indexPath.item].location ?? "fail location"
         vc?.languageTitle = self.results[indexPath.item].language ?? "fail language"
-        //vc?.descriptionTitle = self.results[indexPath.item].description ?? "fail description"
+        vc?.amkUniTitle = self.results[indexPath.item].amkUni ?? "fail amkUni"
+        vc?.descriptionTitle = self.results[indexPath.item].about ?? "fail about"
         vc?.durationTitle = self.results[indexPath.item].duration ?? "fail duration"
         vc?.urlTitle = self.results[indexPath.item].url ?? "fail url"
         

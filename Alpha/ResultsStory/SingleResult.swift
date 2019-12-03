@@ -15,8 +15,9 @@ class SingleResult: NSObject {
     var faculty: String?
     var location: String?
     var language: String?
-    //var amkUni: String?
+    var amkUni: String?
     var duration: String?
     var url: String?
-   // var description: String?
+    var about: String?
+    
 }

@@ -23,6 +23,7 @@ pod 'FacebookShare'
 pod 'SDWebImage'
 pod 'DropDown'
 pod 'GoogleSignIn'
+pod 'AppAuth','~> 1.2.0'
 
 
 end
