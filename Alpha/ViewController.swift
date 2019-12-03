@@ -11,9 +11,9 @@ import FacebookCore
 import FacebookLogin
 import GoogleSignIn
 import FacebookShare
-import SDWebImage
-import MobileCoreServices
-import DropDown
+//import SDWebImage
+//import MobileCoreServices
+//import DropDown
 
 class ViewController: UIViewController, LoginButtonDelegate {
     
@@ -23,16 +23,25 @@ class ViewController: UIViewController, LoginButtonDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         layer.frame = view.bounds
-        layer.colors = [UIColor.purple.cgColor, UIColor.white.cgColor]
-        layer.startPoint = CGPoint(x: 0, y: 0)
+        layer.colors = [UIColor.lightGray.cgColor, UIColor.white.cgColor]
+        
+        layer.startPoint = CGPoint(x: 0.5, y: 0.5)
         layer.endPoint = CGPoint(x:1, y:1)
         view.layer.insertSublayer(layer, at: 0)
+        layer.frame = view.bounds
+        layer.colors = [UIColor.darkGray.cgColor, UIColor.lightGray.cgColor]
+        
+        layer.startPoint = CGPoint(x: 0, y: 0)
+        layer.endPoint = CGPoint(x:0.5, y:0.5)
+        view.layer.insertSublayer(layer, at: 1)
+
 
         let loginButton = FBLoginButton(permissions: [ .publicProfile, .email ]) // .userHometown
         loginButton.delegate = self
         view.addSubview(loginButton)
-        loginButton.frame = CGRect(x: 40, y: 400, width: 250, height: 50)
+        loginButton.frame = CGRect(x: 40, y: 400, width: 250, height: 40)
         loginButton.center = view.center
         
         
@@ -41,7 +50,8 @@ class ViewController: UIViewController, LoginButtonDelegate {
         GIDSignIn.sharedInstance()?.restorePreviousSignIn()
 
         // ...
-        
+        self.navigationController?.isNavigationBarHidden = true
+
         
     }
     
@@ -60,30 +70,21 @@ class ViewController: UIViewController, LoginButtonDelegate {
            print("Logout func")
        }
     
-    @IBAction func SignInWithGoogle(_ sender: UIButton!){
-        TransitionSignedIn(sender.self)
-        print("Google signin")
-    }
-    
-    @IBAction func SignInWithFaceBook(_ sender: UIButton!) {
-        TransitionSignedIn(sender.self)
-        print("Facebook signin")
-        
-    }
+
     
     @IBAction func ContinueWithoutSigning(_ sender: UIButton!) {
-        Transition(sender.self)
+        //Transition(sender.self)
         print("Continue without signing")
 
     }
     
-    private func Transition(_ sender: UIButton!) {
-        performSegue(withIdentifier: "signIn", sender: self)
-    }
-
-    private func TransitionSignedIn(_ sender: UIButton!) {
-        performSegue(withIdentifier: "signedIn", sender: self)
-    }
+//    private func Transition(_ sender: UIButton!) {
+//        performSegue(withIdentifier: "signIn", sender: self)
+//    }
+//
+//    private func TransitionSignedIn(_ sender: UIButton!) {
+//        performSegue(withIdentifier: "signedIn", sender: self)
+//    }
     
     func fetchUserProfile()
        {
@@ -153,68 +154,3 @@ class ViewController: UIViewController, LoginButtonDelegate {
         print("logout ---------")
     }
 }
-
-//    if let result = result as? [String:String],
-//    let email: String = result["email"],
-//    let fbId: String = result["id"] {
-//     print(email)
-//     print(fbId)
-//     print("^^^^^^^^^^^___________^^^^^^^^^")
-//    func fetchUserProfile()
-//    {
-//        //let graphRequest : GraphRequest = GraphRequest(graphPath: "me", parameters: ["fields":"id, email, name"])
-//        let graphRequest = GraphRequest(graphPath: "me", parameters: ["fields": "id, email, name, picture.type(large)"], tokenString: AccessToken.current?.tokenString, version: Settings.defaultGraphAPIVersion, httpMethod: HTTPMethod.get)
-//
-//     graphRequest.start(completionHandler: { (connection, result, error) -> Void in
-//
-//            if ((error) != nil)
-//            {
-//                print("Error took place: \(error)")
-//            }
-//            else
-//            {
-//                print("Print entire fetched result: \(result)")
-//
-//            }
-//        })
-//    }
-
-    
-
-
-
-
-   
-   
-//
-//
-//   @IBAction func logintBtnClicked(_ sender: Any) {
-//
-//       let loginManager = LoginManager()
-//       loginManager.logIn(permissions: [.publicProfile, .email], viewController: nil) { loginResult in //, .userHometown
-//               switch loginResult {
-//               case .failed(let error):
-//                   print(error)
-//               case .cancelled:
-//                   print("User cancelled login.")
-//               case .success(let grantedPermissions, let declinedPermissions, let accessToken):
-//                   let connection = GraphRequestConnection()
-//
-//                   print("--------------------------")
-//                   print("Logged in!")
-//                   print(loginResult)
-//                   print(loginResult.self)
-//                   print("--------------------------")
-//                   print(FacebookCore.Permission.email)
-//                   print(FacebookCore.Permission.publicProfile)
-//                   print("--------------------------")
-//               }
-//           }
-//
-//       if let accessToken = AccessToken.current {
-//       // User is logged in, use 'accessToken' here.
-//           print(accessToken.expirationDate)
-//           print("----------access----------------")
-//       }
-//   }
-//
