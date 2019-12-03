@@ -18,11 +18,6 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      /*  layer.frame = view.bounds
-        layer.colors = [UIColor.blue.cgColor, UIColor.white.cgColor]
-        layer.startPoint = CGPoint(x: 0, y: 0)
-        layer.endPoint = CGPoint(x:1, y:1)
-        view.layer.insertSublayer(layer, at: 0) */
         fetch()
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
