@@ -8,116 +8,96 @@
 
 import UIKit
 
-class CollectionViewController: UIViewController {
+struct CustomData {
+    var title: String
+}
 
-    let textView1: UITextView = {
-        let textView = UITextView()
-        textView.text = "textView1"
-        //textView.font = UIFont.boldSystemFont(ofSize: 15) //font size BOLD
-        textView.font = UIFont.systemFont(ofSize: 15) //font size
-        textView.textAlignment = .center
-        textView.isEditable = false
-        textView.isScrollEnabled = false
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        
-        textView.backgroundColor = nil
-        
-        return textView
-    }()
+class CollectionViewController: UIViewController {
     
+    fileprivate let data = [
+        CustomData(title: "The Islands!"),
+        CustomData(title: "Subscribe to maxcodes boiiii!"),
+        CustomData(title: "StoreKit Course!"),
+        CustomData(title: "Collection Views!"),
+        CustomData(title: "MapKit!"),
+        ]
+    //, url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "islandOne")
+    fileprivate let collectionView:UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        cv.register(CustomCell.self, forCellWithReuseIdentifier: "cell")
+        return cv
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(textView1)
-        view.backgroundColor = .white
         
-        
-        setupBottomControls()
-        setupLayout()
+        view.addSubview(collectionView)
+        collectionView.backgroundColor = .blue
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
+        collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
+        collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
+        collectionView.heightAnchor.constraint(equalToConstant: view.frame.width/2).isActive = true
     }
     
-    private let pageControl: UIPageControl = {
-        let pc = UIPageControl()
-        pc.currentPage = 0
-        pc.numberOfPages = 4
-        pc.currentPageIndicatorTintColor = .red
-        pc.pageIndicatorTintColor = .gray
-        
-        return pc
-    }()
-    
-    
-    private let previousButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Prev", for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        let textColor = UIColor(red: 1, green: 0.22, blue: 0.89, alpha: 1)
-        button.setTitleColor(textColor, for: .normal)
-        //button.setTitleColor(.black, for: .normal)
-        
-        return button
-    }()
-    
-    private let nextButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Next", for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        //button.setTitleColor(.white, for: .normal)
-        let textColor = UIColor(red: 1, green: 0.22, blue: 0.89, alpha: 1)
-        button.setTitleColor(textColor, for: .normal)
-        
-        return button
-    }()
-    
-    fileprivate func setupBottomControls() {
-        view.addSubview(previousButton)
-        //previousButton.backgroundColor = .yellow
-        // previousButton.frame = CGRect(x: 0,y: 0, width: 200, height: 50)
-        view.addSubview(nextButton)
-        //nextButton.backgroundColor = .blue
-        //nextButton.frame = CGRect(x: 0,y: 0, width: 200, height: 50)
-        
-        /*
-         let yellowView = UIView()
-         yellowView.backgroundColor = .yellow
-         
-         let blueView = UIView()
-         blueView.backgroundColor = .blue
-         
-         let greenView = UIView()
-         greenView.backgroundColor = .green
-         */
-        
-        
-        
-        let bottomControlStackView = UIStackView(arrangedSubviews: [previousButton, pageControl, nextButton])
-        
-        bottomControlStackView.distribution = .fillEqually
-        
-        bottomControlStackView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(bottomControlStackView)
-        
-        
-        NSLayoutConstraint.activate([
-            //bottomControlStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            bottomControlStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            bottomControlStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            bottomControlStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            bottomControlStackView.heightAnchor.constraint(equalToConstant: 50)
-            ])
-        
+}
+
+extension CollectionViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width/2.5, height: collectionView.frame.width/2)
     }
-    private func setupLayout() {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return data.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
+        cell.data = self.data[indexPath.item]
+        return cell
+    }
+}
+
+
+class CustomCell: UICollectionViewCell {
+    
+    var data: CustomData? {
+        didSet {
+            guard let data = data else { return }
+            //bg.image = data.backgroundImage
+            
+        }
+    }
+    
+    fileprivate let bg: UIImageView = {
+        let iv = UIImageView()
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        iv.contentMode = .scaleAspectFill
+        iv.clipsToBounds = true
+        iv.layer.cornerRadius = 12
+        return iv
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
         
-        textView1.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        textView1.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
-        textView1.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        textView1.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        textView1.textColor = .black
+        
+        
+        
+        contentView.addSubview(bg)
+        
+        bg.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        bg.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
+        bg.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
+        bg.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
