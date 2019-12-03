@@ -46,6 +46,8 @@ class BasicQuestions1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = false
+
         let layer = CAGradientLayer()
         layer.frame = view.bounds
         layer.colors = [UIColor.red.cgColor, UIColor.white.cgColor]

@@ -19,12 +19,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        
+//        window = UIWindow()
+//        window?.makeKeyAndVisible()
+//        
+//        let layout = UICollectionViewFlowLayout()
+//        layout.scrollDirection = .horizontal
+//        let swipingController = SwipingController(collectionViewLayout: layout)
+//        window?.rootViewController = swipingController
+        
       ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         GIDSignIn.sharedInstance()?.clientID = "324717223565-j36smevb65kegmf4mi7dokupu9a441b6.apps.googleusercontent.com"
         GIDSignIn.sharedInstance()?.delegate = self
+        
+        
       return true
     }
 
+//    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+//        // Override point for customization after application launch.
+//
+//        //let randomViewController = UIViewController()
+//        //randomViewController.view.backgroundColor = .purple
+//        //window?.rootViewController = randomViewController
+//        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+//        GIDSignIn.sharedInstance()?.clientID = "324717223565-j36smevb65kegmf4mi7dokupu9a441b6.apps.googleusercontent.com"
+//        GIDSignIn.sharedInstance()?.delegate = self
+//        window = UIWindow()
+//        window?.makeKeyAndVisible()
+//
+//        let layout = UICollectionViewFlowLayout()
+//        layout.scrollDirection = .horizontal
+//        let swipingController = SwipingController(collectionViewLayout: layout)
+//
+//        window?.rootViewController = swipingController
+//
+//        return true
+//    }
+    
+    
+    
+    
     
     
     
