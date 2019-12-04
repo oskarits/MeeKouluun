@@ -157,6 +157,10 @@
 		6A18D09423952E7D00A66EF9 /* QuestionsStory */ = {
 			isa = PBXGroup;
 			children = (
+				6ADB8CFB23966F9D000DDD74 /* Page.swift */,
+				6ADB8CFD23966FAA000DDD74 /* PageCell.swift */,
+				6AA2AC622396D40F0004881E /* SinglePage.swift */,
+				6ADB8CF723966DAE000DDD74 /* CollectionViewController.swift */,
 				6A673A7A2383D99200F96C07 /* Questions1.swift */,
 				6A18D09523952E9B00A66EF9 /* Questions.storyboard */,
 				6A673A7C2383D9A200F96C07 /* Questions2.swift */,
@@ -207,10 +211,6 @@
 				6A673A782383D98000F96C07 /* BasicQuestions1.swift */,
 				6A793E93238567060075DE6E /* BasicQuestions2.swift */,
 				6A793E95238569880075DE6E /* BasicQuestions3.swift */,
-				6ADB8CF723966DAE000DDD74 /* CollectionViewController.swift */,
-				6ADB8CFB23966F9D000DDD74 /* Page.swift */,
-				6ADB8CFD23966FAA000DDD74 /* PageCell.swift */,
-				6AA2AC622396D40F0004881E /* SinglePage.swift */,
 				6A18D09423952E7D00A66EF9 /* QuestionsStory */,
 				6A18D09123952E4500A66EF9 /* ResultsStory */,
 			);

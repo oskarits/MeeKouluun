@@ -30,9 +30,6 @@
                                 <rect key="frame" x="184" y="223" width="46" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="5Rf-xn-Zh2" kind="show" id="qu4-pP-Q4p"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VN3-Vx-VoR">
                                 <rect key="frame" x="82" y="730" width="250" height="40"/>
@@ -71,21 +68,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-313.04347826086956" y="-381.02678571428572"/>
-        </scene>
-        <!--Collection View Controller-->
-        <scene sceneID="OXz-Iv-xy7">
-            <objects>
-                <viewController storyboardIdentifier="CollectionViewController" id="5Rf-xn-Zh2" customClass="CollectionViewController" customModule="Alpha" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="aL2-uZ-XhW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="OYd-lx-MdS"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vHK-UF-BqR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="677" y="-409"/>
         </scene>
         <!--Basic Questions1-->
         <scene sceneID="JvW-CF-F2s">
@@ -223,10 +205,10 @@
             </objects>
             <point key="canvasLocation" x="326" y="557"/>
         </scene>
-        <!--PageViewController-->
+        <!--ExplanationScreen-->
         <scene sceneID="0GK-4X-GiT">
             <objects>
-                <viewControllerPlaceholder storyboardName="Questions" referencedIdentifier="PageViewController" id="TMD-Cm-jWx" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Questions" referencedIdentifier="ExplanationScreen" id="TMD-Cm-jWx" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="rra-p6-80p"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iC7-H5-vlM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
