@@ -22,7 +22,8 @@ class Person {
     private(set) var email = ""
     // First iteration is a 2 score system where the first space is reserved for STEM-related points
     // And the second one for everything else
-    private(set) var quizScore = [0, 0]
+    // set to private(set)
+    public var quizScore = [0, 0]
 
     /*
     init(name: String, age: Int, weight: Double, height: Double){
@@ -39,17 +40,24 @@ class Person {
         print("A new person /name has been created!")
     }
 
+    
+    func setEmail(_ newEmail: String) {
+        email = newEmail
+    }
+    
     func setAge(newAge: Int) {
             age = newAge
             print("setAge \(age)")
     }
 
     // Allows adding to whole array at once in order
+    // Fix for loop to
     func addToScore(scores: Int...) {
-        for place in quizScore {
-            quizScore[place] = quizScore[place] + scores[place]
+        for place in scores {
+            quizScore[place - 1] = quizScore[place - 1] + scores[place - 1]
         }
     }
+    
     // TODO Move to tests
     private var testingScore = [0, 12] // Lähihoitaja
     private var qScore = [8, 3] // Test userscore

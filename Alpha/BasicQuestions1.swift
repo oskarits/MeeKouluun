@@ -48,7 +48,7 @@ class BasicQuestions1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         super.viewDidLoad()
         let layer = CAGradientLayer()
         layer.frame = view.bounds
-        layer.colors = [UIColor.red.cgColor, UIColor.white.cgColor]
+        //layer.colors = [UIColor.red.cgColor, UIColor.white.cgColor]
         layer.startPoint = CGPoint(x: 0, y: 0)
         layer.endPoint = CGPoint(x:1, y:1)
         //view.layer.addSublayer(layer)
