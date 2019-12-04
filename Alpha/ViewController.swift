@@ -55,6 +55,8 @@ class ViewController: UIViewController, LoginButtonDelegate {
         
     }
     
+
+    
     @IBAction func didTapSignOut(_ sender: UIButton) {
       GIDSignIn.sharedInstance().signOut()
     print("Google Sign out")
