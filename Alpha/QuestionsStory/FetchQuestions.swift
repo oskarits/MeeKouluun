@@ -44,7 +44,7 @@ class FetchQuestions: UIViewController {
                         }
                         self.questions.append(result)
                     }
-                    print("RESPONSE: \n\(json)")
+                    print("wson)")
                 }
                /* DispatchQueue.main.async {
                     self.tableview.reloadData()

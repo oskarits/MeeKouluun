@@ -49,6 +49,8 @@ class PageCell: UICollectionViewCell {
         return button
     }()
     
+    
+    
     let Button2: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Answer 2", for: .normal)
