@@ -9,11 +9,18 @@
 import Foundation
 
 
-struct Page {
-    
-    let titleText: String?
-
-}
+//struct Page {
+//    
+//    var titleText: String?
+////
+////    var answer1: String?
+////    var answer2: String?
+////    var answer3: String?
+////    var answer4: String?
+////    var answer5: String?
+////    var answer6: String?
+//
+//}
 
 
 
