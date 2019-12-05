@@ -146,7 +146,7 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
         
-        collectionView.heightAnchor.constraint(equalToConstant: /*view.frame.height*/ 300).isActive = true
+        collectionView.heightAnchor.constraint(equalToConstant: /*view.frame.height*/ 500).isActive = true
         collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
     }
