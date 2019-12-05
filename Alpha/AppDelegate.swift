@@ -20,58 +20,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask{
         return UIInterfaceOrientationMask.portrait
     }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        
-//        window = UIWindow()
-//        window?.makeKeyAndVisible()
-//        
-//        let layout = UICollectionViewFlowLayout()
-//        layout.scrollDirection = .horizontal
-//        let swipingController = SwipingController(collectionViewLayout: layout)
-//        window?.rootViewController = swipingController
-        
       ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         GIDSignIn.sharedInstance()?.clientID = "324717223565-j36smevb65kegmf4mi7dokupu9a441b6.apps.googleusercontent.com"
         GIDSignIn.sharedInstance()?.delegate = self
-        
-        
       return true
     }
 
-//    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//        // Override point for customization after application launch.
-//
-//        //let randomViewController = UIViewController()
-//        //randomViewController.view.backgroundColor = .purple
-//        //window?.rootViewController = randomViewController
-//        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
-//        GIDSignIn.sharedInstance()?.clientID = "324717223565-j36smevb65kegmf4mi7dokupu9a441b6.apps.googleusercontent.com"
-//        GIDSignIn.sharedInstance()?.delegate = self
-//        window = UIWindow()
-//        window?.makeKeyAndVisible()
-//
-//        let layout = UICollectionViewFlowLayout()
-//        layout.scrollDirection = .horizontal
-//        let swipingController = SwipingController(collectionViewLayout: layout)
-//
-//        window?.rootViewController = swipingController
-//
-//        return true
-//    }
-    
-    
-    
-    
-    
-    
-    
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         
       return ApplicationDelegate.shared.application(app, open: url, options: options) || GIDSignIn.sharedInstance().handle(url)
-      //return GIDSignIn.sharedInstance().handle(url)
     }
-    
-    
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let error = error {
@@ -82,16 +42,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             }
             return
           }
-          // Perform any operations on signed in user here.
-          let userId = user.userID                  // For client-side use only!
-          let idToken = user.authentication.idToken // Safe to send to the server
-          let fullName = user.profile.name
-          let givenName = user.profile.givenName
-          let familyName = user.profile.familyName
-          let email = user.profile.email
-          print(fullName)
-          print(email)
-        
+        // Perform any operations on signed in user here.
+        //          let userId = user.userID                   // For client-side use only!
+        //          let idToken = user.authentication.idToken // Safe to send to the server
+        //          let givenName = user.profile.givenName
+        //          let familyName = user.profile.familyName
+        let fullName = user.profile.name
+        let email = user.profile.email
+        if let printFullName = fullName {
+            print(printFullName)
+        }
+        if let printEmail = email {
+            print(printEmail)
+        }
     }
     
 func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
@@ -99,23 +62,7 @@ func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
   // Perform any operations when the user disconnects from app here.
   print("Google disconnected.")
 }
-    
-    
-    
-    
-//    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//
-////        SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
-//        // Override point for customization after application launch.
-//
-//
-//        let pageControl = UIPageControl.appearance()
-//        pageControl.currentPageIndicatorTintColor = .black
-//        pageControl.pageIndicatorTintColor = .lightGray
-//
-//        return true
-//    }
-    
+
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -143,7 +90,7 @@ func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
     }
     
     // MARK: - Core Data stack
-    
+
     lazy var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
@@ -186,7 +133,4 @@ func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
             }
         }
     }
-    
 }
-
-

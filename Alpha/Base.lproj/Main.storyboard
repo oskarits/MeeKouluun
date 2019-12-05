@@ -39,7 +39,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="ContinueWithoutSigning:" destination="BYZ-38-t0r" eventType="touchUpInside" id="czY-yp-WLH"/>
                                     <segue destination="SMW-Xq-VOu" kind="show" identifier="signIn" id="eoN-Th-kTG"/>
                                 </connections>
                             </button>

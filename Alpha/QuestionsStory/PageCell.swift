@@ -107,6 +107,23 @@ class PageCell: UICollectionViewCell {
         return button
     }()
     
+    let ResultButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("To Results", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        let textColor = UIColor(red: 1, green: 0.22, blue: 0.89, alpha: 1)
+        button.setTitleColor(textColor, for: .normal)
+        //        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.black.cgColor
+        button.isUserInteractionEnabled = false
+        button.alpha = 0.5
+        
+        return button
+    }()
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -127,6 +144,7 @@ class PageCell: UICollectionViewCell {
         self.contentView.addSubview(Button3)
         self.contentView.addSubview(Button4)
         self.contentView.addSubview(Button5)
+        self.contentView.addSubview(ResultButton)
 
 
         let buttonStackView = UIStackView(arrangedSubviews: [Button1, Button2, Button3, Button4, Button5])
@@ -147,6 +165,11 @@ class PageCell: UICollectionViewCell {
         textView1.widthAnchor.constraint(equalToConstant: 100).isActive = true
         textView1.heightAnchor.constraint(equalToConstant: 150).isActive = true
         
+        ResultButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        ResultButton.topAnchor.constraint(equalTo: topAnchor, constant: 660).isActive = true
+        ResultButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        ResultButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+
         
     }
     
