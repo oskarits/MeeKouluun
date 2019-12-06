@@ -11,52 +11,33 @@ import FacebookCore
 import FacebookLogin
 import GoogleSignIn
 import FacebookShare
-//import SDWebImage
-//import MobileCoreServices
-//import DropDown
 
 class ViewController: UIViewController, LoginButtonDelegate {
-    
     @IBOutlet weak var googleButton: GIDSignInButton!
-    
     let layer = CAGradientLayer()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         layer.frame = view.bounds
         layer.colors = [UIColor.lightGray.cgColor, UIColor.white.cgColor]
-        
         layer.startPoint = CGPoint(x: 0.5, y: 0.5)
         layer.endPoint = CGPoint(x:1, y:1)
         view.layer.insertSublayer(layer, at: 0)
         layer.frame = view.bounds
         layer.colors = [UIColor.darkGray.cgColor, UIColor.lightGray.cgColor]
-        
         layer.startPoint = CGPoint(x: 0, y: 0)
         layer.endPoint = CGPoint(x:0.5, y:0.5)
         view.layer.insertSublayer(layer, at: 1)
-
-
         let loginButton = FBLoginButton(permissions: [ .publicProfile, .email ]) // .userHometown
         loginButton.delegate = self
         view.addSubview(loginButton)
         loginButton.frame = CGRect(x: 40, y: 400, width: 250, height: 40)
         loginButton.center = view.center
-        
-        
         GIDSignIn.sharedInstance()?.presentingViewController = self
         // Automatically sign in the user.
         GIDSignIn.sharedInstance()?.restorePreviousSignIn()
-
-        // ...
         self.navigationController?.isNavigationBarHidden = true
-
-        
     }
-    
-
-    
+    //not in use, signs out from Google
     @IBAction func didTapSignOut(_ sender: UIButton) {
       GIDSignIn.sharedInstance().signOut()
     print("Google Sign out")
@@ -71,22 +52,6 @@ class ViewController: UIViewController, LoginButtonDelegate {
     func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
            print("Logout func")
        }
-    
-
-    
-    @IBAction func ContinueWithoutSigning(_ sender: UIButton!) {
-        //Transition(sender.self)
-        print("Continue without signing")
-
-    }
-    
-//    private func Transition(_ sender: UIButton!) {
-//        performSegue(withIdentifier: "signIn", sender: self)
-//    }
-//
-//    private func TransitionSignedIn(_ sender: UIButton!) {
-//        performSegue(withIdentifier: "signedIn", sender: self)
-//    }
     
     func fetchUserProfile()
        {
@@ -106,22 +71,21 @@ class ViewController: UIViewController, LoginButtonDelegate {
                         let xxx = info["name"] as! String
                         print("------------------------------")
                         print(xxx)
-                    }
+                }
                 if info["email"] as? String != nil {
                         let xxx = info["email"] as! String
                         print("------------------------------")
                         print(xxx)
-                    }
+                }
                 if info["hometown"] as? String != nil {
                         let xxx = info["hometown"] as! String
                         print("------------------------------")
                         print(xxx)
-                    }
+                }
             }
-           })
-        
+        })
        }
-    
+    //not in use
     // Used by loginWithReadPermissions()
     func loginManagerDidComplete(_ result: LoginResult) {
         print("\n\n result: \(result)")
@@ -133,6 +97,7 @@ class ViewController: UIViewController, LoginButtonDelegate {
         }
     }
     
+    //not in use
     @IBAction private func loginWithReadPermissions() {
         print("------------Login------------------")
         let loginManager = LoginManager()

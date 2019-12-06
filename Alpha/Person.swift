@@ -52,10 +52,16 @@ class Person {
 
     // Allows adding to whole array at once in order
     // Fix for loop to
-    func addToScore(scores: Int...) {
-        for place in scores {
-            quizScore[place - 1] = quizScore[place - 1] + scores[place - 1]
-        }
+//    func addToScore(scores: Int...) {
+//        for place in quizScore {
+//            print("asdf " + String(place))
+//            quizScore[place] = quizScore[place] + scores[place]
+//        }
+//
+//    }
+    func addToScore(_ leftValue: Int, rightValue: Int) {
+        quizScore[0] = quizScore[0] + leftValue
+        quizScore[1] = quizScore[1] + rightValue
     }
     
     // TODO Move to tests
