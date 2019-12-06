@@ -45,7 +45,9 @@ class PageCell: UICollectionViewCell {
         let textColor = UIColor(red: 1, green: 0.22, blue: 0.89, alpha: 1)
         button.setTitleColor(textColor, for: .normal)
 //        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-        
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.black.cgColor
         return button
     }()
     
@@ -59,7 +61,9 @@ class PageCell: UICollectionViewCell {
         let textColor = UIColor(red: 1, green: 0.22, blue: 0.89, alpha: 1)
         button.setTitleColor(textColor, for: .normal)
 //        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-        
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.black.cgColor
         return button
     }()
     let Button3: UIButton = {
@@ -70,7 +74,9 @@ class PageCell: UICollectionViewCell {
         let textColor = UIColor(red: 1, green: 0.22, blue: 0.89, alpha: 1)
         button.setTitleColor(textColor, for: .normal)
         //        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-        
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.black.cgColor
         return button
     }()
     
@@ -82,7 +88,9 @@ class PageCell: UICollectionViewCell {
         let textColor = UIColor(red: 1, green: 0.22, blue: 0.89, alpha: 1)
         button.setTitleColor(textColor, for: .normal)
         //        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-        
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.black.cgColor
         return button
     }()
     let Button5: UIButton = {
@@ -93,7 +101,9 @@ class PageCell: UICollectionViewCell {
         let textColor = UIColor(red: 1, green: 0.22, blue: 0.89, alpha: 1)
         button.setTitleColor(textColor, for: .normal)
         //        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-        
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.black.cgColor
         return button
     }()
     
@@ -109,14 +119,14 @@ class PageCell: UICollectionViewCell {
     }
     
     private func setupLayout() {
-        addSubview(textView1)
+        self.contentView.addSubview(textView1)
 //        Button1.backgroundColor = UIColor(red: 0.80, green: 0.78, blue: 0.84, alpha: 1)//rgb(0.80,0.78,0.84)
 //        Button2.backgroundColor = UIColor(red: 0.80, green: 0.78, blue: 0.84, alpha: 1) //rgb(0.96,0.93,1.00)
-        addSubview(Button1)
-        addSubview(Button2)
-        addSubview(Button3)
-        addSubview(Button4)
-        addSubview(Button5)
+        self.contentView.addSubview(Button1)
+        self.contentView.addSubview(Button2)
+        self.contentView.addSubview(Button3)
+        self.contentView.addSubview(Button4)
+        self.contentView.addSubview(Button5)
 
 
         let buttonStackView = UIStackView(arrangedSubviews: [Button1, Button2, Button3, Button4, Button5])
@@ -130,7 +140,7 @@ class PageCell: UICollectionViewCell {
         //        let verticalConstraint = buttonStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         //        NSLayoutConstraint.activate([horizontalConstraint, verticalConstraint])
         
-        addSubview(buttonStackView)
+        self.contentView.addSubview(buttonStackView)
         
         textView1.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         textView1.topAnchor.constraint(equalTo: topAnchor, constant: 160).isActive = true

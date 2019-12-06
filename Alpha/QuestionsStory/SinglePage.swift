@@ -13,6 +13,10 @@ import UIKit
 class SinglePage: NSObject {
     
     var question: String?
-    var answers: String?
-    var id: String?
+    var answers1: String?
+    var answers2: String?
+    var answers3: String?
+    var answers4: String?
+    var answers5: String?
+    var id: Int?
 }

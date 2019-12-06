@@ -43,9 +43,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5FB-yI-vVL">
-                                <rect key="frame" x="164" y="503" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5FB-yI-vVL">
+                                <rect key="frame" x="87" y="607" width="200" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="BLM-vy-DX0"/>
+                                    <constraint firstAttribute="width" constant="200" id="IP3-Lr-Kf3"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <segue destination="frD-e1-dcL" kind="show" id="3tj-KV-BVm"/>
@@ -53,6 +56,11 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rIK-ze-Lwy" firstAttribute="trailing" secondItem="5FB-yI-vVL" secondAttribute="trailing" constant="88" id="0U5-MT-ieU"/>
+                            <constraint firstItem="5FB-yI-vVL" firstAttribute="leading" secondItem="rIK-ze-Lwy" secondAttribute="leading" constant="87" id="qsW-o8-41K"/>
+                            <constraint firstItem="rIK-ze-Lwy" firstAttribute="bottom" secondItem="5FB-yI-vVL" secondAttribute="bottom" constant="20" id="uOt-xf-n55"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="rIK-ze-Lwy"/>
                     </view>
                     <connections>
