@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Alpha" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="vc" id="BYZ-38-t0r" customClass="ViewController" customModule="Alpha" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,6 +42,36 @@
                                     <segue destination="SMW-Xq-VOu" kind="show" identifier="signIn" id="eoN-Th-kTG"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nd-Qj-8ek">
+                                <rect key="frame" x="107" y="145" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="🇫🇮"/>
+                                <connections>
+                                    <action selector="changeLanguageToFI:" destination="BYZ-38-t0r" eventType="touchUpInside" id="66i-ja-Oy4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5et-Q6-BME">
+                                <rect key="frame" x="145" y="145" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="🇬🇧"/>
+                                <connections>
+                                    <action selector="changeLanguageToEN:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xk0-Dh-XJA"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAQ-5c-2dv">
+                                <rect key="frame" x="107" y="107" width="200" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tn0-w1-NRt">
+                                <rect key="frame" x="183" y="145" width="124" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -56,7 +86,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="3T6-2U-j01"/>
                     <connections>
+                        <outlet property="continueButton" destination="VN3-Vx-VoR" id="pCm-YC-Uul"/>
+                        <outlet property="finButton" destination="0nd-Qj-8ek" id="hgX-qA-LLc"/>
                         <outlet property="googleButton" destination="QHw-jN-ahg" id="R3k-qI-SnG"/>
+                        <outlet property="languageInstructionLabel" destination="dAQ-5c-2dv" id="TdZ-kX-guU"/>
+                        <outlet property="languageLabel" destination="tn0-w1-NRt" id="MWZ-qn-LnJ"/>
+                        <outlet property="ukButton" destination="5et-Q6-BME" id="Vv5-hq-yWk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -106,6 +141,7 @@
                     <navigationItem key="navigationItem" id="ouf-F5-jx0"/>
                     <connections>
                         <outlet property="agePicker" destination="OKT-Yl-6Nf" id="31m-u4-bEQ"/>
+                        <outlet property="ageQuestionLabel" destination="1d8-QP-Ita" id="o2l-H6-l3m"/>
                         <outlet property="nextButton" destination="eve-Qi-KTl" id="5hR-dj-re9"/>
                     </connections>
                 </viewController>

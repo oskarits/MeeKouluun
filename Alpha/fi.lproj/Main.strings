@@ -1,0 +1,27 @@
+
+/* Class = "UIButton"; normalTitle = "🇫🇮"; ObjectID = "0nd-Qj-8ek"; */
+"0nd-Qj-8ek.normalTitle" = "🇫🇮";
+
+/* Class = "UILabel"; text = "How old are you?"; ObjectID = "1d8-QP-Ita"; */
+"1d8-QP-Ita.text" = "How old are you?";
+
+/* Class = "UIButton"; normalTitle = "🇬🇧"; ObjectID = "5et-Q6-BME"; */
+"5et-Q6-BME.normalTitle" = "🇬🇧";
+
+/* Class = "UITextField"; placeholder = "Postal Code"; ObjectID = "7hq-vN-0u7"; */
+"7hq-vN-0u7.placeholder" = "Postal Code";
+
+/* Class = "UIButton"; normalTitle = "NEXT"; ObjectID = "LoT-M2-oIA"; */
+"LoT-M2-oIA.normalTitle" = "NEXT";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Szc-sm-tgt"; */
+"Szc-sm-tgt.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Continue without signing"; ObjectID = "VN3-Vx-VoR"; */
+"VN3-Vx-VoR.normalTitle" = "Continue without signing";
+
+/* Class = "UIButton"; normalTitle = "NEXT"; ObjectID = "eve-Qi-KTl"; */
+"eve-Qi-KTl.normalTitle" = "NEXT";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "tn0-w1-NRt"; */
+"tn0-w1-NRt.text" = "Label";

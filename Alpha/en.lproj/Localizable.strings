@@ -1,0 +1,36 @@
+/* 
+  Localizable.strings
+  Alpha
+
+  Created by iosdev on 07/12/2019.
+  Copyright © 2019 Jari Pietikäinen. All rights reserved.
+*/
+
+//ViewController
+"language_header_text" = "English";
+"language_instruction_text" = "Select language:";
+"continue_text" = "Continue without signing";
+
+//BasicQuestions1
+"next_text" = "Next";
+"age_question" = "How old are you?";
+
+//BasicQuestions2
+"next_map_text" = "Next";
+
+//BasicQuestions3
+
+//ExplanationScreen
+"start_questions_text" = "Thank you for filling the basic info.\nNow fill out our quick questionnaire to find out which education suits you the best!";
+"start_questions_button" = "Let's Get Started!";
+
+//CollectionViewController
+"go_to_results" = "To Results";
+
+//ToResultViewController
+"result_explanation_text" = "Congratulations! \nYou answered all the questions.\n\nClick below to see your results.";
+"to_results_next" = "To Results";
+"calculating_results" = "Calculating Results...";
+"results_ready" = "Results are ready.";
+
+//

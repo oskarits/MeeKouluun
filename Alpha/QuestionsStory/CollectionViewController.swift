@@ -163,6 +163,12 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         print("")
         print("current index: \(indexPath.item)")
         
+        if LocalizationSystem.sharedInstance.getLanguage() == "en" {
+            cell.ResultButton.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "go_to_results", comment: ""), for: .normal)
+        } else if LocalizationSystem.sharedInstance.getLanguage() == "fi" {
+            cell.ResultButton.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "go_to_results", comment: ""), for: .normal)
+        }
+        
         let page = pages[indexPath.item + 1]//        let page = pages[indexPath.item]
         let ans1 = answers1[indexPath.item + 1]
         let ans2 = answers2[indexPath.item + 1]

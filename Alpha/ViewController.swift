@@ -13,10 +13,31 @@ import GoogleSignIn
 import FacebookShare
 
 class ViewController: UIViewController, LoginButtonDelegate {
+    @IBOutlet weak var finButton: UIButton!
+    @IBOutlet weak var ukButton: UIButton!
+    @IBOutlet weak var languageInstructionLabel: UILabel!
+    @IBOutlet weak var languageLabel: UILabel!
     @IBOutlet weak var googleButton: GIDSignInButton!
+    @IBOutlet weak var continueButton: UIButton!
+    
     let layer = CAGradientLayer()
     override func viewDidLoad() {
         super.viewDidLoad()
+        languageLabel?.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "language_header_text", comment: "")
+        languageInstructionLabel?.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "language_instruction_text", comment: "")
+        continueButton?.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "continue_text", comment: ""), for: .normal)
+        ukButton?.showsTouchWhenHighlighted = true
+        finButton?.showsTouchWhenHighlighted = true
+        ukButton?.layer.cornerRadius = 5
+        ukButton?.layer.borderWidth = 1
+        ukButton?.layer.borderColor = UIColor.lightGray.cgColor
+        if LocalizationSystem.sharedInstance.getLanguage() == "en" {
+            finButton?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+            ukButton?.backgroundColor = UIColor(red: 0.72, green: 0.76, blue: 0.78, alpha: 1)
+        } else if LocalizationSystem.sharedInstance.getLanguage() == "fi" {
+            ukButton?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+            finButton?.backgroundColor = UIColor(red: 0.72, green: 0.76, blue: 0.78, alpha: 1)
+        }
         layer.frame = view.bounds
         layer.colors = [UIColor.lightGray.cgColor, UIColor.white.cgColor]
         layer.startPoint = CGPoint(x: 0.5, y: 0.5)
@@ -32,11 +53,30 @@ class ViewController: UIViewController, LoginButtonDelegate {
         view.addSubview(loginButton)
         loginButton.frame = CGRect(x: 40, y: 400, width: 250, height: 40)
         loginButton.center = view.center
+        
         GIDSignIn.sharedInstance()?.presentingViewController = self
         // Automatically sign in the user.
         GIDSignIn.sharedInstance()?.restorePreviousSignIn()
         self.navigationController?.isNavigationBarHidden = true
     }
+    
+    @IBAction func changeLanguageToEN(_ sender: Any) {
+        if LocalizationSystem.sharedInstance.getLanguage() == "fi" {
+            LocalizationSystem.sharedInstance.setLanguage(languageCode: "en")
+        } else {
+            LocalizationSystem.sharedInstance.setLanguage(languageCode: "en")
+        }
+        viewDidLoad()
+    }
+    @IBAction func changeLanguageToFI(_ sender: Any) {
+        if LocalizationSystem.sharedInstance.getLanguage() == "en" {
+            LocalizationSystem.sharedInstance.setLanguage(languageCode: "fi")
+        } else {
+            LocalizationSystem.sharedInstance.setLanguage(languageCode: "fi")
+        }
+        viewDidLoad()
+    }
+
     //not in use, signs out from Google
     @IBAction func didTapSignOut(_ sender: UIButton) {
       GIDSignIn.sharedInstance().signOut()

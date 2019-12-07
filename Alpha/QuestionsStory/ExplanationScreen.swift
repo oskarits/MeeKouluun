@@ -16,10 +16,13 @@ class ExplanationScreen: UIViewController {
         super.viewDidLoad()
         StartQuestionsButton?.setTitle("Let's Get Started!", for: .normal)
         StartQuestionsLabel?.text = "Thank you for filling the basic info.\nNow fill out our quick questionnaire to find out which education suits you the best!"
+        
+        StartQuestionsLabel?.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "start_questions_text", comment: "")
+        StartQuestionsButton?.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "start_questions_button", comment: ""), for: .normal)
+        
         // Do any additional setup after loading the view.
     }
     
-
     /*
     // MARK: - Navigation
 
