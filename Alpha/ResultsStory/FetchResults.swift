@@ -8,17 +8,19 @@
 
 import UIKit
 
-class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var tableview: UITableView!
     
     var results: [SingleResult] = []
+    var email: String?
     
     //let layer = CAGradientLayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetch()
+        emailInput.delegate = self
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0
@@ -104,6 +106,24 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.results.count
     }
+    
+    @IBOutlet weak var emailInput: UITextField!
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Hide the keyboard
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        email = textField.text
+    }
+    
+    
+    @IBAction func sendEmail(_ sender: UIButton) {
+        print(String("\(email)"))
+    }
+    
     
 }
 
