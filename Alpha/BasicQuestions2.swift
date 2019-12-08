@@ -17,8 +17,7 @@ class BasicQuestions2: UIViewController, UITextFieldDelegate, CLLocationManagerD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        nextButton?.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "next_map_text", comment: ""), for: .normal)
         // next button disabled on startup
         nextButton.isUserInteractionEnabled = false
         nextButton.alpha = 0.5

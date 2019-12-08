@@ -56,6 +56,9 @@ class BasicQuestions1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         //view.layer.addSublayer(layer)
         view.layer.insertSublayer(layer, at: 0)
         
+        ageQuestionLabel?.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "age_question", comment: "")
+        nextButton?.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "next_text", comment: ""), for: .normal)
+        
         // Do any additional setup after loading the view.
         
         // pickerview setup
@@ -68,6 +71,7 @@ class BasicQuestions1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     }
     
     // MARK: Outlets
+    @IBOutlet weak var ageQuestionLabel: UILabel!
     @IBOutlet weak var agePicker: UIPickerView!
     @IBOutlet weak var nextButton: UIButton!
     

@@ -16,12 +16,13 @@ class ToResultsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ResultExplanation.text = "Congratulations! \nYou answered all the questions.\n\nClick below to see your results."
-        ResultButton.setTitle("To Results", for: .normal)
+ 
+        ResultExplanation?.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "result_explanation_text", comment: "")
+        ResultButton?.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "to_results_next", comment: ""), for: .normal)
     }
     
     @IBAction func GoToResults(_ sender: UIButton!) {
-        ResultExplanation.text = "Calculating Results..."
+        ResultExplanation?.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "calculating_results", comment: "")
         activityIndicator.center = self.view.center
         activityIndicator.hidesWhenStopped = true
         activityIndicator.style = .gray
@@ -37,6 +38,7 @@ class ToResultsViewController: UIViewController {
         }
     }
     private func Transition(_ sender: UIButton!) {
+        ResultExplanation?.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "results_ready", comment: "")
         self.activityIndicator.stopAnimating()
         self.performSegue(withIdentifier: "GoToResults", sender: self)
         

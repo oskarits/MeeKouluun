@@ -1,0 +1,36 @@
+/* 
+  Localizable.strings
+  Alpha
+
+  Created by iosdev on 07/12/2019.
+  Copyright © 2019 Jari Pietikäinen. All rights reserved.
+*/
+
+//ViewController
+"language_header_text" = "Suomi";
+"language_instruction_text" = "Valitse kieli:";
+"continue_text" = "Jatka ilman sisäänkirjautumista";
+
+//BasicQuestions1
+"next_text" = "Seuraava";
+"age_question" = "Kuinka vanha olet?";
+
+//BasicQuestions2
+"next_map_text" = "Seuraava";
+
+//BasicQuestions3
+
+//ExplanationScreen
+"start_questions_text" = "Kiitos, olet täyttänyt esitietokyselyn.\nVastaa vielä nopeaan kyselyymme löytääksesi sinulle sopivimman opiskelupaikan!";
+"start_questions_button" = "Aloitetaan!";
+
+//CollectionViewController
+"go_to_results" = "Tuloksiin";
+
+//ToResultViewController
+"result_explanation_text" = "Onneksi Olkoon! \nVastasit kaikkiin kysymyksiin.\n\nJatka tuloksiin alhaalta.";
+"to_results_next" = "Tuloksiin";
+"calculating_results" = "Lasketaan Tuloksia...";
+"results_ready" = "Tulokset valmiina.";
+
+//
