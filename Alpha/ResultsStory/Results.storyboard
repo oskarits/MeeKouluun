@@ -129,14 +129,12 @@
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <action selector="emailInput:" destination="1jl-Th-3ow" eventType="editingDidEnd" id="Yxk-z4-hDM"/>
+                                            <action selector="textFieldWasEdited:" destination="1jl-Th-3ow" eventType="editingDidEnd" id="LPW-HX-uN0"/>
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0GP-xV-Bie">
                                         <rect key="frame" x="153.5" y="58.5" width="36" height="30"/>
                                         <state key="normal" title="Send"/>
-                                        <connections>
-                                            <action selector="sendEmail:" destination="1jl-Th-3ow" eventType="touchUpInside" id="fzF-el-YUQ"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -159,6 +157,7 @@
                     <navigationItem key="navigationItem" id="XMB-za-GWO"/>
                     <connections>
                         <outlet property="emailInput" destination="UFC-ZZ-V4l" id="RcZ-kF-LlO"/>
+                        <outlet property="sendButton" destination="0GP-xV-Bie" id="Foo-3h-JKX"/>
                         <outlet property="tableview" destination="kFp-gK-0Sv" id="bim-Ep-0IH"/>
                         <segue destination="mdb-KC-R94" kind="show" id="mzI-19-Xpo"/>
                     </connections>

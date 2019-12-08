@@ -14,6 +14,7 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     var results: [SingleResult] = []
     var email: String?
+    private var inputLength: Int?
     
     //let layer = CAGradientLayer()
     
@@ -21,6 +22,8 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
         super.viewDidLoad()
         fetch()
         emailInput.delegate = self
+        sendButton.isUserInteractionEnabled = false
+        sendButton.alpha = 0.5
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0
@@ -108,6 +111,13 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     @IBOutlet weak var emailInput: UITextField!
+    @IBOutlet weak var sendButton: UIButton!
+    
+    // activate send button
+    func activateSend() -> Void {
+        self.sendButton.isUserInteractionEnabled = true
+        self.sendButton.alpha = 1
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Hide the keyboard
@@ -119,12 +129,14 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
         email = textField.text
     }
     
-    
-    @IBAction func sendEmail(_ sender: UIButton) {
-        print(String("\(email)"))
+    @IBAction func textFieldWasEdited(_ sender: UITextField) {
+        let userEmail: String? = emailInput.text
+        inputLength = userEmail?.count ?? nil
+        if (inputLength == 5) {
+            self.activateSend()
+            print("--------------")
+        }
     }
-    
-    
 }
 
 
