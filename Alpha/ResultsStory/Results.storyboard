@@ -128,13 +128,16 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="emailInput:" destination="1jl-Th-3ow" eventType="editingDidEnd" id="Yxk-z4-hDM"/>
+                                            <action selector="textFieldEdited:" destination="1jl-Th-3ow" eventType="editingChanged" id="cmk-MN-dT8"/>
                                             <action selector="textFieldWasEdited:" destination="1jl-Th-3ow" eventType="editingDidEnd" id="LPW-HX-uN0"/>
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0GP-xV-Bie">
                                         <rect key="frame" x="153.5" y="58.5" width="36" height="30"/>
                                         <state key="normal" title="Send"/>
+                                        <connections>
+                                            <action selector="sendEmaill:" destination="1jl-Th-3ow" eventType="touchUpInside" id="X44-1x-sav"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>

@@ -14,17 +14,18 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     var results: [SingleResult] = []
     var email: String?
-    private var inputLength: Int?
+    private var unwrapped: String = ""
     
     //let layer = CAGradientLayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetch()
-        emailInput.delegate = self
+        //emailInput.delegate = self
         sendButton.isUserInteractionEnabled = false
         sendButton.alpha = 0.5
     }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0
     }
@@ -110,6 +111,8 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
         return self.results.count
     }
     
+    //MARK: Email
+    
     @IBOutlet weak var emailInput: UITextField!
     @IBOutlet weak var sendButton: UIButton!
     
@@ -119,23 +122,26 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
         self.sendButton.alpha = 1
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // Hide the keyboard
-        textField.resignFirstResponder()
-        return true
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.becomeFirstResponder()
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        email = textField.text
+        resignFirstResponder()
     }
     
-    @IBAction func textFieldWasEdited(_ sender: UITextField) {
+    @IBAction func textFieldEdited(_ sender: UITextField) {
+        print("text field edited")
         let userEmail: String? = emailInput.text
-        inputLength = userEmail?.count ?? nil
-        if (inputLength == 5) {
+        //inputLength = userEmail?.count ?? nil
+        unwrapped = userEmail ?? "foo"
+        if (unwrapped.contains("@")) {
             self.activateSend()
-            print("--------------")
+            print(userEmail ?? "foo")
         }
+    }
+    @IBAction func sendEmaill(_ sender: UIButton) {
+        print("RESULTS \n \(self.results)")
     }
 }
 
