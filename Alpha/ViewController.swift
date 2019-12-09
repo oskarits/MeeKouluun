@@ -28,9 +28,6 @@ class ViewController: UIViewController, LoginButtonDelegate {
         continueButton?.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "continue_text", comment: ""), for: .normal)
         ukButton?.showsTouchWhenHighlighted = true
         finButton?.showsTouchWhenHighlighted = true
-        ukButton?.layer.cornerRadius = 5
-        ukButton?.layer.borderWidth = 1
-        ukButton?.layer.borderColor = UIColor.lightGray.cgColor
         if LocalizationSystem.sharedInstance.getLanguage() == "en" {
             finButton?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
             ukButton?.backgroundColor = UIColor(red: 0.72, green: 0.76, blue: 0.78, alpha: 1)
