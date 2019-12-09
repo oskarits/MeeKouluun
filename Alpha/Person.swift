@@ -43,11 +43,12 @@ class Person {
     
     func setEmail(_ newEmail: String) {
         email = newEmail
+        print("Person.setEmail: \(email)")
     }
     
     func setAge(newAge: Int) {
             age = newAge
-            print("setAge \(age)")
+        print("Person.setAge: \(age)")
     }
 
     // Allows adding to whole array at once in order

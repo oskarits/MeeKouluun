@@ -46,7 +46,8 @@ class BasicQuestions1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.isNavigationBarHidden = true
+        navigationItem.hidesBackButton = true
 
         let layer = CAGradientLayer()
         layer.frame = view.bounds

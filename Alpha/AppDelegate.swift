@@ -8,61 +8,97 @@
 
 import UIKit
 import CoreData
-import FacebookCore
-import FacebookLogin
-import GoogleSignIn
+import FacebookCore//Facebook Podfile
+import FacebookLogin//Facebook Podfile
+import GoogleSignIn//Google Podfile
 
 @UIApplicationMain
+//A set of methods that are called by the singleton UIApplication object in response to important events in the lifetime of your app.
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
+    //The backdrop for app’s user interface and the object that dispatches events to views.
     var window: UIWindow?
     
+    //Asks the delegate for the interface orientations to use for the view controllers.
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask{
         return UIInterfaceOrientationMask.portrait
     }
     
+    //Tells the delegate that the launch process is almost done and the app is almost ready to run.
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-      ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+        //Wrapper for FBSDKCoreKit
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+        //The client ID of the app from the Google APIs console. Must set for sign-in to work.
         GIDSignIn.sharedInstance()?.clientID = "324717223565-j36smevb65kegmf4mi7dokupu9a441b6.apps.googleusercontent.com"
         GIDSignIn.sharedInstance()?.delegate = self
-      return true
-    }
-
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        
-      return ApplicationDelegate.shared.application(app, open: url, options: options) || GIDSignIn.sharedInstance().handle(url)
+        return true
     }
     
+    //Asks the delegate to open a resource specified by a URL
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        //Returns either Facebook or Google URL
+        return ApplicationDelegate.shared.application(app, open: url, options: options) || GIDSignIn.sharedInstance().handle(url)
+    }
+    
+    //This class signs the user in with Google.
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let error = error {
+            //Information about an error condition including a domain, a domain-specific error code, and application-specific information.
             if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
-              print("The user has not signed in before or they have since signed out.")
+                //Indicates there are no valid auth tokens in the keychain
+                print("The user has not signed in before or they have since signed out.")
             } else {
-              print("\(error.localizedDescription)")
+                //Retrieve the localized description for this error.
+                print("\(error.localizedDescription)")
             }
             return
-          }
-        // Perform any operations on signed in user here.
-        //          let userId = user.userID                   // For client-side use only!
-        //          let idToken = user.authentication.idToken // Safe to send to the server
-        //          let givenName = user.profile.givenName
-        //          let familyName = user.profile.familyName
-        let fullName = user.profile.name
-        let email = user.profile.email
-        if let printFullName = fullName {
-            print(printFullName)
         }
-        if let printEmail = email {
-            print(printEmail)
+        // Perform any operations on signed in user here.
+        /* Not currently in use for the app:
+         let userId = user.userID                   // For client-side use only!
+         let idToken = user.authentication.idToken // Safe to send to the server
+         let givenName = user.profile.givenName
+         let familyName = user.profile.familyName
+         */
+        
+        //The Google user's full name.
+        let fullName = user.profile.name
+        //The Google user's email.
+        let email = user.profile.email
+        //Calls for Person.Swift
+        let person = Person(age: -1)
+        //Checks if Person class already has an email set
+        if person.email.count > 1 {
+            print("no email required")
+        } else if person.email.count <= 1{
+            if let printFullName = fullName {
+                print(printFullName)
+            }
+            if let printEmail = email {
+                //Sets Person class an email
+                person.setEmail(printEmail)
+                print(printEmail)
+                //Marks current user as being in the signed out state.
+                GIDSignIn.sharedInstance().signOut()
+                //The root view controller for the window.
+                let rootViewController = self.window!.rootViewController as!
+                UINavigationController
+                //Sets Interface Builder storyboard resource file.
+                let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                //Instantiates and returns the view controller with the specified identifier.
+                let BasicQuestions1 = mainStoryboard.instantiateViewController(withIdentifier: "BasicQuestions1Age") as! BasicQuestions1
+                //Pushes a view controller onto the receiver’s stack and updates the display.
+                rootViewController.pushViewController(BasicQuestions1, animated: true)
+            }
         }
     }
+    //Actions after Google user is signed out
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
+              withError error: Error!) {
+        // Perform any operations when the user disconnects from app here.
+        print("Google disconnected.")
+    }
     
-func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
-          withError error: Error!) {
-  // Perform any operations when the user disconnects from app here.
-  print("Google disconnected.")
-}
-
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -90,7 +126,7 @@ func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
     }
     
     // MARK: - Core Data stack
-
+    
     lazy var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation

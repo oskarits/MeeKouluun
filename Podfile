@@ -16,12 +16,9 @@ target 'Alpha' do
     # Pods for testing
   end
 
-  #pod 'FBSDKLoginKit'
 pod 'FacebookCore'
 pod 'FacebookLogin'
 pod 'FacebookShare'
-#pod 'SDWebImage'
-#pod 'DropDown'
 pod 'GoogleSignIn'
 pod 'AppAuth','~> 1.2.0'
 

@@ -8,29 +8,31 @@
 
 import UIKit
 
+//Transition screen between Basic questions and the questions
 class ExplanationScreen: UIViewController {
-
-    @IBOutlet weak var StartQuestionsLabel: UILabel!
-    @IBOutlet weak var StartQuestionsButton: UIButton!
+    
+    //Label for briefing about the questionnaire
+    @IBOutlet weak var startQuestionsLabel: UILabel!
+    //Button for going to results
+    @IBOutlet weak var startQuestionsButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        StartQuestionsButton?.setTitle("Let's Get Started!", for: .normal)
-        StartQuestionsLabel?.text = "Thank you for filling the basic info.\nNow fill out our quick questionnaire to find out which education suits you the best!"
-        
-        StartQuestionsLabel?.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "start_questions_text", comment: "")
-        StartQuestionsButton?.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "start_questions_button", comment: ""), for: .normal)
-        
+        //Changest the language of the startQuestionsLabel text
+        startQuestionsLabel?.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "start_questions_text", comment: "")
+        //Changest the language of the startQuestionsButton text
+        startQuestionsButton?.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "start_questions_button", comment: ""), for: .normal)
         // Do any additional setup after loading the view.
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

@@ -9,7 +9,7 @@
 
 import Foundation
 import UIKit
-
+//SinglePage gives inheritance to changing values of collectionview components
 class SinglePage: NSObject {
     
     var question: String?

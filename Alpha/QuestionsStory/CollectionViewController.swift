@@ -7,30 +7,35 @@
 //
 
 import UIKit
-
-struct Page {
-    var titleText: String?
+//Question is a placeholder for the fetched questions
+struct Question {
+    var questionText: String?
 }
+//Answer is a placeholder for the fetched answers
 struct Answer {
     var answerText: String?
 }
+//Id is a placeholder for the fetched id
 struct Id {
     var idNumber: Int?
 }
-
+//CollectionViewController defines methods that allow you to manage the selection and highlighting of items in a collection view and to perform actions on those items and creates a grid-based layout.
 class CollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    var selectedCells = Set<IndexPath>()
-    var isSelectAllActive = false
     
-    var pages = [Page(titleText: "Error")]
+    //Placeholder for the fetched questions.
+    var questions = [Question(questionText: "Error")]
+    /*Placeholders for the fetched answers.*/
     var answers1 = [Answer(answerText: "Error")]
     var answers2 = [Answer(answerText: "Error")]
     var answers3 = [Answer(answerText: "Error")]
     var answers4 = [Answer(answerText: "Error")]
     var answers5 = [Answer(answerText: "Error")]
     var answers6 = [Answer(answerText: "Error")]
+    //Placeholder for the fetched id.
     var idvalue = [Id(idNumber: 0)]
+    //results holds the values of objects in each collectionview page
     var results: [SinglePage] = []
+    /*check1 to check10 are used for verifying if all the questions have been aswered*/
     var check1 = 0
     var check2 = 0
     var check3 = 0
@@ -41,25 +46,45 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
     var check8 = 0
     var check9 = 0
     var check10 = 0
+    //Indicator value for verifying if all the questions have been aswered
     var allAnswered = false
+    //Creating a horizontal collectionview
+    let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.backgroundColor = .white
+        return cv
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Sets background color
         view.backgroundColor = .white
+        //Adds collectionView to view
         view.addSubview(collectionView)
+        //The object that acts as the delegate of the collection view.
         collectionView.delegate = self
+        //The object that provides the data for the collection view.
         collectionView.dataSource = self
+        //Register a class for use in creating new collection view cells.
         collectionView.register(PageCell.self,
                                 forCellWithReuseIdentifier: "cell")
+        //Enables paging for the scroll view
         collectionView.isPagingEnabled = true
-        //collectionView.allowsMultipleSelection = false//
+        //Hides navigationbar
         self.navigationController?.isNavigationBarHidden = true
+        //Sets up constraits for the collectionView
         setupCollectionConstraints()
+        //Fetches results from url for questions and answers
         fetch()
     }
     
+    //Fetches results from url for questions and answers
     func fetch(){
+        //URL load request.
         let urlRequest = URLRequest(url: URL(string: "http://users.metropolia.fi/~tuomamp/testDb.json")!)
+        //reates a task that retrieves the contents of a URL based on the specified URL request object, and calls a handler upon completion.
         let task = URLSession.shared.dataTask(with: urlRequest) { (data,response,error) in
             if error != nil {
                 print(error!)
@@ -67,64 +92,71 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
             }
             self.results = [SinglePage]()
             do {
+                //Converts between JSON and the equivalent Foundation objects.
                 let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String: AnyObject]
+                //Checks if json contains correct values
                 if let resultsFromJson = json["questions"] as? [[String: AnyObject]] {
-                    print("#\n#\n#\n#\n#\n#\n#\n#\n#\n#\n#")
                     for resultFromJson in resultsFromJson {
                         let result = SinglePage()
                         if let question = resultFromJson["question"] as? String?,  let answers = resultFromJson["answers"] as? [String: Any], let id = resultFromJson["id"] as? Int?
                         {
+                            //Adds questions to result.question
                             if let questions = question {
                                 print(questions)
-                                
+                                result.question = question
                             }
+                            //Adds answer option: a1 to result.answer1
                             if let answ1 = answers["a1"] {
                                 print(answ1)
-                                let xxx = answers["a1"]
-                                result.answers1 = xxx as! String?
+                                let answer = answers["a1"]
+                                result.answers1 = answer as! String?
                             }
+                            //Adds answer option: a2 to result.answer2
                             if let answ2 = answers["a2"] {
                                 print(answ2)
-                                let xxx = answers["a2"]
-                                result.answers2 = xxx as! String?
+                                let answer = answers["a2"]
+                                result.answers2 = answer as! String?
                             }
+                            //Adds answer option: a3 to result.answer3
                             if let answ3 = answers["a3"] {
                                 print(answ3)
-                                let xxx = answers["a3"]
-                                result.answers3 = xxx as! String?
+                                let answer = answers["a3"]
+                                result.answers3 = answer as! String?
                             }
+                            //Adds answer option: a4 to result.answer4
                             if let answ4 = answers["a4"] {
                                 print(answ4)
-                                let xxx = answers["a4"]
-                                result.answers4 = xxx as! String?
+                                let answer = answers["a4"]
+                                result.answers4 = answer as! String?
                             }
+                            //Adds answer option: a5 to result.answer5
                             if let answ5 = answers["a5"] {
                                 print(answ5)
-                                let xxx = answers["a5"]
-                                result.answers5 = xxx as! String?
+                                let answer = answers["a5"]
+                                result.answers5 = answer as! String?
                             }
+                            //Adds id to result.id
                             if let idQuestions = id {
                                 let idQ = String(idQuestions)
                                 result.id = idQuestions as Int?
                                 print(idQ)
                             }
-                            result.question = question
                             print("----------------------------")
                         }
-                        //self.pages.insert(Page(titleText: result.location), at: 0)
+                        //Appends result values to corresponding lists
                         self.idvalue.append(Id(idNumber: result.id ?? 0))
                         self.answers1.append(Answer(answerText: result.answers1 ?? "answer error"))
                         self.answers2.append(Answer(answerText: result.answers2 ?? "answer error"))
                         self.answers3.append(Answer(answerText: result.answers3 ?? "answer error"))
                         self.answers4.append(Answer(answerText: result.answers4 ?? "answer error"))
                         self.answers5.append(Answer(answerText: result.answers5 ?? "answer error"))
-                        self.pages.append(Page(titleText: result.question ?? "question error"))
-                        //self.results.append(result)
+                        self.questions.append(Question(questionText: result.question ?? "question error"))
                     }
                     print("RESPONSE: \n\(json)")
                 }
                 DispatchQueue.main.async {
                     print("--self.collectionView.reloadData()--")
+                    //Creates the collectioinView with objects and data
                     self.collectionView.reloadData()
                 }
             } catch let error {
@@ -134,79 +166,82 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         task.resume()
     }
     
-    let collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = .white
-        return cv
-    }()
-    
+    //Asks the delegate for the spacing between successive rows or columns of a section.
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
+    
+    //Creates the frame for collectionView
     func setupCollectionConstraints() {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
-        
         collectionView.heightAnchor.constraint(equalToConstant: (view.frame.height) ).isActive = true
         collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
     }
     
+    //Data source object for the number of items in the specified section.
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pages.count-1 //        return pages.count
+        return questions.count-1 //-1 comes from default value "Error"
     }
     
+    //Creates the size of the collectionview's frame
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: view.frame.height)
+    }
+    
+    //Data source object for the cell that corresponds to the specified item in the collection view.
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        //Returns a reusable cell object located by its identifier
         let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PageCell
         print("")
         print("current index: \(indexPath.item)")
-        
+        //Checks the language setting for the ResultButton
         if LocalizationSystem.sharedInstance.getLanguage() == "en" {
-            cell.ResultButton.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "go_to_results", comment: ""), for: .normal)
+            cell.resultButton.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "go_to_results", comment: ""), for: .normal)
         } else if LocalizationSystem.sharedInstance.getLanguage() == "fi" {
-            cell.ResultButton.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "go_to_results", comment: ""), for: .normal)
+            cell.resultButton.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "go_to_results", comment: ""), for: .normal)
         }
-        
-        let page = pages[indexPath.item + 1]//        let page = pages[indexPath.item]
+        /*Gives values from correct index*/
+        let question = questions[indexPath.item + 1]
         let ans1 = answers1[indexPath.item + 1]
         let ans2 = answers2[indexPath.item + 1]
         let ans3 = answers3[indexPath.item + 1]
         let ans4 = answers4[indexPath.item + 1]
         let ans5 = answers5[indexPath.item + 1]
         let iD = idvalue[indexPath.item + 1]
-        
-        cell.textView1.text = page.titleText
-        
+        /*Gives objects their correct values*/
+        cell.questionTextView.text = question.questionText
         cell.Button1.setTitle(ans1.answerText, for: .normal)
         cell.Button2.setTitle(ans2.answerText, for: .normal)
         cell.Button3.setTitle(ans3.answerText, for: .normal)
         cell.Button4.setTitle(ans4.answerText, for: .normal)
         cell.Button5.setTitle(ans5.answerText, for: .normal)
-        
+        //Gives each answer button an unique tag value
         cell.Button1.tag = ((iD.idNumber ?? 0) * 10 ) + 1
         cell.Button2.tag = ((iD.idNumber ?? 0) * 10 ) + 2
         cell.Button3.tag = ((iD.idNumber ?? 0) * 10 ) + 3
         cell.Button4.tag = ((iD.idNumber ?? 0) * 10 ) + 4
         cell.Button5.tag = ((iD.idNumber ?? 0) * 10 ) + 5
-        
+        //Gives buttons a target function
         cell.Button1.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         cell.Button2.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         cell.Button3.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         cell.Button4.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         cell.Button5.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-        cell.ResultButton.addTarget(self, action: #selector(ToResults), for: .touchUpInside)
-
-        
+        cell.resultButton.addTarget(self, action: #selector(ToResults), for: .touchUpInside)
+        //Checks if all questions have been aswered,
         if (self.allAnswered == true) {
-            cell.ResultButton.isUserInteractionEnabled = true
-            cell.ResultButton.alpha = 1
+            //Makes ResultButton active
+            cell.resultButton.isUserInteractionEnabled = true
+            cell.resultButton.alpha = 1
         }
+        //Colors all answer buttons grey
         for i in 11...115 {
             let tempButton = self.view.viewWithTag(Int(i)) as? UIButton
             tempButton?.backgroundColor = UIColor.blue.withAlphaComponent(0)
         }
+        //Reloads all values from check1 to check10
         let checkVerify1 = check1
         let checkVerify2 = check2
         let checkVerify3 = check3
@@ -217,7 +252,7 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         let checkVerify8 = check8
         let checkVerify9 = check9
         let checkVerify10 = check10
-
+        //Colors correct button if it has been clicked, based on tag
         if (check1 > 0) {
             let tempButton = self.view.viewWithTag(Int(checkVerify1)) as? UIButton
             tempButton?.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 1)
@@ -258,15 +293,15 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
             let tempButton = self.view.viewWithTag(Int(checkVerify10)) as? UIButton
             tempButton?.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 1)
         }
-        
         return cell
     }
-    
-    
+    //Function for answer buttons coloring
     @objc func buttonAction(_ sender: UIButton!){
+        //Clicked button displays a highlight glow
         sender.showsTouchWhenHighlighted = true
-        
+        //Catches the tag of the selected button
         let buttonTag = sender.tag
+        //Colors the selectet button green, and uncolors other buttons in the same page
         switch buttonTag {
         case 11..<16:
             for i in 11...15 {
@@ -353,16 +388,8 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         }
     }
     
-    func buttonSelected(_ sender: UIButton!) {
-        let tag = sender.tag
-        print("Button tag: \(tag)")
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: view.frame.height)
-        //return CGSize(width: 250, height: 100)
-    }
+    //Places the tag of sender button to check1 - check10, to mark the pages questioin aswered and coloring the correct button each controllerView swipe
     func checkMark(_ sender: UIButton!) {
-        
         let buttonTag = sender.tag
         switch buttonTag {
         case 11..<16:
@@ -401,10 +428,8 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         answerCheck()
     }
     
+    //Prints the questions that have been answered.
     func answerCheck() {
-//        for i in 1...10 {
-//
-//        }
         if (self.check1 > 0 ){
             print("Q1 answered")
         }
@@ -435,20 +460,22 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         if (self.check10 > 0 ){
             print("Q10 answered")
         }
-
+        //If all questions have been answered
         if (self.check1 > 0 && self.check2 > 0 && self.check3 > 0 && self.check4 > 0 && self.check5 > 0 && self.check6 > 0 && self.check7 > 0 && self.check8 > 0 && self.check9 > 0 && self.check10 > 0 ) {
             print("Unlock Results!!")
+            //Makes resultButton active
             self.allAnswered = true
             collectionView.reloadData()
         }
     }
     
+    //resultButton's function to seque to result
     @objc func ToResults(_ sender: UIButton!) {
         print("Continue to results")
         Transition(sender)
-        
     }
     
+    //Performs the segue to results
     func Transition(_ sender: UIButton!) {
         performSegue(withIdentifier: "LoadingSegue", sender: self)
     }
