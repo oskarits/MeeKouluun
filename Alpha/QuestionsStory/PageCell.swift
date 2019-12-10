@@ -114,8 +114,22 @@ class PageCell: UICollectionViewCell {
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.black.cgColor
         button.isUserInteractionEnabled = false
-        button.alpha = 0.5
+        button.alpha = 0.1
         return button
+    }()
+    
+    //Indicates current page
+    let pageControl: UIPageControl = {
+        let pc = UIPageControl()
+        pc.translatesAutoresizingMaskIntoConstraints = false
+        pc.currentPage = 1
+        pc.numberOfPages = (10)
+        pc.currentPageIndicatorTintColor = UIColor.black
+        pc.pageIndicatorTintColor = UIColor.lightGray
+        let widthContraints =  NSLayoutConstraint(item: pc, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 300)
+        let heightContraints = NSLayoutConstraint(item: pc, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 40)
+        NSLayoutConstraint.activate([heightContraints,widthContraints])
+        return pc
     }()
     
     //Initializes the collectionview frame
@@ -140,8 +154,9 @@ class PageCell: UICollectionViewCell {
         self.contentView.addSubview(Button4)
         self.contentView.addSubview(Button5)
         self.contentView.addSubview(resultButton)
-        //Adds the answer buttons to stackview
-        let buttonStackView = UIStackView(arrangedSubviews: [Button1, Button2, Button3, Button4, Button5])
+        self.contentView.addSubview(pageControl)
+        //Adds the answer buttons to stackview with page indicator
+        let buttonStackView = UIStackView(arrangedSubviews: [Button1, Button2, Button3, Button4, Button5, pageControl])
         buttonStackView.translatesAutoresizingMaskIntoConstraints = false
         buttonStackView.alignment = .center
         buttonStackView.distribution = .fill

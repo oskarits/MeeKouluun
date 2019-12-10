@@ -20,7 +20,16 @@
 "next_map_text" = "Seuraava";
 
 //BasicQuestions3
+<<<<<<< Alpha/fi.lproj/Localizable.strings
+"elementary" = "Peruskoulu";
+"trade_school" = "Ammattikoulu";
+"high_school" = "Lukio";
+"college" = "Ammattikorkeakoulu";
+"university" = "Yliopisto";
+"education_label" = "Mikä on aikaisempi koulutustasosi?";
+"education_continue_button" = "Jatka";
 "postal_code_description" = "Syötä postinumero:";
+
 
 //ExplanationScreen
 "start_questions_text" = "Kiitos, olet täyttänyt esitietokyselyn.\nVastaa vielä nopeaan kyselyymme löytääksesi sinulle sopivimman opiskelupaikan!\n\nVoit liikkua kysymysten välillä pyyhkäisemällä näyttöä oikealle tai vasemalle.";
@@ -35,6 +44,10 @@
 "calculating_results" = "Lasketaan Tuloksia...";
 "results_ready" = "Tulokset valmiina.";
 
+//Alert
+"results_alert" = "Vastasit kaikkiin kysymyksiin.\nVoit jatkaa tuloksiin painamalla nappia alhaalta tai vaihtaa vastauksiasi.";
+"alert_title" = "Huomio";
+
 //FetchResults
 "send_email" = "Lähetä";
 "email_alert_text" = "Lähetetäänkö tulokset sähköpostiisi?";
@@ -44,3 +57,4 @@
 
 //Database
 "database_link" = "http://users.metropolia.fi/~tuomamp/meeKouluunDB_Fi.json";
+

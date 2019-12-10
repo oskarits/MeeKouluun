@@ -46,7 +46,7 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
     var check8 = 0
     var check9 = 0
     var check10 = 0
-    //Indicator value for verifying if all the questions have been aswered
+    //Indicator boolean value for verifying if all the questions have been aswered
     var allAnswered = false
     //Creating a horizontal collectionview
     let collectionView: UICollectionView = {
@@ -202,6 +202,8 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         } else if LocalizationSystem.sharedInstance.getLanguage() == "fi" {
             cell.resultButton.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "go_to_results", comment: ""), for: .normal)
         }
+        
+        
         /*Gives values from correct index*/
         let question = questions[indexPath.item + 1]
         let ans1 = answers1[indexPath.item + 1]
@@ -217,6 +219,8 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         cell.Button3.setTitle(ans3.answerText, for: .normal)
         cell.Button4.setTitle(ans4.answerText, for: .normal)
         cell.Button5.setTitle(ans5.answerText, for: .normal)
+        cell.pageControl.currentPage = (indexPath.item)
+        
         //Gives each answer button an unique tag value
         cell.Button1.tag = ((iD.idNumber ?? 0) * 10 ) + 1
         cell.Button2.tag = ((iD.idNumber ?? 0) * 10 ) + 2
@@ -235,6 +239,7 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
             //Makes ResultButton active
             cell.resultButton.isUserInteractionEnabled = true
             cell.resultButton.alpha = 1
+            
         }
         //Colors all answer buttons grey
         for i in 11...115 {
@@ -425,11 +430,13 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         default:
             print("tag check error")
         }
-        answerCheck()
+        answerCheck(sender)
     }
     
     //Prints the questions that have been answered.
-    func answerCheck() {
+    func answerCheck(_ sender: UIButton!) {
+        let buttonTag = sender.tag
+        //Prints out the answered questions. Used for debugging.
         if (self.check1 > 0 ){
             print("Q1 answered")
         }
@@ -463,9 +470,63 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         //If all questions have been answered
         if (self.check1 > 0 && self.check2 > 0 && self.check3 > 0 && self.check4 > 0 && self.check5 > 0 && self.check6 > 0 && self.check7 > 0 && self.check8 > 0 && self.check9 > 0 && self.check10 > 0 ) {
             print("Unlock Results!!")
-            //Makes resultButton active
-            self.allAnswered = true
-            collectionView.reloadData()
+            //Makes resultButton active if inactive
+            if (self.allAnswered == false) {
+                //Changes the current page index to fix bug of selected button color not showing
+                switch buttonTag {
+                case 11..<16:
+                    let nextIndex = IndexPath(item: 4, section: 0)
+                    self.collectionView.scrollToItem(at: nextIndex, at: .centeredHorizontally, animated: true)
+                case 21..<26:
+                    let nextIndex = IndexPath(item: 4, section: 0)
+                    self.collectionView.scrollToItem(at: nextIndex, at: .centeredHorizontally, animated: true)
+                case 31..<36:
+                    let nextIndex = IndexPath(item: 4, section: 0)
+                    self.collectionView.scrollToItem(at: nextIndex, at: .centeredHorizontally, animated: true)
+                case 41..<46:
+                    let nextIndex = IndexPath(item: 4, section: 0)
+                    self.collectionView.scrollToItem(at: nextIndex, at: .centeredHorizontally, animated: true)
+                case 51..<56:
+                    let nextIndex = IndexPath(item: 5, section: 0)
+                    self.collectionView.scrollToItem(at: nextIndex, at: .centeredHorizontally, animated: true)
+                case 61..<66:
+                    let nextIndex = IndexPath(item: 4, section: 0)
+                    self.collectionView.scrollToItem(at: nextIndex, at: .centeredHorizontally, animated: true)
+                case 71..<76:
+                    let nextIndex = IndexPath(item: 4, section: 0)
+                    self.collectionView.scrollToItem(at: nextIndex, at: .centeredHorizontally, animated: true)
+                case 81..<86:
+                    let nextIndex = IndexPath(item: 4, section: 0)
+                    self.collectionView.scrollToItem(at: nextIndex, at: .centeredHorizontally, animated: true)
+                case 91..<96:
+                    let nextIndex = IndexPath(item: 4, section: 0)
+                    self.collectionView.scrollToItem(at: nextIndex, at: .centeredHorizontally, animated: true)
+                case 101..<106:
+                    let nextIndex = IndexPath(item: 4, section: 0)
+                    self.collectionView.scrollToItem(at: nextIndex, at: .centeredHorizontally, animated: true)
+                default:
+                    print("button tag error")
+                }
+                //Updates the view to get resultButton to be active
+                self.collectionView.reloadData()
+                self.allAnswered = true
+                //Alerts the user that they can either continue or change their answers
+                //Alert message is localized
+                let alertText = LocalizationSystem.sharedInstance.localizedStringForKey(key: "results_alert", comment: "")
+                //Alert title is localized
+                let alertTitle = LocalizationSystem.sharedInstance.localizedStringForKey(key: "alert_title", comment: "")
+                let alert = UIAlertController(title: "\(alertTitle)", message: "\(alertText)", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                    switch action.style{
+                    case .default:
+                        print("default")
+                    case .cancel:
+                        print("cancel")
+                    case .destructive:
+                        print("destructive")
+                    }}))
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
     
