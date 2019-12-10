@@ -10,6 +10,7 @@
 "language_header_text" = "English";
 "language_instruction_text" = "Select language:";
 "continue_text" = "Continue without signing";
+"signed_in" = "Continue";
 
 //BasicQuestions1
 "next_text" = "Next";
@@ -21,7 +22,7 @@
 //BasicQuestions3
 
 //ExplanationScreen
-"start_questions_text" = "Thank you for filling the basic info.\nNow fill out our quick questionnaire to find out which education suits you the best!";
+"start_questions_text" = "Thank you for filling the basic info.\nNow fill out our quick questionnaire to find out which education suits you the best!\n\nYou can navigate between questions by swiping left or right.";
 "start_questions_button" = "Let's Get Started!";
 
 //CollectionViewController
