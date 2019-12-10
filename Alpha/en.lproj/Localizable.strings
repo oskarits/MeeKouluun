@@ -33,4 +33,9 @@
 "calculating_results" = "Calculating Results...";
 "results_ready" = "Results are ready.";
 
-//
+//FetchResults
+"send_email" = "Send";
+"email_alert_text" = "Shall we send the results to your email?";
+"email_yes" = "Yes";
+"email_no" = "No";
+"email_label" = "Send your results to your email";

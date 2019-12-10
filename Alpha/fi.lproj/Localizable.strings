@@ -33,4 +33,9 @@
 "calculating_results" = "Lasketaan Tuloksia...";
 "results_ready" = "Tulokset valmiina.";
 
-//
+//FetchResults
+"send_email" = "Lähetä";
+"email_alert_text" = "Lähetetäänkö tulokset sähköpostiisi?";
+"email_yes" = "Kyllä";
+"email_no" = "Ei";
+"email_label" = "Lähetä tulokset sähköpostiisi";

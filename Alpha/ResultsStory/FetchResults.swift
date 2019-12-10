@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import MessageUI
 
-class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var tableview: UITableView!
     
     var results: [SingleResult] = []
     var email: String?
-    private var unwrapped: String = ""
+    var unwrapped: String = ""
     
     //let layer = CAGradientLayer()
     
@@ -24,6 +25,8 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
         //emailInput.delegate = self
         sendButton.isUserInteractionEnabled = false
         sendButton.alpha = 0.5
+        sendButton.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "send_email", comment: ""), for: .normal)
+        emailLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "email_label", comment: "")
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -80,7 +83,7 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
         cell.amkUni.text = self.results[indexPath.item].amkUni
         //cell.description.text = self.results[indexPath.item].description
         cell.duration.text = self.results[indexPath.item].duration
-     //   cell.url.text = self.results[indexPath.item].url
+        //   cell.url.text = self.results[indexPath.item].url
         
         return cell
     }
@@ -115,6 +118,7 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     @IBOutlet weak var emailInput: UITextField!
     @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var emailLabel: UILabel!
     
     // activate send button
     func activateSend() -> Void {
@@ -140,11 +144,37 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
             print(userEmail ?? "foo")
         }
     }
+    
+    func openSend(_ userEmail: String, _ body: [SingleResult]) {
+     if MFMailComposeViewController.canSendMail() {
+     let mail = MFMailComposeViewController()
+     mail.mailComposeDelegate = self
+     mail.setToRecipients([userEmail])
+     mail.setMessageBody("\(body)", isHTML: true)
+     present(mail, animated: true)
+        print("sent")
+     } else {
+        print("Cannot send email because of iOS Simulator")
+     }
+        
+     }
+     
+    
+    
+    
     @IBAction func sendEmaill(_ sender: UIButton) {
-        print("RESULTS \n \(self.results)")
+        print("RESULTS \n \(dump(results))")
+        
+        let alert = UIAlertController(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "email_alert_text", comment: ""), message: "", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "email_yes", comment: ""), style: .default, handler: { action in
+            self.openSend(self.unwrapped, self.results)
+        }))
+        alert.addAction(UIAlertAction(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "email_no", comment: ""), style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true)
     }
 }
-
 
 
 
