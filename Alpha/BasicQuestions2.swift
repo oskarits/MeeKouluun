@@ -21,6 +21,10 @@ class BasicQuestions2: UIViewController, UITextFieldDelegate, CLLocationManagerD
         // next button disabled on startup
         nextButton.isUserInteractionEnabled = false
         nextButton.alpha = 0.5
+        nextButton.contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        nextButton.titleLabel?.lineBreakMode = .byWordWrapping
+        nextButton.layer.cornerRadius = 5
+        nextButton.layer.borderWidth = 1
         //textFieldPostalCode.delegate = self
         // setup location manager
         locationManager = CLLocationManager()
@@ -31,6 +35,9 @@ class BasicQuestions2: UIViewController, UITextFieldDelegate, CLLocationManagerD
         locationManager.requestLocation()
         //print("Postal code \(self.postalCode)")
         print("Location fetching started...")
+        postalLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "postal_code_description", comment: "")
+        
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "BackgroundGradient")!)
         
     }
     
@@ -91,6 +98,10 @@ class BasicQuestions2: UIViewController, UITextFieldDelegate, CLLocationManagerD
         resignFirstResponder()
     }
     
+    func initButton() -> Void {
+        nextButton.layer.cornerRadius = 20
+    }
+    
     @IBAction func textFieldEdited(_ sender: UITextField) {
         print("textFieldEdited")
         let userInput: String? = textFieldPostalCode.text
@@ -99,8 +110,47 @@ class BasicQuestions2: UIViewController, UITextFieldDelegate, CLLocationManagerD
             self.activateNext()
         }
     }
+    
+   
+    
     // MARK: Outlets
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var textFieldPostalCode: UITextField!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var postalLabel: UILabel!
 }
+
+/*
+@IBDesignable extension UIButton {
+
+       @IBInspectable var borderWidth: CGFloat {
+           set {
+               layer.borderWidth = newValue
+           }
+           get {
+               return layer.borderWidth
+           }
+       }
+
+       @IBInspectable var cornerRadius: CGFloat {
+           set {
+               layer.cornerRadius = newValue
+           }
+           get {
+               return layer.cornerRadius
+           }
+       }
+
+       @IBInspectable var borderColor: UIColor? {
+           set {
+               guard let uiColor = newValue else { return }
+               layer.borderColor = uiColor.cgColor
+           }
+           get {
+               guard let color = layer.borderColor else { return nil }
+               return UIColor(cgColor: color)
+           }
+       }
+    
+   
+   }*/
