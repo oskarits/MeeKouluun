@@ -7,25 +7,34 @@
 //
 
 import UIKit
+import MessageUI
 
-class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var tableview: UITableView!
     
     var results: [SingleResult] = []
+    var email: String?
+    var unwrapped: String = ""
     
     //let layer = CAGradientLayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetch()
+        //emailInput.delegate = self
+        sendButton.isUserInteractionEnabled = false
+        sendButton.alpha = 0.5
+        sendButton.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "send_email", comment: ""), for: .normal)
+        emailLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "email_label", comment: "")
     }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0
     }
     
     func fetch(){
-        let urlRequest = URLRequest(url: URL(string: "http://users.metropolia.fi/~tuomamp/testDb.json")!)
+        let urlRequest = URLRequest(url: URL(string: LocalizationSystem.sharedInstance.localizedStringForKey(key: "database_link", comment: ""))!)
         let task = URLSession.shared.dataTask(with: urlRequest) { (data,response,error) in
             if error != nil {
                 print(error!)
@@ -74,7 +83,7 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
         cell.amkUni.text = self.results[indexPath.item].amkUni
         //cell.description.text = self.results[indexPath.item].description
         cell.duration.text = self.results[indexPath.item].duration
-     //   cell.url.text = self.results[indexPath.item].url
+        //   cell.url.text = self.results[indexPath.item].url
         
         return cell
     }
@@ -105,8 +114,67 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
         return self.results.count
     }
     
+    //MARK: Email
+    
+    @IBOutlet weak var emailInput: UITextField!
+    @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var emailLabel: UILabel!
+    
+    // activate send button
+    func activateSend() -> Void {
+        self.sendButton.isUserInteractionEnabled = true
+        self.sendButton.alpha = 1
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.becomeFirstResponder()
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        resignFirstResponder()
+    }
+    
+    @IBAction func textFieldEdited(_ sender: UITextField) {
+        print("text field edited")
+        let userEmail: String? = emailInput.text
+        //inputLength = userEmail?.count ?? nil
+        unwrapped = userEmail ?? "foo"
+        if (unwrapped.contains("@")) {
+            self.activateSend()
+            print(userEmail ?? "foo")
+        }
+    }
+    
+    func openSend(_ userEmail: String, _ body: [SingleResult]) {
+     if MFMailComposeViewController.canSendMail() {
+     let mail = MFMailComposeViewController()
+     mail.mailComposeDelegate = self
+     mail.setToRecipients([userEmail])
+     mail.setMessageBody("\(body)", isHTML: true)
+     present(mail, animated: true)
+        print("sent")
+     } else {
+        print("Cannot send email because of iOS Simulator")
+     }
+        
+     }
+     
+    
+    
+    
+    @IBAction func sendEmaill(_ sender: UIButton) {
+        print("RESULTS \n \(dump(results))")
+        
+        let alert = UIAlertController(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "email_alert_text", comment: ""), message: "", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "email_yes", comment: ""), style: .default, handler: { action in
+            self.openSend(self.unwrapped, self.results)
+        }))
+        alert.addAction(UIAlertAction(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "email_no", comment: ""), style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true)
+    }
 }
-
 
 
 

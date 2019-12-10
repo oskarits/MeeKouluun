@@ -27,6 +27,7 @@
 "university" = "University";
 "education_label" = "What's your previous education level?";
 "education_continue_button" = "Continue";
+"postal_code_description" = "Input postal code:";
 
 //ExplanationScreen
 "start_questions_text" = "Thank you for filling the basic info.\nNow fill out our quick questionnaire to find out which education suits you the best!\n\nYou can navigate between questions by swiping left or right.";
@@ -44,3 +45,14 @@
 //Alert
 "results_alert" = "You answered all the questions.\nClick below to continue to results\nor change your answers.";
 "alert_title" = "Attention";
+
+//FetchResults
+"send_email" = "Send";
+"email_alert_text" = "Shall we send the results to your email?";
+"email_yes" = "Yes";
+"email_no" = "No";
+"email_label" = "Send your results to your email";
+
+//Database
+"database_link" = "http://users.metropolia.fi/~tuomamp/meeKouluunDB_En.json";
+

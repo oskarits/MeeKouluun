@@ -20,10 +20,9 @@ class Person {
 //    private var longitude: CLLocationDegrees = 24.6
 //    private var location: CLLocation
     private(set) var email = ""
-    // First iteration is a 2 score system where the first space is reserved for STEM-related points
-    // And the second one for everything else
     // set to private(set)
-    public var quizScore = [0, 0]
+    // This version has three axels: Introverted v Extroverted, Creative v Logical and Adventurous v Steady work environment
+    public var quizScore = [0, 0, 0]
 
     /*
     init(name: String, age: Int, weight: Double, height: Double){
@@ -60,17 +59,17 @@ class Person {
 //        }
 //
 //    }
-    func addToScore(_ leftValue: Int, rightValue: Int) {
-        quizScore[0] = quizScore[0] + leftValue
-        quizScore[1] = quizScore[1] + rightValue
+    func addToScore(_ IvE: Int = 0, CvL: Int = 0, SvA: Int = 0) {
+        quizScore[0] = quizScore[0] + IvE
+        quizScore[1] = quizScore[1] + CvL
+        quizScore[2] = quizScore[2] + SvA
     }
-    
-    // TODO Move to tests
-    private var testingScore = [0, 12] // Lähihoitaja
-    private var qScore = [8, 3] // Test userscore
-    
+    // Compares two scores, one for the person and one for the school
     func compareScores(comparisonArray: [Int]) -> Double {
-        let result = pow(Double(testingScore[0]) - Double(qScore[0]), 2) + pow(Double(testingScore[1]) - Double(qScore[1]), 2)
+        if comparisonArray.count != 3 {
+            return 0.0
+        }
+        let result = pow(Double(comparisonArray[0]) - Double(quizScore[0]), 2) + pow(Double(comparisonArray[1]) - Double(quizScore[1]), 2)
         return result
     }
 }
