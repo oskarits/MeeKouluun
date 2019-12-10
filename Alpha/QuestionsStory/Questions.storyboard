@@ -15,11 +15,11 @@
             <objects>
                 <viewController storyboardIdentifier="ExplanationScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="c5U-G7-Six" customClass="ExplanationScreen" customModule="Alpha" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ba0-bR-7cw">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRa-8D-Ef4">
-                                <rect key="frame" x="16" y="120" width="568" height="150"/>
+                                <rect key="frame" x="16" y="120" width="343" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="7FQ-IW-hvm"/>
                                     <constraint firstAttribute="height" constant="150" id="mYX-jE-8Dz"/>
@@ -29,11 +29,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7E-QQ-o9J">
-                                <rect key="frame" x="87" y="313" width="425" height="30"/>
+                                <rect key="frame" x="62.5" y="577" width="250" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="g7E-QQ-o9J" secondAttribute="height" multiplier="5:1" id="EPu-5V-uoJ"/>
-                                    <constraint firstAttribute="height" constant="40" id="Fnz-yz-fz9"/>
-                                    <constraint firstAttribute="width" constant="200" id="VIE-nL-5qW"/>
+                                    <constraint firstAttribute="width" constant="250" id="ExK-JO-rep"/>
+                                    <constraint firstAttribute="height" constant="40" id="NQG-13-njq"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="Uvj-bm-xr0" kind="show" id="e69-CZ-pSF"/>
@@ -42,13 +41,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="zhI-w9-VCk" firstAttribute="trailing" secondItem="g7E-QQ-o9J" secondAttribute="trailing" constant="88" id="1PK-DQ-jSf"/>
                             <constraint firstItem="zhI-w9-VCk" firstAttribute="trailing" secondItem="iRa-8D-Ef4" secondAttribute="trailing" constant="16" id="FWz-nc-YxI"/>
-                            <constraint firstItem="zhI-w9-VCk" firstAttribute="bottom" secondItem="g7E-QQ-o9J" secondAttribute="bottom" constant="314" id="ItU-db-e7N"/>
+                            <constraint firstItem="zhI-w9-VCk" firstAttribute="bottom" secondItem="g7E-QQ-o9J" secondAttribute="bottom" constant="50" id="P29-zX-Hc3"/>
                             <constraint firstItem="iRa-8D-Ef4" firstAttribute="leading" secondItem="zhI-w9-VCk" secondAttribute="leading" constant="16" id="P8k-g5-etY"/>
-                            <constraint firstItem="g7E-QQ-o9J" firstAttribute="top" secondItem="zhI-w9-VCk" secondAttribute="top" constant="293" id="e30-x9-AzV"/>
                             <constraint firstItem="iRa-8D-Ef4" firstAttribute="top" secondItem="zhI-w9-VCk" secondAttribute="top" constant="100" id="iRd-wj-bYl"/>
-                            <constraint firstItem="g7E-QQ-o9J" firstAttribute="leading" secondItem="zhI-w9-VCk" secondAttribute="leading" constant="87" id="jCK-sw-7yZ"/>
+                            <constraint firstItem="g7E-QQ-o9J" firstAttribute="centerX" secondItem="iRa-8D-Ef4" secondAttribute="centerX" id="sdg-dw-Lw9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zhI-w9-VCk"/>
                     </view>
@@ -66,11 +63,11 @@
             <objects>
                 <viewController storyboardIdentifier="CollectionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Uvj-bm-xr0" customClass="CollectionViewController" customModule="Alpha" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kRq-fe-Jc0">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5FB-yI-vVL">
-                                <rect key="frame" x="87" y="540" width="425" height="40"/>
+                                <rect key="frame" x="87" y="607" width="200" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="BLM-vy-DX0"/>
                                     <constraint firstAttribute="width" constant="200" id="IP3-Lr-Kf3"/>
@@ -102,11 +99,11 @@
             <objects>
                 <viewController storyboardIdentifier="ToResultsViewController" id="frD-e1-dcL" customClass="ToResultsViewController" customModule="Alpha" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cEh-VO-1gp">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ki0-cQ-uck">
-                                <rect key="frame" x="16" y="129" width="568" height="497"/>
+                                <rect key="frame" x="16" y="129" width="343" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ki0-cQ-uck" secondAttribute="height" multiplier="343:300" id="eny-Rv-3EP"/>
                                 </constraints>
@@ -115,9 +112,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UaZ-Hq-jOI">
-                                <rect key="frame" x="87" y="459" width="425" height="85"/>
+                                <rect key="frame" x="62.5" y="577" width="250" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="UaZ-Hq-jOI" secondAttribute="height" multiplier="5:1" id="zwE-hr-g4h"/>
+                                    <constraint firstAttribute="width" constant="250" id="Gu7-dp-kef"/>
+                                    <constraint firstAttribute="height" constant="40" id="oA9-Vp-3vP"/>
                                 </constraints>
                                 <connections>
                                     <action selector="GoToResults:" destination="frD-e1-dcL" eventType="touchUpInside" id="N8O-nL-paS"/>
@@ -126,12 +124,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="3MP-eU-XD9" firstAttribute="bottom" secondItem="UaZ-Hq-jOI" secondAttribute="bottom" constant="50" id="Om4-MJ-o5d"/>
                             <constraint firstItem="3MP-eU-XD9" firstAttribute="trailing" secondItem="ki0-cQ-uck" secondAttribute="trailing" constant="16" id="TqC-kU-dYm"/>
                             <constraint firstItem="ki0-cQ-uck" firstAttribute="leading" secondItem="3MP-eU-XD9" secondAttribute="leading" constant="16" id="bqF-ei-6bZ"/>
-                            <constraint firstItem="3MP-eU-XD9" firstAttribute="bottom" secondItem="UaZ-Hq-jOI" secondAttribute="bottom" constant="56" id="esm-Na-Ij6"/>
-                            <constraint firstItem="3MP-eU-XD9" firstAttribute="trailing" secondItem="UaZ-Hq-jOI" secondAttribute="trailing" constant="88" id="pOa-4X-xJe"/>
                             <constraint firstItem="ki0-cQ-uck" firstAttribute="top" secondItem="3MP-eU-XD9" secondAttribute="top" constant="109" id="uXR-aH-x6c"/>
-                            <constraint firstItem="UaZ-Hq-jOI" firstAttribute="leading" secondItem="3MP-eU-XD9" secondAttribute="leading" constant="87" id="uvx-Cq-DYf"/>
+                            <constraint firstItem="UaZ-Hq-jOI" firstAttribute="centerX" secondItem="ki0-cQ-uck" secondAttribute="centerX" id="ymQ-Fu-Fgc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3MP-eU-XD9"/>
                     </view>
@@ -155,6 +152,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="HL3-qx-r4P"/>
+        <segue reference="3tj-KV-BVm"/>
     </inferredMetricsTieBreakers>
 </document>

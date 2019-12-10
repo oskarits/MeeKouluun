@@ -26,22 +26,6 @@
                                     <constraint firstAttribute="height" constant="50" id="rjw-TV-GUr"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VN3-Vx-VoR">
-                                <rect key="frame" x="82" y="730" width="250" height="40"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="AiV-th-fLf"/>
-                                    <constraint firstAttribute="height" constant="40" id="Yqe-5L-dPN"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <size key="titleShadowOffset" width="1" height="0.0"/>
-                                <state key="normal" title="Continue without signing">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="SMW-Xq-VOu" kind="show" identifier="signIn" id="eoN-Th-kTG"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nd-Qj-8ek">
                                 <rect key="frame" x="107" y="145" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -72,15 +56,31 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VN3-Vx-VoR">
+                                <rect key="frame" x="82" y="772" width="250" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="AiV-th-fLf"/>
+                                    <constraint firstAttribute="height" constant="40" id="Yqe-5L-dPN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <size key="titleShadowOffset" width="1" height="0.0"/>
+                                <state key="normal" title="Continue without signing">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="SMW-Xq-VOu" kind="show" identifier="signIn" id="eoN-Th-kTG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QHw-jN-ahg" secondAttribute="trailing" constant="82" id="2bj-T9-P86"/>
                             <constraint firstItem="QHw-jN-ahg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="82" id="Jn9-WD-SeO"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VN3-Vx-VoR" secondAttribute="bottom" constant="92" id="OeP-jf-67j"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VN3-Vx-VoR" secondAttribute="bottom" constant="50" id="OeP-jf-67j"/>
                             <constraint firstItem="QHw-jN-ahg" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="340" id="XHs-bQ-G4P"/>
                             <constraint firstItem="VN3-Vx-VoR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="82" id="bpb-GG-F3a"/>
-                            <constraint firstItem="VN3-Vx-VoR" firstAttribute="top" secondItem="QHw-jN-ahg" secondAttribute="bottom" constant="340" id="zBA-5v-T6a"/>
+                            <constraint firstItem="VN3-Vx-VoR" firstAttribute="top" secondItem="QHw-jN-ahg" secondAttribute="bottom" constant="382" id="zBA-5v-T6a"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -217,26 +217,115 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edellinen Koulutus" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4J-dz-KeM">
-                                <rect key="frame" x="20" y="239" width="374" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edellinen Koulutus" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4J-dz-KeM">
+                                <rect key="frame" x="20" y="239.66666666666666" width="374" height="20.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Szc-sm-tgt">
-                                <rect key="frame" x="184" y="529" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Szc-sm-tgt">
+                                <rect key="frame" x="82" y="772" width="250" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="WrJ-jw-2Ce"/>
+                                    <constraint firstAttribute="width" constant="250" id="ofl-l7-KbE"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <segue destination="TMD-Cm-jWx" kind="show" id="96H-lZ-bbZ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8n-ke-gKv">
+                                <rect key="frame" x="57" y="497" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Ozy-Fd-Tyk"/>
+                                    <constraint firstAttribute="height" constant="40" id="vxZ-KD-Zta"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="College:" destination="EHc-2t-xyN" eventType="touchUpInside" id="1hs-xc-FRO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CuS-3B-pvX">
+                                <rect key="frame" x="57" y="442" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="CHW-D3-wGP"/>
+                                    <constraint firstAttribute="width" constant="300" id="CZc-ue-4qs"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="HighSchool:" destination="EHc-2t-xyN" eventType="touchUpInside" id="8vU-gU-7YK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iOE-0m-CSk">
+                                <rect key="frame" x="57" y="387" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="DLO-J6-QKa"/>
+                                    <constraint firstAttribute="height" constant="40" id="pY6-ow-ztc"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="TradeSchool:" destination="EHc-2t-xyN" eventType="touchUpInside" id="ZTb-dz-i10"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XWE-Jb-R01">
+                                <rect key="frame" x="57" y="332" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="t3o-ph-dfO"/>
+                                    <constraint firstAttribute="width" constant="300" id="wBo-KZ-XZi"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="Elementary:" destination="EHc-2t-xyN" eventType="touchUpInside" id="L4n-IG-vXw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Yf-ZP-fGq">
+                                <rect key="frame" x="57" y="552" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="SCU-Vy-erH"/>
+                                    <constraint firstAttribute="height" constant="40" id="w1N-LI-v2c"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="University:" destination="EHc-2t-xyN" eventType="touchUpInside" id="8XC-ZY-FTu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="CuS-3B-pvX" firstAttribute="leading" secondItem="2fG-6V-tyk" secondAttribute="leading" constant="57" id="3KP-sv-4dA"/>
+                            <constraint firstItem="XWE-Jb-R01" firstAttribute="top" secondItem="v4J-dz-KeM" secondAttribute="bottom" constant="72" id="7A3-30-cHx"/>
+                            <constraint firstItem="iOE-0m-CSk" firstAttribute="leading" secondItem="2fG-6V-tyk" secondAttribute="leading" constant="57" id="BL7-bD-XLI"/>
+                            <constraint firstItem="v4J-dz-KeM" firstAttribute="leading" secondItem="skW-7h-8od" secondAttribute="leadingMargin" id="FcH-Bf-NSA"/>
+                            <constraint firstItem="Szc-sm-tgt" firstAttribute="top" secondItem="v4J-dz-KeM" secondAttribute="bottom" constant="512" id="GeT-fs-AWc"/>
+                            <constraint firstItem="1Yf-ZP-fGq" firstAttribute="top" secondItem="E8n-ke-gKv" secondAttribute="bottom" constant="15" id="Ggb-I8-GbT"/>
+                            <constraint firstItem="iOE-0m-CSk" firstAttribute="top" secondItem="XWE-Jb-R01" secondAttribute="bottom" constant="15" id="JHd-dV-8bc"/>
+                            <constraint firstItem="2fG-6V-tyk" firstAttribute="trailing" secondItem="iOE-0m-CSk" secondAttribute="trailing" constant="57" id="KxL-ff-BuO"/>
+                            <constraint firstItem="2fG-6V-tyk" firstAttribute="bottom" secondItem="Szc-sm-tgt" secondAttribute="bottom" constant="50" id="Rp7-HQ-Skh"/>
+                            <constraint firstItem="2fG-6V-tyk" firstAttribute="trailing" secondItem="XWE-Jb-R01" secondAttribute="trailing" constant="57" id="Ugx-sE-JQ1"/>
+                            <constraint firstItem="E8n-ke-gKv" firstAttribute="leading" secondItem="2fG-6V-tyk" secondAttribute="leading" constant="57" id="W0w-eN-SSM"/>
+                            <constraint firstItem="2fG-6V-tyk" firstAttribute="trailing" secondItem="1Yf-ZP-fGq" secondAttribute="trailing" constant="57" id="YX0-tU-Mlv"/>
+                            <constraint firstItem="CuS-3B-pvX" firstAttribute="top" secondItem="iOE-0m-CSk" secondAttribute="bottom" constant="15" id="Zdr-Y1-l4M"/>
+                            <constraint firstItem="2fG-6V-tyk" firstAttribute="trailing" secondItem="CuS-3B-pvX" secondAttribute="trailing" constant="57" id="b88-yL-NUn"/>
+                            <constraint firstItem="Szc-sm-tgt" firstAttribute="leading" secondItem="2fG-6V-tyk" secondAttribute="leading" constant="82" id="bf6-Gm-iV6"/>
+                            <constraint firstItem="1Yf-ZP-fGq" firstAttribute="leading" secondItem="2fG-6V-tyk" secondAttribute="leading" constant="57" id="ebu-y9-6ki"/>
+                            <constraint firstItem="XWE-Jb-R01" firstAttribute="leading" secondItem="2fG-6V-tyk" secondAttribute="leading" constant="57" id="ep9-w8-bY2"/>
+                            <constraint firstItem="E8n-ke-gKv" firstAttribute="top" secondItem="CuS-3B-pvX" secondAttribute="bottom" constant="15" id="fVO-AZ-6dv"/>
+                            <constraint firstItem="2fG-6V-tyk" firstAttribute="trailing" secondItem="E8n-ke-gKv" secondAttribute="trailing" constant="57" id="rCL-pS-EB7"/>
+                            <constraint firstItem="v4J-dz-KeM" firstAttribute="centerX" secondItem="Szc-sm-tgt" secondAttribute="centerX" id="s9K-1x-fms"/>
+                            <constraint firstItem="2fG-6V-tyk" firstAttribute="trailing" secondItem="Szc-sm-tgt" secondAttribute="trailing" constant="82" id="zmj-Ht-a5O"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="2fG-6V-tyk"/>
                     </view>
                     <navigationItem key="navigationItem" id="Vho-ee-aFg"/>
+                    <connections>
+                        <outlet property="collegeButton" destination="E8n-ke-gKv" id="hCe-Dm-cct"/>
+                        <outlet property="educationContinueButton" destination="Szc-sm-tgt" id="sNc-bU-KJB"/>
+                        <outlet property="educationLabel" destination="v4J-dz-KeM" id="VVy-L2-dIJ"/>
+                        <outlet property="elementaryButton" destination="XWE-Jb-R01" id="xD1-4L-1VV"/>
+                        <outlet property="highSchoolButton" destination="CuS-3B-pvX" id="Y9K-f9-Dl0"/>
+                        <outlet property="tradeSchoolButton" destination="iOE-0m-CSk" id="an8-17-lBI"/>
+                        <outlet property="universityButton" destination="1Yf-ZP-fGq" id="vQw-vX-4hA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tu8-bd-5u1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

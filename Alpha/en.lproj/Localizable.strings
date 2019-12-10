@@ -20,6 +20,13 @@
 "next_map_text" = "Next";
 
 //BasicQuestions3
+"elementary" = "Elementary School";
+"trade_school" = "Trade School";
+"high_school" = "High School";
+"college" = "College";
+"university" = "University";
+"education_label" = "What's your previous education level?";
+"education_continue_button" = "Continue";
 
 //ExplanationScreen
 "start_questions_text" = "Thank you for filling the basic info.\nNow fill out our quick questionnaire to find out which education suits you the best!\n\nYou can navigate between questions by swiping left or right.";
@@ -34,4 +41,6 @@
 "calculating_results" = "Calculating Results...";
 "results_ready" = "Results are ready.";
 
-//
+//Alert
+"results_alert" = "You answered all the questions.\nClick below to continue to results\nor change your answers.";
+"alert_title" = "Attention";
