@@ -64,7 +64,7 @@ class Person {
         quizScore[1] = quizScore[1] + CvL
         quizScore[2] = quizScore[2] + SvA
     }
-    
+    // Compares two scores, one for the person and one for the school
     func compareScores(comparisonArray: [Int]) -> Double {
         if comparisonArray.count != 3 {
             return 0.0

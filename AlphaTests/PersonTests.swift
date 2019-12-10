@@ -28,13 +28,6 @@ class PersonTests: XCTestCase {
 //        XCTAssertTrue(person.quizScore[1] == 1)
 //    }
 //
-//    func testCompareArray() {
-//        let enemyScore = [0, 12]
-//        person.quizScore[0] = 8
-//        person.quizScore[1] = 3
-//        print(String(person.compareScores(comparisonArray: enemyScore)))
-//        XCTAssertTrue(person.compareScores(comparisonArray: enemyScore) == 145.0)
-//    }
     func testCompareArray() {
         // enemy here is extroverted, creative and only a little adventurous
         let enemyScore = [30, 27, 8]
