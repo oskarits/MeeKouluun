@@ -34,7 +34,7 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func fetch(){
-        let urlRequest = URLRequest(url: URL(string: "http://users.metropolia.fi/~tuomamp/testDb.json")!)
+        let urlRequest = URLRequest(url: URL(string: LocalizationSystem.sharedInstance.localizedStringForKey(key: "database_link", comment: ""))!)
         let task = URLSession.shared.dataTask(with: urlRequest) { (data,response,error) in
             if error != nil {
                 print(error!)

@@ -40,3 +40,6 @@
 "email_yes" = "Kyllä";
 "email_no" = "Ei";
 "email_label" = "Lähetä tulokset sähköpostiisi";
+
+//Database
+"database_link" = "http://users.metropolia.fi/~tuomamp/meeKouluunDB_Fi.json";
