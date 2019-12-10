@@ -20,7 +20,7 @@
 "next_map_text" = "Next";
 
 //BasicQuestions3
-
+"postal_code_description" = "Input postal code:";
 //ExplanationScreen
 "start_questions_text" = "Thank you for filling the basic info.\nNow fill out our quick questionnaire to find out which education suits you the best!\n\nYou can navigate between questions by swiping left or right.";
 "start_questions_button" = "Let's Get Started!";

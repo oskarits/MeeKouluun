@@ -49,6 +49,7 @@ class BasicQuestions1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         self.navigationController?.isNavigationBarHidden = true
         navigationItem.hidesBackButton = true
 
+        /*
         let layer = CAGradientLayer()
         layer.frame = view.bounds
         //layer.colors = [UIColor.red.cgColor, UIColor.white.cgColor]
@@ -56,7 +57,8 @@ class BasicQuestions1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         layer.endPoint = CGPoint(x:1, y:1)
         //view.layer.addSublayer(layer)
         view.layer.insertSublayer(layer, at: 0)
-        
+        */
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "BackgroundGradient")!)
         ageQuestionLabel?.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "age_question", comment: "")
         nextButton?.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "next_text", comment: ""), for: .normal)
         
@@ -66,9 +68,14 @@ class BasicQuestions1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         agePicker.delegate = self
         agePicker.dataSource = self
         
-        // disabled next-button on startup
+        // button properties + disabled next-button on startup
         nextButton.isUserInteractionEnabled = false
         nextButton.alpha = 0.5
+        nextButton.contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        nextButton.titleLabel?.lineBreakMode = .byWordWrapping
+        nextButton.layer.cornerRadius = 5
+        nextButton.layer.borderWidth = 1
+        
     }
     
     // MARK: Outlets

@@ -79,6 +79,9 @@ class ViewController: UIViewController, LoginButtonDelegate {
         //GIDSignIn.sharedInstance()?.restorePreviousSignIn()
         //Hides the NavigationBar
         self.navigationController?.isNavigationBarHidden = true
+        //round buttons
+        googleButton.layer.cornerRadius = 8
+        continueButton.layer.cornerRadius = 5
     }
     //Changes the language settings to english
     @IBAction func changeLanguageToEN(_ sender: Any) {
