@@ -35,5 +35,14 @@ class PersonTests: XCTestCase {
 //        print(String(person.compareScores(comparisonArray: enemyScore)))
 //        XCTAssertTrue(person.compareScores(comparisonArray: enemyScore) == 145.0)
 //    }
+    func testCompareArray() {
+        // enemy here is extroverted, creative and only a little adventurous
+        let enemyScore = [30, 27, 8]
+        // person here is introverted, logical and very adventurous
+        person.quizScore = [0, 0, 42]
+        XCTAssertTrue(person.compareScores(comparisonArray: enemyScore) == 1629.0)
+    }
+    
+    
 
 }
