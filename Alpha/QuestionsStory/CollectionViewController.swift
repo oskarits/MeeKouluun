@@ -83,7 +83,7 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
     //Fetches results from url for questions and answers
     func fetch(){
         //URL load request.
-        let urlRequest = URLRequest(url: URL(string: "http://users.metropolia.fi/~tuomamp/testDb.json")!)
+        let urlRequest = URLRequest(url: URL(string: LocalizationSystem.sharedInstance.localizedStringForKey(key: "database_link", comment: ""))!)
         //reates a task that retrieves the contents of a URL based on the specified URL request object, and calls a handler upon completion.
         let task = URLSession.shared.dataTask(with: urlRequest) { (data,response,error) in
             if error != nil {

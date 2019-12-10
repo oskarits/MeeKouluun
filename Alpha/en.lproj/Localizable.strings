@@ -40,3 +40,6 @@
 "email_yes" = "Yes";
 "email_no" = "No";
 "email_label" = "Send your results to your email";
+
+//Database
+"database_link" = "http://users.metropolia.fi/~tuomamp/meeKouluunDB_En.json";
