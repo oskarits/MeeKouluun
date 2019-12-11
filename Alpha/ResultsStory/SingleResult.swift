@@ -20,4 +20,5 @@ class SingleResult: NSObject {
     var url: String?
     var about: String?
     
+    
 }

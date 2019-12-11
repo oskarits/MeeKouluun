@@ -16,6 +16,8 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
     var results: [SingleResult] = []
     var unwrapped: String = ""
     
+    let layer = CAGradientLayer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fetch()
@@ -30,6 +32,20 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
            emailInput.text = personInstance.email
             self.activateSend()
         }
+        // Set background color
+        layer.frame = view.bounds
+        let color2 = UIColor(red: 0.08, green: 0.11, blue: 0.15, alpha: 1)
+        let color1 = UIColor(red: 0.19, green: 0.27, blue: 0.37, alpha: 1)
+        layer.colors = [color1.cgColor, color2.cgColor]
+        layer.startPoint = CGPoint(x: 0, y: 0)
+        layer.endPoint = CGPoint(x:1, y:1)
+        view.layer.insertSublayer(layer, at: 0)
+    }
+    
+    //hide navigation
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -181,7 +197,7 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
             self.openSend(self.unwrapped, schools)
         }))
         alert.addAction(UIAlertAction(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "email_no", comment: ""), style: .cancel, handler: nil))
-        i
+        
         self.present(alert, animated: true)
     }
 }
