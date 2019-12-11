@@ -178,6 +178,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
+                                            <action selector="saveData:" destination="SMW-Xq-VOu" eventType="touchUpInside" id="5eN-T3-kUS"/>
                                             <segue destination="cVq-Wu-hU1" kind="show" id="2Bu-eN-qhm"/>
                                         </connections>
                                     </button>
@@ -316,6 +317,7 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
+                                    <action selector="saveData:" destination="EHc-2t-xyN" eventType="touchUpInside" id="oRF-gl-id5"/>
                                     <segue destination="TMD-Cm-jWx" kind="show" id="96H-lZ-bbZ"/>
                                 </connections>
                             </button>

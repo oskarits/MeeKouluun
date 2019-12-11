@@ -7,12 +7,13 @@
 //
 
 import UIKit
-
+import CoreData
 class BasicQuestions1: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     // pickerview data variable
     var ageData = (15...100).map{ String($0)}
-    
+    var storedAge = Int()
+
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -38,7 +39,7 @@ class BasicQuestions1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         print(ageData[row])
         let selectedAge = Int(ageData[row])
         personInstance.setAge(newAge: selectedAge ?? 0)
-        
+        storedAge = selectedAge ?? 0
         // enable next button
         nextButton.isUserInteractionEnabled = true
         nextButton.alpha = 1
@@ -46,9 +47,65 @@ class BasicQuestions1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         
     }
     let layer = CAGradientLayer()
+    
+    
+    @IBAction func saveData(_ sender: Any) {
+        DeleteAllData()
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Entity", in: context)
+        let newEntity = NSManagedObject(entity: entity!, insertInto: context)
+        newEntity.setValue(storedAge, forKey: "number")
+        
+        do {
+            try context.save()
+            print("Saved to core data")
+        } catch {
+            print("Failed saving")
+            
+        }
+    }
+    func getData() {
 
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Entity")
+        request.returnsObjectsAsFaults = false
+        do {
+            let result = try context.fetch(request)
+            for data in result as! [NSManagedObject]
+            {
+                storedAge = data.value(forKey: "number") as! Int
+                print("GetData() \nscore = \(storedAge)")
+
+            }
+        } catch {
+            print("getData failed")
+        }
+        
+    }
+    
+    func DeleteAllData(){
+        
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let DelAllReqVar = NSBatchDeleteRequest(fetchRequest: NSFetchRequest<NSFetchRequestResult>(entityName: "Entity"))
+        do {
+            try managedContext.execute(DelAllReqVar)
+        }
+        catch {
+            print(error)
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        getData()
+
+        agePicker.selectRow(5, inComponent: 0, animated: true)
+        //Then
+        pickerView(agePicker, didSelectRow: (storedAge - 15), inComponent: 0)
+        //self.agePicker.selectRow(4, inComponent: 0, animated: true)
+
+        
         layer.frame = view.bounds
         let color2 = UIColor(red: 0.08, green: 0.11, blue: 0.15, alpha: 1)
         let color1 = UIColor(red: 0.19, green: 0.27, blue: 0.37, alpha: 1)

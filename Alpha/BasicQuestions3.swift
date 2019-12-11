@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class BasicQuestions3: UIViewController {
     //
@@ -17,7 +18,8 @@ class BasicQuestions3: UIViewController {
     @IBOutlet weak var universityButton: UIButton!
     @IBOutlet weak var educationLabel: UILabel!
     @IBOutlet weak var educationContinueButton: UIButton!
-    
+    var storedEducation = Int()
+
     @IBAction func Elementary(_ sender: UIButton!) {
         EducationSelected(sender)
 
@@ -54,11 +56,100 @@ class BasicQuestions3: UIViewController {
             educationContinueButton.isUserInteractionEnabled = true
             educationContinueButton.alpha = 1
             print("selectedEducation: \(selectedEducation)")
+            storedEducation = selectedEducation
         }
     }
     let layer = CAGradientLayer()
+    
+    
+    @IBAction func saveData(_ sender: Any) {
+        DeleteAllData()
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Entity1", in: context)
+        let newEntity = NSManagedObject(entity: entity!, insertInto: context)
+        newEntity.setValue(storedEducation, forKey: "education")
+        
+        do {
+            try context.save()
+            print("Saved to core data")
+        } catch {
+            print("Failed saving")
+            
+        }
+    }
+    func checkCoreData(){
+        print("checkCoreData()")
+        let education = storedEducation
+        print("education \(education)")
+        elementaryButton.backgroundColor = .white
+        tradeSchoolButton.backgroundColor = .white
+        highSchoolButton.backgroundColor = .white
+        collegeButton.backgroundColor = .white
+        universityButton.backgroundColor = .white
+ 
+        switch education{
+        case 1:
+            elementaryButton.backgroundColor = .lightGray
+            educationContinueButton.isUserInteractionEnabled = true
+            educationContinueButton.alpha = 1
+        case 2:
+            tradeSchoolButton.backgroundColor = .lightGray
+            educationContinueButton.isUserInteractionEnabled = true
+            educationContinueButton.alpha = 1
+        case 3:
+            highSchoolButton.backgroundColor = .lightGray
+            educationContinueButton.isUserInteractionEnabled = true
+            educationContinueButton.alpha = 1
+        case 4:
+            collegeButton.backgroundColor = .lightGray
+            educationContinueButton.isUserInteractionEnabled = true
+            educationContinueButton.alpha = 1
+        case 5:
+            universityButton.backgroundColor = .lightGray
+            educationContinueButton.isUserInteractionEnabled = true
+            educationContinueButton.alpha = 1
+        default:
+            print("No core default")
+        }
+        
+    }
+    func getData() {
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Entity1")
+        request.returnsObjectsAsFaults = false
+        do {
+            let result = try context.fetch(request)
+            for data in result as! [NSManagedObject]
+            {
+                storedEducation = data.value(forKey: "education") as! Int
+                print("GetData() \nEducation = \(storedEducation)")
+                
+            }
+        } catch {
+            print("getData failed")
+        }
+        
+    }
+    func DeleteAllData(){
+        
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let DelAllReqVar = NSBatchDeleteRequest(fetchRequest: NSFetchRequest<NSFetchRequestResult>(entityName: "Entity1"))
+        do {
+            try managedContext.execute(DelAllReqVar)
+        }
+        catch {
+            print(error)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        getData()
+
+        setup()
         
         educationLabel?.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "education_label", comment: "")
         educationLabel.textColor = .white
@@ -79,7 +170,7 @@ class BasicQuestions3: UIViewController {
         layer.startPoint = CGPoint(x: 0, y: 0)
         layer.endPoint = CGPoint(x:1, y:1)
         view.layer.insertSublayer(layer, at: 0)
-        setup()
+        checkCoreData()
     }
     
     func setup() {
