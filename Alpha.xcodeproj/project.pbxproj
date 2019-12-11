@@ -34,7 +34,7 @@
 		6AA2AC632396D40F0004881E /* SinglePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2AC622396D40F0004881E /* SinglePage.swift */; };
 		6ADB8CF823966DAE000DDD74 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADB8CF723966DAE000DDD74 /* CollectionViewController.swift */; };
 		6ADB8CFE23966FAA000DDD74 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADB8CFD23966FAA000DDD74 /* PageCell.swift */; };
-		6CA8D36823A0D9A100781E3C /* global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA8D36723A0D9A100781E3C /* global.swift */; };
+		6CA8D36823A0D9A100781E3C /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA8D36723A0D9A100781E3C /* Global.swift */; };
 		9B3E241253E41EE3CC59B23E /* Pods_Alpha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A595ECD1D3F8D142360549B /* Pods_Alpha.framework */; };
 		ED30D8DEEEB0D8E94853FDE3 /* Pods_AlphaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D428F006CFDDF0A8523A6180 /* Pods_AlphaTests.framework */; };
 /* End PBXBuildFile section */
@@ -95,7 +95,7 @@
 		6AA2AC622396D40F0004881E /* SinglePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePage.swift; sourceTree = "<group>"; };
 		6ADB8CF723966DAE000DDD74 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		6ADB8CFD23966FAA000DDD74 /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
-		6CA8D36723A0D9A100781E3C /* global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = global.swift; sourceTree = "<group>"; };
+		6CA8D36723A0D9A100781E3C /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		8A595ECD1D3F8D142360549B /* Pods_Alpha.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Alpha.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9833769063201280B2273DB2 /* Pods-Alpha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alpha.debug.xcconfig"; path = "Target Support Files/Pods-Alpha/Pods-Alpha.debug.xcconfig"; sourceTree = "<group>"; };
 		AA8F7BE3A90E4128226F44BB /* Pods-AlphaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlphaTests.release.xcconfig"; path = "Target Support Files/Pods-AlphaTests/Pods-AlphaTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -205,7 +205,7 @@
 				6A793E95238569880075DE6E /* BasicQuestions3.swift */,
 				6A18D09423952E7D00A66EF9 /* QuestionsStory */,
 				6A18D09123952E4500A66EF9 /* ResultsStory */,
-				6CA8D36723A0D9A100781E3C /* global.swift */,
+				6CA8D36723A0D9A100781E3C /* Global.swift */,
 			);
 			path = Alpha;
 			sourceTree = "<group>";
@@ -547,7 +547,7 @@
 				6A558A9523995D41007B81B5 /* ExplanationScreen.swift in Sources */,
 				6AA2AC632396D40F0004881E /* SinglePage.swift in Sources */,
 				6A18D090238C0FB400A66EF9 /* FetchResults.swift in Sources */,
-				6CA8D36823A0D9A100781E3C /* global.swift in Sources */,
+				6CA8D36823A0D9A100781E3C /* Global.swift in Sources */,
 				6A558A9323995343007B81B5 /* ToResultsViewController.swift in Sources */,
 				6A5B29BA239BBDED00262474 /* LocalizationSystem.swift in Sources */,
 				6A18D08C238C0A3C00A66EF9 /* ResultsCell.swift in Sources */,
