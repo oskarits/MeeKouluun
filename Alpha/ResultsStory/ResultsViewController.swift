@@ -30,6 +30,7 @@ class ResultsViewController: UIViewController {
     var urlTitle = ""
     var descriptionTitle = ""
     
+    let layer = CAGradientLayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,5 +45,14 @@ class ResultsViewController: UIViewController {
         singleUrl.text = urlTitle
         singleDescription.text = descriptionTitle
         
+        layer.frame = view.bounds
+        let color2 = UIColor(red: 0.08, green: 0.11, blue: 0.15, alpha: 1)
+        let color1 = UIColor(red: 0.19, green: 0.27, blue: 0.37, alpha: 1)
+        layer.colors = [color1.cgColor, color2.cgColor]
+        layer.startPoint = CGPoint(x: 0, y: 0)
+        layer.endPoint = CGPoint(x:1, y:1)
+        view.layer.insertSublayer(layer, at: 0)
+        
     }
+    
 }

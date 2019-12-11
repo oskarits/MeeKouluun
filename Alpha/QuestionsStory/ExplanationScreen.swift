@@ -17,15 +17,21 @@ class ExplanationScreen: UIViewController {
     @IBOutlet weak var startQuestionsButton: UIButton!
     @IBOutlet weak var explanationImageView: UIImageView!
     
+    @IBOutlet weak var instructionLabel: UILabel!
     let layer = CAGradientLayer()
     override func viewDidLoad() {
         super.viewDidLoad()
         startQuestionsLabel.font = UIFont (name: "Helvetica Neue", size: 20)
         //Changest the language of the startQuestionsLabel text
         startQuestionsLabel?.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "start_questions_text", comment: "")
+        startQuestionsLabel.textColor = .white
+
+        instructionLabel.font = UIFont (name: "Helvetica Neue", size: 20)
+        instructionLabel?.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "instruction_text", comment: "")
+        instructionLabel.textColor = .white
+        
         //Changest the language of the startQuestionsButton text
         startQuestionsButton?.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "start_questions_button", comment: ""), for: .normal)
-        startQuestionsLabel.textColor = .white
 
         explanationImageView.image = UIImage(named: ("swipe"))
         // Do any additional setup after loading the view.

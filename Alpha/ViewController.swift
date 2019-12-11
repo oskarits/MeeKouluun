@@ -20,12 +20,13 @@ class ViewController: UIViewController, LoginButtonDelegate {
     //Instructs the user to choose language
     @IBOutlet weak var languageInstructionLabel: UILabel!
     //Displayes the current language
-    @IBOutlet weak var languageLabel: UILabel!
+    //@IBOutlet weak var languageLabel: UILabel!
     //Button to sign in with Google account
     @IBOutlet weak var googleButton: GIDSignInButton!
     //UIButton to continue without Google or Facebook login
     @IBOutlet weak var continueButton: UIButton!
     
+    @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var googleSignInButton: UIButton!
     @IBOutlet weak var facebookSignInButton: FBLoginButton!
     //Creates a layer that draws a color gradient over its background color
@@ -35,10 +36,11 @@ class ViewController: UIViewController, LoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         googleButton.isHidden = true
+        logoImageView.image = UIImage(named: ("logo"))
         //Changest the language of the languageLabel text
-        languageLabel?.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "language_header_text", comment: "")
-        languageLabel.textColor = .white
-        languageLabel.font = UIFont.systemFont(ofSize: 20)
+        //languageLabel?.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "language_header_text", comment: "")
+        //languageLabel.textColor = .white
+        //languageLabel.font = UIFont.systemFont(ofSize: 20)
 
         //Changest the language of the languageInstructionLabel text
         languageInstructionLabel?.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "language_instruction_text", comment: "")
@@ -122,7 +124,6 @@ class ViewController: UIViewController, LoginButtonDelegate {
         facebookSignInButton.layer.borderColor = UIColor.black.cgColor
         facebookSignInButton.translatesAutoresizingMaskIntoConstraints = false
         
-        googleSignInButton.layer.cornerRadius = 20
         googleSignInButton.backgroundColor = .white
         googleSignInButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         googleSignInButton.setTitleColor(.darkGray, for: .normal)
@@ -131,13 +132,17 @@ class ViewController: UIViewController, LoginButtonDelegate {
         googleSignInButton.layer.borderColor = UIColor.black.cgColor
         googleSignInButton.translatesAutoresizingMaskIntoConstraints = false
         
-        continueButton.layer.cornerRadius = 20
         continueButton.backgroundColor = UIColor(red: 0.77, green: 0.12, blue: 0.36, alpha: 1)
         continueButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         continueButton.setTitleColor(.white, for: .normal)
         continueButton.layer.cornerRadius = 20
         continueButton.layer.borderWidth = 1
         continueButton.layer.borderColor = UIColor.black.cgColor
+        
+        finButton.layer.cornerRadius = 25
+        ukButton.layer.cornerRadius = 25
+
+        
         
     }
     @IBAction func googleButtonAction(_ sender: UIButton) {
