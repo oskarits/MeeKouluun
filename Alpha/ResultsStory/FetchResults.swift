@@ -14,25 +14,29 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
     @IBOutlet weak var tableview: UITableView!
     
     var results: [SingleResult] = []
-    var email: String?
     var unwrapped: String = ""
-    
-    //let layer = CAGradientLayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetch()
-        //emailInput.delegate = self
+        // Deactivate button and localisations
         sendButton.isUserInteractionEnabled = false
         sendButton.alpha = 0.5
         sendButton.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "send_email", comment: ""), for: .normal)
         emailLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "email_label", comment: "")
+        
+        // Check if user has logged in with Google/FB and input email in to textfield and activate button
+        if (personInstance.email.count > 1) {
+           emailInput.text = personInstance.email
+            self.activateSend()
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0
     }
     
+    // Fetch data from database and append to results array
     func fetch(){
         let urlRequest = URLRequest(url: URL(string: LocalizationSystem.sharedInstance.localizedStringForKey(key: "database_link", comment: ""))!)
         let task = URLSession.shared.dataTask(with: urlRequest) { (data,response,error) in
@@ -60,6 +64,7 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
                         }
                         self.results.append(result)
                     }
+                    
                     print("RESPONSE: \n\(json)")
                 }
                 DispatchQueue.main.async {
@@ -72,6 +77,7 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
         task.resume()
     }
     
+    // Create cells with fetched data
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "resultsCell", for: indexPath) as! ResultsCell
         
@@ -81,13 +87,12 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
         cell.location.text = self.results[indexPath.item].location
         cell.language.text = self.results[indexPath.item].language
         cell.amkUni.text = self.results[indexPath.item].amkUni
-        //cell.description.text = self.results[indexPath.item].description
         cell.duration.text = self.results[indexPath.item].duration
-        //   cell.url.text = self.results[indexPath.item].url
         
         return cell
     }
     
+    // Create single view for result
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = UIStoryboard.init(name: "Results", bundle: Bundle.main).instantiateViewController(withIdentifier: "ResultsSingle") as? ResultsViewController
         
@@ -134,6 +139,7 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
         resignFirstResponder()
     }
     
+    // Get user inputted email if did not log in and validate
     @IBAction func textFieldEdited(_ sender: UITextField) {
         print("text field edited")
         let userEmail: String? = emailInput.text
@@ -145,7 +151,8 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
     }
     
-    func openSend(_ userEmail: String, _ body: [SingleResult]) {
+    // Mail Compose delegate setup. Not working with iOS simulator. Best case would be to send email from backend
+    func openSend(_ userEmail: String, _ body: [String?]) {
      if MFMailComposeViewController.canSendMail() {
      let mail = MFMailComposeViewController()
      mail.mailComposeDelegate = self
@@ -159,22 +166,22 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
         
      }
      
-    
-    
-    
+    // Create alert to check if user wants to send the results as email and then print results to console because Mail Compose not working with iOS simulator.
     @IBAction func sendEmaill(_ sender: UIButton) {
-        let schools = results.map({ (organisation) -> String? in
+        
+        let schools = self.results.map({ (organisation) -> String? in
             return organisation.faculty
         })
+        
         print("RESULTS \n \(schools)")
         
         let alert = UIAlertController(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "email_alert_text", comment: ""), message: "", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "email_yes", comment: ""), style: .default, handler: { action in
-            self.openSend(self.unwrapped, self.results)
+            self.openSend(self.unwrapped, schools)
         }))
         alert.addAction(UIAlertAction(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "email_no", comment: ""), style: .cancel, handler: nil))
-        
+        i
         self.present(alert, animated: true)
     }
 }
