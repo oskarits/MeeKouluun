@@ -68,10 +68,11 @@ class Main {
 //        }
 //
 //    }
-    func addToScore(_ IvE: Int = 0, CvL: Int = 0, SvA: Int = 0) {
-        quizScore[0] = quizScore[0] + IvE
-        quizScore[1] = quizScore[1] + CvL
-        quizScore[2] = quizScore[2] + SvA
+    func addToScore(_ IvE: Int = 0, _ CvL: Int = 0, _ SvA: Int = 0) {
+        quizScore[0] = ((quizScore[0] + IvE)%10)
+        quizScore[1] = ((quizScore[1] + CvL)%10)
+        quizScore[2] = ((quizScore[2] + SvA)%10)
+        print("QuizScore \((quizScore[0], quizScore[1], quizScore[2]))")
     }
     // Compares two scores, one for the person and one for the school
     func compareScores(comparisonArray: [Int]) -> Double {
@@ -80,6 +81,7 @@ class Main {
         }
         let result = pow(Double(comparisonArray[0]) - Double(quizScore[0]), 2) + pow(Double(comparisonArray[1]) - Double(quizScore[1]), 2)
         return result
+        
     }
 }
 

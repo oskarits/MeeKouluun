@@ -323,6 +323,7 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
             }
             let tempButton = self.view.viewWithTag(Int(sender.tag)) as? UIButton
             tempButton?.backgroundColor = .lightGray
+            
             checkMark(sender)
         case 21..<26:
             for i in 21...25 {
@@ -331,6 +332,7 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
             }
             let tempButton = self.view.viewWithTag(Int(sender.tag)) as? UIButton
             tempButton?.backgroundColor = .lightGray
+            
             checkMark(sender)
         case 31..<36:
             for i in 31...35 {
@@ -339,6 +341,7 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
             }
             let tempButton = self.view.viewWithTag(Int(sender.tag)) as? UIButton
             tempButton?.backgroundColor = .lightGray
+            
             checkMark(sender)
         case 41..<46:
             for i in 41...45 {
@@ -347,6 +350,7 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
             }
             let tempButton = self.view.viewWithTag(Int(sender.tag)) as? UIButton
             tempButton?.backgroundColor = .lightGray
+            
             checkMark(sender)
         case 51..<56:
             for i in 51...55 {
@@ -355,6 +359,7 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
             }
             let tempButton = self.view.viewWithTag(Int(sender.tag)) as? UIButton
             tempButton?.backgroundColor = .lightGray
+            
             checkMark(sender)
         case 61..<66:
             for i in 61...65 {
@@ -363,6 +368,7 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
             }
             let tempButton = self.view.viewWithTag(Int(sender.tag)) as? UIButton
             tempButton?.backgroundColor = .lightGray
+            
             checkMark(sender)
         case 71..<76:
             for i in 71...75 {
@@ -371,6 +377,7 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
             }
             let tempButton = self.view.viewWithTag(Int(sender.tag)) as? UIButton
             tempButton?.backgroundColor = .lightGray
+            
             checkMark(sender)
         case 81..<86:
             for i in 81...85 {
@@ -379,6 +386,7 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
             }
             let tempButton = self.view.viewWithTag(Int(sender.tag)) as? UIButton
             tempButton?.backgroundColor = .lightGray
+            
             checkMark(sender)
         case 91..<96:
             for i in 91...95 {
@@ -387,6 +395,7 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
             }
             let tempButton = self.view.viewWithTag(Int(sender.tag)) as? UIButton
             tempButton?.backgroundColor = .lightGray
+            
             checkMark(sender)
         case 101..<106:
             for i in 101...105 {
@@ -395,6 +404,7 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
             }
             let tempButton = self.view.viewWithTag(Int(sender.tag)) as? UIButton
             tempButton?.backgroundColor = .lightGray
+            
             checkMark(sender)
         default:
             print("button tag error")
@@ -541,6 +551,16 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
     //resultButton's function to seque to result
     @objc func ToResults(_ sender: UIButton!) {
         print("Continue to results")
+        personInstance.addToScore(0, check1, 0)
+        personInstance.addToScore(0, 0, check2)
+        personInstance.addToScore(0, 0, check3)
+        personInstance.addToScore(0, check4, 0)
+        personInstance.addToScore(0, 0, check5)
+        personInstance.addToScore(0, check6, 0)
+        personInstance.addToScore(check7, 0, 0)
+        personInstance.addToScore(check8, 0, 0)
+        personInstance.addToScore(check9, 0, 0)
+        personInstance.addToScore(check10, 0, 0)
         Transition(sender)
     }
     
