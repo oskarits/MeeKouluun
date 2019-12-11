@@ -36,7 +36,7 @@
 //ExplanationScreen
 "start_questions_text" = "Vastaa vielä nopeaan kyselyymme löytääksesi sinulle sopivimman opiskelupaikan!";
 "instruction_text" = "Voit liikkua kysymysten välillä pyyhkäisemällä näyttöä oikealle tai vasemalle.";
-"start_questions_button" = "Aloitetaan!";
+"start_questions_button" = "Aloitetaan";
 
 //CollectionViewController
 "go_to_results" = "Tuloksiin";
@@ -49,7 +49,7 @@
 
 //Alert
 "results_alert" = "Vastasit kaikkiin kysymyksiin.\nVoit jatkaa tuloksiin painamalla nappia alhaalta tai vaihtaa vastauksiasi.";
-"alert_title" = "Huomio";
+"alert_title" = "Hienoa";
 
 //FetchResults
 "send_email" = "Lähetä";

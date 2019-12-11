@@ -22,8 +22,7 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
         super.viewDidLoad()
         fetch()
         // Deactivate button and localisations
-        sendButton.isUserInteractionEnabled = false
-        sendButton.alpha = 0.5
+        deactivateSend()
         sendButton.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "send_email", comment: ""), for: .normal)
         emailLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "email_label", comment: "")
         
@@ -40,13 +39,11 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
         layer.startPoint = CGPoint(x: 0, y: 0)
         layer.endPoint = CGPoint(x:1, y:1)
         view.layer.insertSublayer(layer, at: 0)
+        
+        emailStackView.backgroundColor = .gray
     }
     
-    //hide navigation
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
+    @IBOutlet weak var emailStackView: UIStackView!
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0
@@ -153,6 +150,11 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
         self.sendButton.alpha = 1
     }
     
+    func deactivateSend() -> Void {
+        self.sendButton.isUserInteractionEnabled = false
+        self.sendButton.alpha = 0.5
+    }
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.becomeFirstResponder()
     }
@@ -167,9 +169,11 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
         let userEmail: String? = emailInput.text
         //inputLength = userEmail?.count ?? nil
         unwrapped = userEmail ?? "foo"
-        if (unwrapped.contains("@")) {
+        if (unwrapped.contains("@") || unwrapped.count > 5) {
             self.activateSend()
             print(userEmail ?? "foo")
+        } else {
+            deactivateSend()
         }
     }
     
@@ -188,7 +192,8 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
         
      }
      
-    // Create alert to check if user wants to send the results as email and then print results to console because Mail Compose not working with iOS simulator.
+    // Create alert to check if user wants to send the results as email and
+    // then print results to console because Mail Compose not working with iOS simulator.
     @IBAction func sendEmaill(_ sender: UIButton) {
         
         let schools = self.results.map({ (organisation) -> String? in

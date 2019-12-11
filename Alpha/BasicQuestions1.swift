@@ -100,9 +100,9 @@ class BasicQuestions1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         super.viewDidLoad()
         getData()
 
-        agePicker.selectRow(5, inComponent: 0, animated: true)
-        //Then
-        pickerView(agePicker, didSelectRow: (storedAge - 15), inComponent: 0)
+//        agePicker.selectRow(5, inComponent: 0, animated: true)
+//        //Then
+//        pickerView(agePicker, didSelectRow: (storedAge - 15), inComponent: 0)
         //self.agePicker.selectRow(4, inComponent: 0, animated: true)
 
         
