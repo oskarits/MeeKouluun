@@ -163,7 +163,10 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     
     @IBAction func sendEmaill(_ sender: UIButton) {
-        print("RESULTS \n \(dump(results))")
+        let schools = results.map({ (organisation) -> String? in
+            return organisation.faculty
+        })
+        print("RESULTS \n \(schools)")
         
         let alert = UIAlertController(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "email_alert_text", comment: ""), message: "", preferredStyle: .alert)
         
