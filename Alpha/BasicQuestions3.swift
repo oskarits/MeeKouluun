@@ -56,11 +56,14 @@ class BasicQuestions3: UIViewController {
             print("selectedEducation: \(selectedEducation)")
         }
     }
-    
+    let layer = CAGradientLayer()
     override func viewDidLoad() {
         super.viewDidLoad()
         
         educationLabel?.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "education_label", comment: "")
+        educationLabel.textColor = .white
+        educationLabel.font = UIFont.systemFont(ofSize: 20)
+
         elementaryButton?.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "elementary", comment: ""), for: .normal)
         tradeSchoolButton?.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "trade_school", comment: ""), for: .normal)
         highSchoolButton?.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "high_school", comment: ""), for: .normal)
@@ -69,6 +72,13 @@ class BasicQuestions3: UIViewController {
         educationContinueButton?.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "education_continue_button", comment: ""), for: .normal)
         educationContinueButton.isUserInteractionEnabled = false
         educationContinueButton.alpha = 0.1
+        layer.frame = view.bounds
+        let color2 = UIColor(red: 0.08, green: 0.11, blue: 0.15, alpha: 1)
+        let color1 = UIColor(red: 0.19, green: 0.27, blue: 0.37, alpha: 1)
+        layer.colors = [color1.cgColor, color2.cgColor]
+        layer.startPoint = CGPoint(x: 0, y: 0)
+        layer.endPoint = CGPoint(x:1, y:1)
+        view.layer.insertSublayer(layer, at: 0)
         setup()
     }
     
@@ -85,7 +95,7 @@ class BasicQuestions3: UIViewController {
         highSchoolButton.backgroundColor = .white
         collegeButton.backgroundColor = .white
         universityButton.backgroundColor = .white
-        educationContinueButton.backgroundColor = .white
+        educationContinueButton.backgroundColor = UIColor(red: 0.77, green: 0.12, blue: 0.36, alpha: 1)
         
         elementaryButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         tradeSchoolButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
@@ -94,12 +104,12 @@ class BasicQuestions3: UIViewController {
         universityButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         educationContinueButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
 
-        elementaryButton.setTitleColor(.blue, for: .normal)
-        tradeSchoolButton.setTitleColor(.blue, for: .normal)
-        highSchoolButton.setTitleColor(.blue, for: .normal)
-        collegeButton.setTitleColor(.blue, for: .normal)
-        universityButton.setTitleColor(.blue, for: .normal)
-        educationContinueButton.setTitleColor(.blue, for: .normal)
+        elementaryButton.setTitleColor(.darkGray, for: .normal)
+        tradeSchoolButton.setTitleColor(.darkGray, for: .normal)
+        highSchoolButton.setTitleColor(.darkGray, for: .normal)
+        collegeButton.setTitleColor(.darkGray, for: .normal)
+        universityButton.setTitleColor(.darkGray, for: .normal)
+        educationContinueButton.setTitleColor(.white, for: .normal)
         
         elementaryButton.layer.cornerRadius = 20
         tradeSchoolButton.layer.cornerRadius = 20

@@ -53,14 +53,22 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = .white
+        cv.backgroundColor = .clear
         return cv
     }()
-    
+    let layer = CAGradientLayer()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        layer.frame = view.bounds
+        let color2 = UIColor(red: 0.08, green: 0.11, blue: 0.15, alpha: 1)
+        let color1 = UIColor(red: 0.19, green: 0.27, blue: 0.37, alpha: 1)
+        layer.colors = [color1.cgColor, color2.cgColor]
+        layer.startPoint = CGPoint(x: 0, y: 0)
+        layer.endPoint = CGPoint(x:1, y:1)
+        view.layer.insertSublayer(layer, at: 0)
         //Sets background color
-        view.backgroundColor = .white
+        //view.backgroundColor = .white
         //Adds collectionView to view
         view.addSubview(collectionView)
         //The object that acts as the delegate of the collection view.
@@ -244,7 +252,7 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         //Colors all answer buttons grey
         for i in 11...115 {
             let tempButton = self.view.viewWithTag(Int(i)) as? UIButton
-            tempButton?.backgroundColor = UIColor.blue.withAlphaComponent(0)
+            tempButton?.backgroundColor = .white
         }
         //Reloads all values from check1 to check10
         let checkVerify1 = check1
@@ -260,43 +268,43 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         //Colors correct button if it has been clicked, based on tag
         if (check1 > 0) {
             let tempButton = self.view.viewWithTag(Int(checkVerify1)) as? UIButton
-            tempButton?.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 1)
+            tempButton?.backgroundColor = .lightGray
         }
         if (check2 > 0) {
             let tempButton = self.view.viewWithTag(Int(checkVerify2)) as? UIButton
-            tempButton?.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 1)
+            tempButton?.backgroundColor = .lightGray
         }
         if (check3 > 0) {
             let tempButton = self.view.viewWithTag(Int(checkVerify3)) as? UIButton
-            tempButton?.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 1)
+            tempButton?.backgroundColor = .lightGray
         }
         if (check4 > 0) {
             let tempButton = self.view.viewWithTag(Int(checkVerify4)) as? UIButton
-            tempButton?.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 1)
+            tempButton?.backgroundColor = .lightGray
         }
         if (check5 > 0) {
             let tempButton = self.view.viewWithTag(Int(checkVerify5)) as? UIButton
-            tempButton?.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 1)
+            tempButton?.backgroundColor = .lightGray
         }
         if (check6 > 0) {
             let tempButton = self.view.viewWithTag(Int(checkVerify6)) as? UIButton
-            tempButton?.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 1)
+            tempButton?.backgroundColor = .lightGray
         }
         if (check7 > 0) {
             let tempButton = self.view.viewWithTag(Int(checkVerify7)) as? UIButton
-            tempButton?.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 1)
+            tempButton?.backgroundColor = .lightGray
         }
         if (check8 > 0) {
             let tempButton = self.view.viewWithTag(Int(checkVerify8)) as? UIButton
-            tempButton?.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 1)
+            tempButton?.backgroundColor = .lightGray
         }
         if (check9 > 0) {
             let tempButton = self.view.viewWithTag(Int(checkVerify9)) as? UIButton
-            tempButton?.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 1)
+            tempButton?.backgroundColor = .lightGray
         }
         if (check10 > 0) {
             let tempButton = self.view.viewWithTag(Int(checkVerify10)) as? UIButton
-            tempButton?.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 1)
+            tempButton?.backgroundColor = .lightGray
         }
         return cell
     }
@@ -311,82 +319,82 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         case 11..<16:
             for i in 11...15 {
                 let tempButton = self.view.viewWithTag(Int(i)) as? UIButton
-                tempButton?.backgroundColor = UIColor.blue.withAlphaComponent(0)
+                tempButton?.backgroundColor = .white
             }
             let tempButton = self.view.viewWithTag(Int(sender.tag)) as? UIButton
-            tempButton?.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 1)
+            tempButton?.backgroundColor = .lightGray
             checkMark(sender)
         case 21..<26:
             for i in 21...25 {
                 let tempButton = self.view.viewWithTag(Int(i)) as? UIButton
-                tempButton?.backgroundColor = UIColor.blue.withAlphaComponent(0)
+                tempButton?.backgroundColor = .white
             }
             let tempButton = self.view.viewWithTag(Int(sender.tag)) as? UIButton
-            tempButton?.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 1)
+            tempButton?.backgroundColor = .lightGray
             checkMark(sender)
         case 31..<36:
             for i in 31...35 {
                 let tempButton = self.view.viewWithTag(Int(i)) as? UIButton
-                tempButton?.backgroundColor = UIColor.blue.withAlphaComponent(0)
+                tempButton?.backgroundColor = .white
             }
             let tempButton = self.view.viewWithTag(Int(sender.tag)) as? UIButton
-            tempButton?.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 1)
+            tempButton?.backgroundColor = .lightGray
             checkMark(sender)
         case 41..<46:
             for i in 41...45 {
                 let tempButton = self.view.viewWithTag(Int(i)) as? UIButton
-                tempButton?.backgroundColor = UIColor.blue.withAlphaComponent(0)
+                tempButton?.backgroundColor = .white
             }
             let tempButton = self.view.viewWithTag(Int(sender.tag)) as? UIButton
-            tempButton?.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 1)
+            tempButton?.backgroundColor = .lightGray
             checkMark(sender)
         case 51..<56:
             for i in 51...55 {
                 let tempButton = self.view.viewWithTag(Int(i)) as? UIButton
-                tempButton?.backgroundColor = UIColor.blue.withAlphaComponent(0)
+                tempButton?.backgroundColor = .white
             }
             let tempButton = self.view.viewWithTag(Int(sender.tag)) as? UIButton
-            tempButton?.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 1)
+            tempButton?.backgroundColor = .lightGray
             checkMark(sender)
         case 61..<66:
             for i in 61...65 {
                 let tempButton = self.view.viewWithTag(Int(i)) as? UIButton
-                tempButton?.backgroundColor = UIColor.blue.withAlphaComponent(0)
+                tempButton?.backgroundColor = .white
             }
             let tempButton = self.view.viewWithTag(Int(sender.tag)) as? UIButton
-            tempButton?.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 1)
+            tempButton?.backgroundColor = .lightGray
             checkMark(sender)
         case 71..<76:
             for i in 71...75 {
                 let tempButton = self.view.viewWithTag(Int(i)) as? UIButton
-                tempButton?.backgroundColor = UIColor.blue.withAlphaComponent(0)
+                tempButton?.backgroundColor = .white
             }
             let tempButton = self.view.viewWithTag(Int(sender.tag)) as? UIButton
-            tempButton?.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 1)
+            tempButton?.backgroundColor = .lightGray
             checkMark(sender)
         case 81..<86:
             for i in 81...85 {
                 let tempButton = self.view.viewWithTag(Int(i)) as? UIButton
-                tempButton?.backgroundColor = UIColor.blue.withAlphaComponent(0)
+                tempButton?.backgroundColor = .white
             }
             let tempButton = self.view.viewWithTag(Int(sender.tag)) as? UIButton
-            tempButton?.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 1)
+            tempButton?.backgroundColor = .lightGray
             checkMark(sender)
         case 91..<96:
             for i in 91...95 {
                 let tempButton = self.view.viewWithTag(Int(i)) as? UIButton
-                tempButton?.backgroundColor = UIColor.blue.withAlphaComponent(0)
+                tempButton?.backgroundColor = .white
             }
             let tempButton = self.view.viewWithTag(Int(sender.tag)) as? UIButton
-            tempButton?.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 1)
+            tempButton?.backgroundColor = .lightGray
             checkMark(sender)
         case 101..<106:
             for i in 101...105 {
                 let tempButton = self.view.viewWithTag(Int(i)) as? UIButton
-                tempButton?.backgroundColor = UIColor.blue.withAlphaComponent(0)
+                tempButton?.backgroundColor = .white
             }
             let tempButton = self.view.viewWithTag(Int(sender.tag)) as? UIButton
-            tempButton?.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 1)
+            tempButton?.backgroundColor = .lightGray
             checkMark(sender)
         default:
             print("button tag error")
@@ -475,35 +483,35 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
                 //Changes the current page index to fix bug of selected button color not showing
                 switch buttonTag {
                 case 11..<16:
-                    let nextIndex = IndexPath(item: 4, section: 0)
-                    self.collectionView.scrollToItem(at: nextIndex, at: .centeredHorizontally, animated: true)
+                    let nextIndex = IndexPath(item: 9, section: 0)
+                    self.collectionView.scrollToItem(at: nextIndex, at: .centeredHorizontally, animated: false)
                 case 21..<26:
-                    let nextIndex = IndexPath(item: 4, section: 0)
-                    self.collectionView.scrollToItem(at: nextIndex, at: .centeredHorizontally, animated: true)
+                    let nextIndex = IndexPath(item: 0, section: 0)
+                    self.collectionView.scrollToItem(at: nextIndex, at: .centeredHorizontally, animated: false)
                 case 31..<36:
-                    let nextIndex = IndexPath(item: 4, section: 0)
-                    self.collectionView.scrollToItem(at: nextIndex, at: .centeredHorizontally, animated: true)
+                    let nextIndex = IndexPath(item: 0, section: 0)
+                    self.collectionView.scrollToItem(at: nextIndex, at: .centeredHorizontally, animated: false)
                 case 41..<46:
-                    let nextIndex = IndexPath(item: 4, section: 0)
-                    self.collectionView.scrollToItem(at: nextIndex, at: .centeredHorizontally, animated: true)
+                    let nextIndex = IndexPath(item: 0, section: 0)
+                    self.collectionView.scrollToItem(at: nextIndex, at: .centeredHorizontally, animated: false)
                 case 51..<56:
-                    let nextIndex = IndexPath(item: 5, section: 0)
-                    self.collectionView.scrollToItem(at: nextIndex, at: .centeredHorizontally, animated: true)
+                    let nextIndex = IndexPath(item: 0, section: 0)
+                    self.collectionView.scrollToItem(at: nextIndex, at: .centeredHorizontally, animated: false)
                 case 61..<66:
-                    let nextIndex = IndexPath(item: 4, section: 0)
-                    self.collectionView.scrollToItem(at: nextIndex, at: .centeredHorizontally, animated: true)
+                    let nextIndex = IndexPath(item: 0, section: 0)
+                    self.collectionView.scrollToItem(at: nextIndex, at: .centeredHorizontally, animated: false)
                 case 71..<76:
-                    let nextIndex = IndexPath(item: 4, section: 0)
-                    self.collectionView.scrollToItem(at: nextIndex, at: .centeredHorizontally, animated: true)
+                    let nextIndex = IndexPath(item: 0, section: 0)
+                    self.collectionView.scrollToItem(at: nextIndex, at: .centeredHorizontally, animated: false)
                 case 81..<86:
-                    let nextIndex = IndexPath(item: 4, section: 0)
-                    self.collectionView.scrollToItem(at: nextIndex, at: .centeredHorizontally, animated: true)
+                    let nextIndex = IndexPath(item: 0, section: 0)
+                    self.collectionView.scrollToItem(at: nextIndex, at: .centeredHorizontally, animated: false)
                 case 91..<96:
-                    let nextIndex = IndexPath(item: 4, section: 0)
-                    self.collectionView.scrollToItem(at: nextIndex, at: .centeredHorizontally, animated: true)
+                    let nextIndex = IndexPath(item: 0, section: 0)
+                    self.collectionView.scrollToItem(at: nextIndex, at: .centeredHorizontally, animated: false)
                 case 101..<106:
-                    let nextIndex = IndexPath(item: 4, section: 0)
-                    self.collectionView.scrollToItem(at: nextIndex, at: .centeredHorizontally, animated: true)
+                    let nextIndex = IndexPath(item: 0, section: 0)
+                    self.collectionView.scrollToItem(at: nextIndex, at: .centeredHorizontally, animated: false)
                 default:
                     print("button tag error")
                 }

@@ -17,13 +17,29 @@ class ToResultsViewController: UIViewController {
     @IBOutlet weak var resultExplanation: UILabel!
     //Button for going to results
     @IBOutlet weak var resultButton: UIButton!
-    
+    let layer = CAGradientLayer()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         //Changest the language of the resultExplanation text
         resultExplanation?.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "result_explanation_text", comment: "")
         //Changest the language of the resultButton text
         resultButton?.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "to_results_next", comment: ""), for: .normal)
+        resultExplanation.font = UIFont.systemFont(ofSize: 20)
+        resultExplanation.textColor = .white
+        resultButton.layer.cornerRadius = 20
+        resultButton.backgroundColor = UIColor(red: 0.77, green: 0.12, blue: 0.36, alpha: 1)
+        resultButton.setTitleColor(.white, for: .normal)
+        resultButton.layer.cornerRadius = 20
+        resultButton.layer.borderWidth = 1
+        resultButton.layer.borderColor = UIColor.black.cgColor
+        layer.frame = view.bounds
+        let color2 = UIColor(red: 0.08, green: 0.11, blue: 0.15, alpha: 1)
+        let color1 = UIColor(red: 0.19, green: 0.27, blue: 0.37, alpha: 1)
+        layer.colors = [color1.cgColor, color2.cgColor]
+        layer.startPoint = CGPoint(x: 0, y: 0)
+        layer.endPoint = CGPoint(x:1, y:1)
+        view.layer.insertSublayer(layer, at: 0)
     }
     
     //Performs a segue to results
