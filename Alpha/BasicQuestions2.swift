@@ -15,16 +15,26 @@ class BasicQuestions2: UIViewController, UITextFieldDelegate, CLLocationManagerD
     var geoCoder = CLGeocoder()
     private var inputLength: Int?
     
+    let layer = CAGradientLayer()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        layer.frame = view.bounds
+        let color2 = UIColor(red: 0.08, green: 0.11, blue: 0.15, alpha: 1)
+        let color1 = UIColor(red: 0.19, green: 0.27, blue: 0.37, alpha: 1)
+        layer.colors = [color1.cgColor, color2.cgColor]
+        layer.startPoint = CGPoint(x: 0, y: 0)
+        layer.endPoint = CGPoint(x:1, y:1)
+        view.layer.insertSublayer(layer, at: 0)
         nextButton?.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "next_map_text", comment: ""), for: .normal)
         // next button disabled on startup
         nextButton.isUserInteractionEnabled = false
         nextButton.alpha = 0.5
         nextButton.contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         nextButton.titleLabel?.lineBreakMode = .byWordWrapping
-        nextButton.layer.cornerRadius = 5
+        nextButton.layer.cornerRadius = 17
         nextButton.layer.borderWidth = 1
+        
         //textFieldPostalCode.delegate = self
         // setup location manager
         locationManager = CLLocationManager()
@@ -36,7 +46,9 @@ class BasicQuestions2: UIViewController, UITextFieldDelegate, CLLocationManagerD
         //print("Postal code \(self.postalCode)")
         print("Location fetching started...")
         postalLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "postal_code_description", comment: "")
-        
+        postalLabel.textColor = .white
+        postalLabel.font = UIFont.systemFont(ofSize: 20)
+
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "BackgroundGradient")!)
         
     }

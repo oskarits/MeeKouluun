@@ -21,15 +21,16 @@ class BasicQuestions1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return ageData.count
     }
-    
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if component == 0 {
-            return ageData[row]
-        }
-        return ""
+
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        var label = UILabel()
+        if let v = view as? UILabel { label = v }
+        label.font = UIFont (name: "Helvetica Neue", size: 30)
+        label.text =  ageData[row]
+        label.textColor = .white
+        label.textAlignment = .center
+        return label
     }
-    
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
@@ -44,9 +45,17 @@ class BasicQuestions1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         
         
     }
-    
+    let layer = CAGradientLayer()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        layer.frame = view.bounds
+        let color2 = UIColor(red: 0.08, green: 0.11, blue: 0.15, alpha: 1)
+        let color1 = UIColor(red: 0.19, green: 0.27, blue: 0.37, alpha: 1)
+        layer.colors = [color1.cgColor, color2.cgColor]
+        layer.startPoint = CGPoint(x: 0, y: 0)
+        layer.endPoint = CGPoint(x:1, y:1)
+        view.layer.insertSublayer(layer, at: 0)
         self.navigationController?.isNavigationBarHidden = true
         navigationItem.hidesBackButton = true
 
@@ -59,8 +68,11 @@ class BasicQuestions1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         //view.layer.addSublayer(layer)
         view.layer.insertSublayer(layer, at: 0)
         */
+        
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "BackgroundGradient")!)
         ageQuestionLabel?.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "age_question", comment: "")
+        ageQuestionLabel.textColor = .white
+        ageQuestionLabel.font = UIFont (name: "Helvetica Neue", size: 20)
         nextButton?.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "next_text", comment: ""), for: .normal)
         
         // Do any additional setup after loading the view.
@@ -69,12 +81,13 @@ class BasicQuestions1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         agePicker.delegate = self
         agePicker.dataSource = self
         
+        
         // button properties + disabled next-button on startup
         nextButton.isUserInteractionEnabled = false
         nextButton.alpha = 0.5
         nextButton.contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         nextButton.titleLabel?.lineBreakMode = .byWordWrapping
-        nextButton.layer.cornerRadius = 5
+        nextButton.layer.cornerRadius = 17
         nextButton.layer.borderWidth = 1
         
     }

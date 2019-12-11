@@ -11,6 +11,8 @@
 "language_instruction_text" = "Valitse kieli:";
 "continue_text" = "Jatka ilman sisäänkirjautumista";
 "signed_in" = "Jatka";
+"google_text" = "Kirjaudu sisään Googlella";
+"facebook_text" = "Kirjaudu sisään Facebookilla";
 
 //BasicQuestions1
 "next_text" = "Seuraava";
@@ -18,9 +20,9 @@
 
 //BasicQuestions2
 "next_map_text" = "Seuraava";
+"postal_code_description" = "Syötä postinumero:";
 
 //BasicQuestions3
-#<<<<<<< Alpha/fi.lproj/Localizable.strings
 "elementary" = "Peruskoulu";
 "trade_school" = "Ammattikoulu";
 "high_school" = "Lukio";
@@ -28,7 +30,7 @@
 "university" = "Yliopisto";
 "education_label" = "Mikä on aikaisempi koulutustasosi?";
 "education_continue_button" = "Jatka";
-"postal_code_description" = "Syötä postinumero:";
+
 
 
 //ExplanationScreen
