@@ -1,5 +1,5 @@
 //
-//  Person.swift
+//  Global.swift
 //  meekouluun
 //
 //  Created by Otto on 18/11/2019.
@@ -9,13 +9,9 @@
 import Foundation
 import CoreLocation
 
-// TODO
-// funcs for: Printing array(?),
-
 class Main {
     public var fullName: String?
     private(set) var age = 1
-//    private var profession: [String] = []
 //    private var latitude: CLLocationDegrees = 60.1
 //    private var longitude: CLLocationDegrees = 24.6
 //    private var location: CLLocation
@@ -37,14 +33,13 @@ class Main {
     init(age: Int) {
         self.age = (age < 0 ? 0 : age)
         // self.location  = CLLocation(latitude: latitude, longitude: longitude)
-        print("A new person /name has been created!")
+        print("User created succesfully")
     }
     
     func setName(newName: String) -> Void {
         fullName = newName
     }
 
-    
     func setEmail(_ newEmail: String) -> Void {
         email = newEmail
         print("Person.setEmail: \(email)")
@@ -79,7 +74,7 @@ class Main {
         if comparisonArray.count != 3 {
             return 0.0
         }
-        let result = pow(Double(comparisonArray[0]) - Double(quizScore[0]), 2) + pow(Double(comparisonArray[1]) - Double(quizScore[1]), 2)
+        let result = pow(Double(comparisonArray[0]) - Double(quizScore[0]), 2) + pow(Double(comparisonArray[1]) - Double(quizScore[1]), 2) + pow(Double(comparisonArray[2]) - Double(quizScore[2]), 2)
         return result
         
     }

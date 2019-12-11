@@ -67,7 +67,7 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
                 if let resultsFromJson = json["results"] as? [[String: AnyObject]] {
                     for resultFromJson in resultsFromJson {
                         let result = SingleResult()
-                        if let organisation = resultFromJson["organisation"] as? String, let faculty = resultFromJson["faculty"] as? String, let location = resultFromJson["location"] as? String, let language = resultFromJson["language"] as? String, let amkUni = resultFromJson["amkUni"] as? String, let duration = resultFromJson["duration"] as? String, let url = resultFromJson["url"] as? String, let about = resultFromJson["description"] as? String
+                        if let organisation = resultFromJson["organisation"] as? String, let faculty = resultFromJson["faculty"] as? String, let location = resultFromJson["location"] as? String, let language = resultFromJson["language"] as? String, let amkUni = resultFromJson["amkUni"] as? String, let duration = resultFromJson["duration"] as? String, let url = resultFromJson["url"] as? String, let about = resultFromJson["description"] as? String, let points = resultFromJson["points"] as? Int
                         {
                             result.organisation = organisation
                             result.faculty = faculty
@@ -77,8 +77,14 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
                             result.duration = duration
                             result.url = url
                             result.about = about
+                            result.points = points
+                            // Results are added and calculated on the fly
+                            let magic = result.points?.digits
+                            result.score = personInstance.compareScores(comparisonArray: magic ?? [0, 0, 0])
                         }
                         self.results.append(result)
+                        // Results are sorted after each addition
+                        self.results = self.results.sorted(by: {Int($0.score ?? 0.0) > Int($1.score ?? 0.0)})
                     }
                     
                     print("RESPONSE: \n\(json)")
@@ -202,10 +208,20 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
 }
 
+extension BinaryInteger {
+    var digits: [Int] {
+        return String(describing: self).compactMap { Int(String($0)) }
+    }
+}
 
 
-
-
+extension Array {
+    func chunked(into size: Int) -> [[Element]] {
+        return stride(from: 0, to: count, by: size).map {
+            Array(self[$0 ..< Swift.min($0 + size, count)])
+        }
+    }
+}
 
 
 
