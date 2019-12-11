@@ -181,7 +181,7 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
             self.openSend(self.unwrapped, schools)
         }))
         alert.addAction(UIAlertAction(title: LocalizationSystem.sharedInstance.localizedStringForKey(key: "email_no", comment: ""), style: .cancel, handler: nil))
-        i
+        
         self.present(alert, animated: true)
     }
 }
