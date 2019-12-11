@@ -25,8 +25,7 @@ class ViewController: UIViewController, LoginButtonDelegate {
     @IBOutlet weak var googleButton: GIDSignInButton!
     //UIButton to continue without Google or Facebook login
     @IBOutlet weak var continueButton: UIButton!
-    //Calls for Person.Swift
-    let person = Person(age: -1)
+    
     //Creates a layer that draws a color gradient over its background color
     let layer = CAGradientLayer()
     
@@ -82,6 +81,7 @@ class ViewController: UIViewController, LoginButtonDelegate {
         //round buttons
         googleButton.layer.cornerRadius = 8
         continueButton.layer.cornerRadius = 5
+        
     }
     //Changes the language settings to english
     @IBAction func changeLanguageToEN(_ sender: Any) {
@@ -145,12 +145,12 @@ class ViewController: UIViewController, LoginButtonDelegate {
                     print("------------------------------")
                     print(email)
                     //Sets Person class an email
-                    self.person.setEmail(email)
+                    personInstance.setEmail(email)
                     //Disables Googles sign in button
                     self.googleButton.isEnabled = false
                     self.continueButton?.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "signed_in", comment: ""), for: .normal)
                     //If email is succesfully set to Person class, user is logged out from Facebook
-                    if self.person.email.count > 5 {
+                    if personInstance.email.count > 5 {
                         let loginManager = LoginManager()
                         loginManager.logOut()
                         //Segues the user to basic questions

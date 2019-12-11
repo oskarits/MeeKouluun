@@ -65,18 +65,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         let fullName = user.profile.name
         //The Google user's email.
         let email = user.profile.email
-        //Calls for Person.Swift
-        let person = Person(age: -1)
+
         //Checks if Person class already has an email set
-        if person.email.count > 1 {
+        if personInstance.email.count > 1 {
             print("no email required")
-        } else if person.email.count <= 1{
+        } else if personInstance.email.count <= 1{
             if let printFullName = fullName {
                 print(printFullName)
             }
             if let printEmail = email {
                 //Sets Person class an email
-                person.setEmail(printEmail)
+                personInstance.setEmail(printEmail)
                 print(printEmail)
                 //Marks current user as being in the signed out state.
                 GIDSignIn.sharedInstance().signOut()

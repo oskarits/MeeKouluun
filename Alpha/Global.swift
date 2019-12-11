@@ -12,8 +12,8 @@ import CoreLocation
 // TODO
 // funcs for: Printing array(?),
 
-class Person {
-   // private let name: String
+class Main {
+    public var fullName: String?
     private(set) var age = 1
 //    private var profession: [String] = []
 //    private var latitude: CLLocationDegrees = 60.1
@@ -23,6 +23,7 @@ class Person {
     // set to private(set)
     // This version has three axels: Introverted v Extroverted, Creative v Logical and Adventurous v Steady work environment
     public var quizScore = [0, 0, 0]
+    private var location: String?
 
     /*
     init(name: String, age: Int, weight: Double, height: Double){
@@ -38,16 +39,24 @@ class Person {
         // self.location  = CLLocation(latitude: latitude, longitude: longitude)
         print("A new person /name has been created!")
     }
+    
+    func setName(newName: String) -> Void {
+        fullName = newName
+    }
 
     
-    func setEmail(_ newEmail: String) {
+    func setEmail(_ newEmail: String) -> Void {
         email = newEmail
         print("Person.setEmail: \(email)")
     }
     
-    func setAge(newAge: Int) {
+    func setAge(newAge: Int) -> Void {
             age = newAge
         print("Person.setAge: \(age)")
+    }
+    
+    func setLocation(newLocation: String) -> Void {
+        location = newLocation
     }
 
     // Allows adding to whole array at once in order
@@ -74,3 +83,4 @@ class Person {
     }
 }
 
+var personInstance = Main(age: 15)
