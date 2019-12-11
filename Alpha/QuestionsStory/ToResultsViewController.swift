@@ -49,7 +49,7 @@ class ToResultsViewController: UIViewController {
         //Displays an activityIndicator
         activityIndicator.center = self.view.center
         activityIndicator.hidesWhenStopped = true
-        activityIndicator.style = .gray
+        activityIndicator.style = .white
         activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
         activityIndicator.center = self.view.center
         //Scales the activityIndicator to be larger

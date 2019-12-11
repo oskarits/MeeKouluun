@@ -34,7 +34,8 @@
 
 
 //ExplanationScreen
-"start_questions_text" = "Kiitos, olet täyttänyt esitietokyselyn.\nVastaa vielä nopeaan kyselyymme löytääksesi sinulle sopivimman opiskelupaikan!\n\nVoit liikkua kysymysten välillä pyyhkäisemällä näyttöä oikealle tai vasemalle.";
+"start_questions_text" = "Vastaa vielä nopeaan kyselyymme löytääksesi sinulle sopivimman opiskelupaikan!";
+"instruction_text" = "Voit liikkua kysymysten välillä pyyhkäisemällä näyttöä oikealle tai vasemalle.";
 "start_questions_button" = "Aloitetaan!";
 
 //CollectionViewController

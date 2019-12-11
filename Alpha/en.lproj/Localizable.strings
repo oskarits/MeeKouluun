@@ -32,7 +32,8 @@
 "education_continue_button" = "Continue";
 
 //ExplanationScreen
-"start_questions_text" = "Thank you for filling the basic info.\nNow fill out our quick questionnaire to find out which education suits you the best!\n\nYou can navigate between questions by swiping left or right.";
+"start_questions_text" = "Now fill out our quick questionnaire to find out which education suits you the best!";
+"instruction_text" = "You can navigate between questions by swiping left or right.";
 "start_questions_button" = "Let's Get Started!";
 
 //CollectionViewController
