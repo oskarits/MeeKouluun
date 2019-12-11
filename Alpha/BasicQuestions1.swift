@@ -13,7 +13,6 @@ class BasicQuestions1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     // pickerview data variable
     var ageData = (15...100).map{ String($0)}
     
-    public var person = Person.init(age: 2)
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -23,24 +22,26 @@ class BasicQuestions1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         return ageData.count
     }
     
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if component == 0 {
-            person.setAge(newAge: Int(ageData[row])!)
             return ageData[row]
         }
         return ""
     }
+    
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         // save selected age
         print(ageData[row])
         let selectedAge = Int(ageData[row])
-        person.setAge(newAge: selectedAge ?? 0)
+        personInstance.setAge(newAge: selectedAge ?? 0)
         
         // enable next button
         nextButton.isUserInteractionEnabled = true
         nextButton.alpha = 1
+        
         
     }
     

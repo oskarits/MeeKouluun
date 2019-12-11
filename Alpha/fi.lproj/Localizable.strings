@@ -20,7 +20,7 @@
 "next_map_text" = "Seuraava";
 
 //BasicQuestions3
-<<<<<<< Alpha/fi.lproj/Localizable.strings
+#<<<<<<< Alpha/fi.lproj/Localizable.strings
 "elementary" = "Peruskoulu";
 "trade_school" = "Ammattikoulu";
 "high_school" = "Lukio";

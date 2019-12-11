@@ -65,6 +65,8 @@ class BasicQuestions2: UIViewController, UITextFieldDelegate, CLLocationManagerD
                     
                     
                     print("postal code is \(pm.postalCode!)") //prints zip code
+                    let postalCodeString = pm.postalCode
+                    personInstance.setLocation(newLocation: (postalCodeString ?? nil) ?? "00000")
                     self.textFieldPostalCode.text = String(pm.postalCode!)
                     // activate next button
                     self.activateNext()
