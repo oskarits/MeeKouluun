@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 //Question is a placeholder for the fetched questions
 struct Question {
     var questionText: String?
@@ -21,7 +22,7 @@ struct Id {
 }
 //CollectionViewController defines methods that allow you to manage the selection and highlighting of items in a collection view and to perform actions on those items and creates a grid-based layout.
 class CollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
+    var xxx = Int()
     //Placeholder for the fetched questions.
     var questions = [Question(questionText: "Error")]
     /*Placeholders for the fetched answers.*/
@@ -60,6 +61,10 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        getData()
+        //check1 = xxx
+        
+        
         layer.frame = view.bounds
         let color2 = UIColor(red: 0.08, green: 0.11, blue: 0.15, alpha: 1)
         let color1 = UIColor(red: 0.19, green: 0.27, blue: 0.37, alpha: 1)
@@ -254,6 +259,7 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
             let tempButton = self.view.viewWithTag(Int(i)) as? UIButton
             tempButton?.backgroundColor = .white
         }
+        
         //Reloads all values from check1 to check10
         let checkVerify1 = check1
         let checkVerify2 = check2
@@ -561,6 +567,8 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         personInstance.addToScore(check8, 0, 0)
         personInstance.addToScore(check9, 0, 0)
         personInstance.addToScore(check10, 0, 0)
+//        xxx = check1
+        saveData(sender)
         Transition(sender)
     }
     
@@ -568,4 +576,74 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
     func Transition(_ sender: UIButton!) {
         performSegue(withIdentifier: "LoadingSegue", sender: self)
     }
+    
+    @IBAction func saveData(_ sender: Any) {
+        DeleteAllData()
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Result1", in: context)
+        let newEntity = NSManagedObject(entity: entity!, insertInto: context)
+        newEntity.setValue(check1, forKey: "attribute1")
+        newEntity.setValue(check2, forKey: "attribute2")
+        newEntity.setValue(check3, forKey: "attribute3")
+        newEntity.setValue(check4, forKey: "attribute4")
+        newEntity.setValue(check5, forKey: "attribute5")
+        newEntity.setValue(check6, forKey: "attribute6")
+        newEntity.setValue(check7, forKey: "attribute7")
+        newEntity.setValue(check8, forKey: "attribute8")
+        newEntity.setValue(check9, forKey: "attribute9")
+        newEntity.setValue(check10, forKey: "attribute10")
+        
+        do {
+            try context.save()
+            print("Saved to core data")
+        } catch {
+            print("Failed saving")
+            
+        }
+    }
+    func DeleteAllData(){
+        
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let DelAllReqVar = NSBatchDeleteRequest(fetchRequest: NSFetchRequest<NSFetchRequestResult>(entityName: "Result1"))
+        do {
+            try managedContext.execute(DelAllReqVar)
+        }
+        catch {
+            print(error)
+        }
+    }
+    
+    func getData() {
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Result1")
+        request.returnsObjectsAsFaults = false
+        do {
+            let result = try context.fetch(request)
+            for data in result as! [NSManagedObject]
+            {
+                xxx = data.value(forKey: "attribute1") as! Int
+                print("GetData() \nattribute = \(xxx)")
+                check1 = data.value(forKey: "attribute1") as! Int
+                check2 = data.value(forKey: "attribute2") as! Int
+                check3 = data.value(forKey: "attribute3") as! Int
+                check4 = data.value(forKey: "attribute4") as! Int
+                check5 = data.value(forKey: "attribute5") as! Int
+                check6 = data.value(forKey: "attribute6") as! Int
+                check7 = data.value(forKey: "attribute7") as! Int
+                check8 = data.value(forKey: "attribute8") as! Int
+                check9 = data.value(forKey: "attribute9") as! Int
+                check10 = data.value(forKey: "attribute10") as! Int
+            }
+        } catch {
+            print("getData failed")
+        }
+        
+    }
+    
+    
+    
+    
 }
