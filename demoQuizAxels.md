@@ -21,3 +21,7 @@
 1 "Oikeassa oleminen on tärkeämpää kuin tiimityöskentely"
 
 1 "Tykkäät työskennellä yksin"
+
+
+buttonPressed(5) // very agree
+    addToScore(CvL = 5)

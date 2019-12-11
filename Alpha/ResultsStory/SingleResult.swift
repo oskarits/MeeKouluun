@@ -19,5 +19,6 @@ class SingleResult: NSObject {
     var duration: String?
     var url: String?
     var about: String?
-    
+    var points: Int?
+    var score: Double?
 }
