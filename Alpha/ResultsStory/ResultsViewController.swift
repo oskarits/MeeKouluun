@@ -15,10 +15,10 @@ class ResultsViewController: UIViewController {
     @IBOutlet weak var singleLocation: UILabel!
     @IBOutlet weak var singleLanguage: UILabel!
     @IBOutlet weak var singleDuration: UILabel!
-    @IBOutlet weak var singleUrl: UILabel!
     @IBOutlet weak var singleDescription: UILabel!
     @IBOutlet weak var singleAmkUni: UILabel!
-
+    @IBOutlet weak var touchableUrl: UITextView!
+    
     // Add single view outlets here!
     
     var organisationTitle = ""
@@ -42,8 +42,9 @@ class ResultsViewController: UIViewController {
         singleLanguage.text = languageTitle
         singleAmkUni.text = amkUniTitle
         singleDuration.text = durationTitle
-        singleUrl.text = urlTitle
         singleDescription.text = descriptionTitle
+        touchableUrl.text = urlTitle
+        
         
         layer.frame = view.bounds
         let color2 = UIColor(red: 0.08, green: 0.11, blue: 0.15, alpha: 1)

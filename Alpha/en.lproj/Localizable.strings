@@ -34,7 +34,7 @@
 //ExplanationScreen
 "start_questions_text" = "Now fill out our quick questionnaire to find out which education suits you the best!";
 "instruction_text" = "You can navigate between questions by swiping left or right.";
-"start_questions_button" = "Let's Get Started!";
+"start_questions_button" = "Let's Get Started";
 
 //CollectionViewController
 "go_to_results" = "To Results";
@@ -47,7 +47,7 @@
 
 //Alert
 "results_alert" = "You answered all the questions.\nClick below to continue to results\nor change your answers.";
-"alert_title" = "Attention";
+"alert_title" = "Great";
 
 //FetchResults
 "send_email" = "Send";
