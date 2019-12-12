@@ -12,27 +12,13 @@ import CoreLocation
 class Main {
     public var fullName: String?
     private(set) var age = 1
-//    private var latitude: CLLocationDegrees = 60.1
-//    private var longitude: CLLocationDegrees = 24.6
-//    private var location: CLLocation
     private(set) var email = ""
-    // set to private(set)
     // This version has three axels: Introverted v Extroverted, Creative v Logical and Adventurous v Steady work environment
-    public var quizScore = [0, 0, 0]
+    private(set) var quizScore = [0, 0, 0]
     private var location: String?
 
-    /*
-    init(name: String, age: Int, weight: Double, height: Double){
-        self.name = name
-        self.age = (age < 0 ? 0 : age)
-
-        self.location  = CLLocation(latitude: latitude, longitude: longitude)
-        print("A new person /name has been created!")
-    }*/
-    
     init(age: Int) {
         self.age = (age < 0 ? 0 : age)
-        // self.location  = CLLocation(latitude: latitude, longitude: longitude)
         print("User created succesfully")
     }
     
@@ -54,27 +40,23 @@ class Main {
         location = newLocation
     }
 
-    // Allows adding to whole array at once in order
-    // Fix for loop to
-//    func addToScore(scores: Int...) {
-//        for place in quizScore {
-//            print("asdf " + String(place))
-//            quizScore[place] = quizScore[place] + scores[place]
-//        }
-//
-//    }
+    // Hardcoded function for the current algorithm, all scores are modulod to keep in line with current score convetion
     func addToScore(_ IvE: Int = 0, _ CvL: Int = 0, _ SvA: Int = 0) {
-        quizScore[0] = ((quizScore[0] + IvE)%10)
-        quizScore[1] = ((quizScore[1] + CvL)%10)
-        quizScore[2] = ((quizScore[2] + SvA)%10)
+        quizScore[0] += (IvE%10)
+        quizScore[1] += (CvL%10)
+        quizScore[2] += (SvA%10)
         print("QuizScore \((quizScore[0], quizScore[1], quizScore[2]))")
     }
+    
     // Compares two scores, one for the person and one for the school
     func compareScores(comparisonArray: [Int]) -> Double {
+        var result = 0.0
         if comparisonArray.count != 3 {
             return 0.0
         }
-        let result = pow(Double(comparisonArray[0]) - Double(quizScore[0]), 2) + pow(Double(comparisonArray[1]) - Double(quizScore[1]), 2) + pow(Double(comparisonArray[2]) - Double(quizScore[2]), 2)
+        for i in 0...2 {
+            result += pow(Double(comparisonArray[i]) - Double(quizScore[i]) ,2)
+        }
         return result
         
     }
