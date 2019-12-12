@@ -14,26 +14,26 @@ class PersonTests: XCTestCase {
 
 
     
-//    func testEmailAdd() {
-//        person.setEmail("asdf@metropolia.fi")
-//        XCTAssertEqual(person.email, "asdf@metropolia.fi", "email add ok")
-//    }
-//
-////    func testAddToArray() {
-////        person.addToScore(1, rightValue: 0)
-////        XCTAssertTrue(person.quizScore[0] == 1)
-////        person.addToScore(1, rightValue: 1)
-////        XCTAssertTrue(person.quizScore[0] == 2)
-////        XCTAssertTrue(person.quizScore[1] == 1)
-////    }
-////
-//    func testCompareArray() {
-//        // enemy here is extroverted, creative and only a little adventurous
-//        let enemyScore = [30, 27, 8]
-//        // person here is introverted, logical and very adventurous
-//        person.quizScore = [0, 0, 42]
-//        XCTAssertTrue(person.compareScores(comparisonArray: enemyScore) == 1629.0)
-//    }
+    func testEmailAdd() {
+        personInstance.setEmail("asdf@metropolia.fi")
+        XCTAssertEqual(personInstance.email, "asdf@metropolia.fi", "email add ok")
+    }
+
+    func testAddToArray() {
+        personInstance.addToScore(1, 0)
+        XCTAssertTrue(personInstance.quizScore[0] == 1)
+        personInstance.addToScore(1, 1)
+        XCTAssertTrue(personInstance.quizScore[0] == 2)
+        XCTAssertTrue(personInstance.quizScore[1] == 1)
+    }
+
+    func testCompareArray() {
+        // enemy here is extroverted, creative and only a little adventurous
+        let enemyScore = [30, 27, 8]
+        // person here is introverted, logical and very adventurous
+        personInstance.quizScore = [0, 0, 42]
+        XCTAssertTrue(personInstance.compareScores(comparisonArray: enemyScore) == 1629.0)
+    }
     
     
 
