@@ -26,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     //Tells the delegate that the launch process is almost done and the app is almost ready to run.
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().clipsToBounds = false
         //Wrapper for FBSDKCoreKit
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         //The client ID of the app from the Google APIs console. Must set for sign-in to work.

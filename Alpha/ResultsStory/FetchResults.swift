@@ -12,6 +12,11 @@ import MessageUI
 class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var tableview: UITableView!
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    @IBOutlet weak var emailView: UIView!
+    @IBOutlet weak var bottomConstrait: NSLayoutConstraint!
     
     var results: [SingleResult] = []
     var unwrapped: String = ""
@@ -26,7 +31,7 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
         sendButton.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "send_email", comment: ""), for: .normal)
         emailLabel.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "email_label", comment: "")
         
-        // Check if user has logged in with Google/FB and input email in to textfield and activate button
+       
         if (personInstance.email.count > 1) {
            emailInput.text = personInstance.email
             self.activateSend()
@@ -39,11 +44,26 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
         layer.startPoint = CGPoint(x: 0, y: 0)
         layer.endPoint = CGPoint(x:1, y:1)
         view.layer.insertSublayer(layer, at: 0)
-        
-        emailStackView.backgroundColor = .gray
+        sendButton.layer.cornerRadius = 20
+        sendButton.layer.borderWidth = 1
+        sendButton.backgroundColor = UIColor(red: 0.77, green: 0.12, blue: 0.36, alpha: 1)
+        sendButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        sendButton.setTitleColor(.white, for: .normal)
+        sendButton.layer.borderColor = UIColor.black.cgColor
+        sendButton.translatesAutoresizingMaskIntoConstraints = false
+        emailView.backgroundColor = UIColor.clear
+
     }
-    
-    @IBOutlet weak var emailStackView: UIStackView!
+
+    //hide navigation
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.19, green: 0.27, blue: 0.37, alpha: 1)
+            //UIColor(red: 0.12, green: 0.13, blue: 0.14, alpha: 1)
+        //rgb(0.12,0.13,0.14)
+    }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0
@@ -99,7 +119,8 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
     // Create cells with fetched data
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "resultsCell", for: indexPath) as! ResultsCell
-        
+        cell.selectionStyle = .none
+
         //Bind to cell outlets here like above.
         cell.organisation.text = self.results[indexPath.item].organisation
         cell.faculty.text = self.results[indexPath.item].faculty
@@ -158,7 +179,7 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.becomeFirstResponder()
     }
-    
+
     func textFieldDidEndEditing(_ textField: UITextField) {
         resignFirstResponder()
     }
