@@ -7,52 +7,48 @@
 //
 
 import UIKit
-import FacebookCore//Facebook Podfile
-import FacebookLogin//Facebook Podfile
-import GoogleSignIn//Google Podfile
+import FacebookCore// Facebook Podfile
+import FacebookLogin// Facebook Podfile
+import GoogleSignIn// Google Podfile
 
-//Main ViewController
+// Main ViewController
 class ViewController: UIViewController, LoginButtonDelegate {
-    //UIButton for setting the language to finnish
+    // UIButton for setting the language to finnish
     @IBOutlet weak var finButton: UIButton!
-    //UIButton for setting the language to english
+    // UIButton for setting the language to english
     @IBOutlet weak var ukButton: UIButton!
-    //Instructs the user to choose language
+    // Instructs the user to choose language
     @IBOutlet weak var languageInstructionLabel: UILabel!
-    //Displayes the current language
-    //@IBOutlet weak var languageLabel: UILabel!
-    //Button to sign in with Google account
-    @IBOutlet weak var googleButton: GIDSignInButton!
-    //UIButton to continue without Google or Facebook login
+    // UIButton to continue without Google or Facebook login
     @IBOutlet weak var continueButton: UIButton!
-    
+    // Displayes the 'MeeKouluun' logo
     @IBOutlet weak var logoImageView: UIImageView!
+    // UIButton to continue with Google account
     @IBOutlet weak var googleSignInButton: UIButton!
+    // FBLoginButton to continue with Facebook account
     @IBOutlet weak var facebookSignInButton: FBLoginButton!
-    //Creates a layer that draws a color gradient over its background color
+    // Not in use, native APIbutton to sign in with google.
+    @IBOutlet weak var googleButton: GIDSignInButton!
+    // Creates a layer that draws a color gradient over its background color
     let layer = CAGradientLayer()
-    
-    //Called after the controller's view is loaded into memory.
+
+    // Called after the controller's view is loaded into memory.
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Hides Googles native Button. Replaced by UIButton.
         googleButton.isHidden = true
+        // Fetches the 'MeeKouluun' logo for ImageView
         logoImageView.image = UIImage(named: ("logo"))
-        //Changest the language of the languageLabel text
-        //languageLabel?.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "language_header_text", comment: "")
-        //languageLabel.textColor = .white
-        //languageLabel.font = UIFont.systemFont(ofSize: 20)
-
-        //Changest the language of the languageInstructionLabel text
+        // Changest the language of the languageInstructionLabel text
         languageInstructionLabel?.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "language_instruction_text", comment: "")
         languageInstructionLabel.textColor = .white
         languageInstructionLabel.font = UIFont.systemFont(ofSize: 20)
-
-        //Changest the language of the continueButton text
+        // Changest the language of the continueButton text
         continueButton?.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "continue_text", comment: ""), for: .normal)
-        //If showsTouchWhenHighlighted = true. Gives the button a glow when clicked.
+        // If showsTouchWhenHighlighted = true. Gives the button a glow when clicked.
         ukButton?.showsTouchWhenHighlighted = true
         finButton?.showsTouchWhenHighlighted = true
-        //Checks current language setting and highlights the active language selection button
+        // Checks current language setting and highlights the active language selection button
         if LocalizationSystem.sharedInstance.getLanguage() == "en" {
             finButton?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
             ukButton?.backgroundColor = UIColor(red: 0.72, green: 0.76, blue: 0.78, alpha: 1)
@@ -60,61 +56,33 @@ class ViewController: UIViewController, LoginButtonDelegate {
             ukButton?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
             finButton?.backgroundColor = UIColor(red: 0.72, green: 0.76, blue: 0.78, alpha: 1)
         }
-        //Setting bounds and color for gradient layer
+        // Setting bounds and color for gradient layer
         layer.frame = view.bounds
         let color2 = UIColor(red: 0.08, green: 0.11, blue: 0.15, alpha: 1)
         let color1 = UIColor(red: 0.19, green: 0.27, blue: 0.37, alpha: 1)
         layer.colors = [color1.cgColor, color2.cgColor]
         layer.startPoint = CGPoint(x: 0, y: 0)
         layer.endPoint = CGPoint(x:1, y:1)
+        // Inserts gradient layer to the background
         view.layer.insertSublayer(layer, at: 0)
-
-        
-        
-//        layer.frame = view.bounds
-//        layer.colors = [UIColor.lightGray.cgColor, UIColor.white.cgColor]
-//        layer.startPoint = CGPoint(x: 0.5, y: 0.5)
-//        layer.endPoint = CGPoint(x:1, y:1)
-//        //Adds the gradientlayer to view to index 0
-//        view.layer.insertSublayer(layer, at: 0)
-//        //Setting bounds and color for second gradient layer
-//        layer.frame = view.bounds
-//        layer.colors = [UIColor.darkGray.cgColor, UIColor.lightGray.cgColor]
-//        layer.startPoint = CGPoint(x: 0, y: 0)
-//        layer.endPoint = CGPoint(x:0.5, y:0.5)
-//        //Adds the second gradientlayer to view to index 1
-//        view.layer.insertSublayer(layer, at: 1)
-        
         view.addSubview(facebookSignInButton)
         view.addSubview(googleSignInButton)
         facebookSignInButton?.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "facebook_text", comment: ""), for: .normal)
         googleSignInButton?.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "google_text", comment: ""), for: .normal)
-
-//        //Creates FBSDKLoginKit.FBLoginButton with permission request for profile info(name) and email
-//        let loginButton = FBLoginButton(permissions: [ .publicProfile, .email ]) // .userHometown
-//        loginButton.delegate = self
-//        view.addSubview(loginButton)
-//        //Sets custom frame instead of the default FBLoginButton
-//        loginButton.frame = CGRect(x: 40, y: 400, width: 250, height: 40)
-//        //Aligns the button to center
-//        loginButton.center = view.center
-        
-        
-        //Makes the sign in browser to pop up in this ViewController
+        // Makes the sign in browser to pop up in this ViewController
         GIDSignIn.sharedInstance()?.presentingViewController = self
-        //Not in use:
-        // Automatically sign in the user.
-        //GIDSignIn.sharedInstance()?.restorePreviousSignIn()
-        //Hides the NavigationBar
+        // Hides the NavigationBar
         self.navigationController?.isNavigationBarHidden = true
-//        //round buttons
-//        googleButton.layer.cornerRadius = 8
-//        continueButton.layer.cornerRadius = 5
+        // Button styling setup
         setup()
-
+        // Not in use:
+        // Automatically sign in the user.
+        // GIDSignIn.sharedInstance()?.restorePreviousSignIn()
     }
     
+    // Button styling
     func setup() {
+        // For facebookSignInButton
         facebookSignInButton.layer.cornerRadius = 20
         facebookSignInButton.backgroundColor = UIColor(red: 0.23, green: 0.35, blue: 0.60, alpha: 1)
         facebookSignInButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
@@ -123,7 +91,7 @@ class ViewController: UIViewController, LoginButtonDelegate {
         facebookSignInButton.layer.borderWidth = 1
         facebookSignInButton.layer.borderColor = UIColor.black.cgColor
         facebookSignInButton.translatesAutoresizingMaskIntoConstraints = false
-        
+        // For googleSignInButton
         googleSignInButton.backgroundColor = .white
         googleSignInButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         googleSignInButton.setTitleColor(.darkGray, for: .normal)
@@ -131,45 +99,47 @@ class ViewController: UIViewController, LoginButtonDelegate {
         googleSignInButton.layer.borderWidth = 1
         googleSignInButton.layer.borderColor = UIColor.black.cgColor
         googleSignInButton.translatesAutoresizingMaskIntoConstraints = false
-        
+        // For continueButton
         continueButton.backgroundColor = UIColor(red: 0.77, green: 0.12, blue: 0.36, alpha: 1)
         continueButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         continueButton.setTitleColor(.white, for: .normal)
         continueButton.layer.cornerRadius = 20
         continueButton.layer.borderWidth = 1
         continueButton.layer.borderColor = UIColor.black.cgColor
-        
+        // For finButton
         finButton.layer.cornerRadius = 25
+        // For ukButton
         ukButton.layer.cornerRadius = 25
-
-        
-        
     }
+    
+    // Functions to sign in with Google account
     @IBAction func googleButtonAction(_ sender: UIButton) {
         GIDSignIn.sharedInstance().signIn()
     }
-    //Changes the language settings to english
+    
+    // Changes the language settings to english
     @IBAction func changeLanguageToEN(_ sender: Any) {
         if LocalizationSystem.sharedInstance.getLanguage() == "fi" {
             LocalizationSystem.sharedInstance.setLanguage(languageCode: "en")
         } else {
             LocalizationSystem.sharedInstance.setLanguage(languageCode: "en")
         }
-        //Refreshes the view
+        // Refreshes the view
         viewDidLoad()
     }
-    //Changes the language settings to finnish
+    
+    // Changes the language settings to finnish
     @IBAction func changeLanguageToFI(_ sender: Any) {
         if LocalizationSystem.sharedInstance.getLanguage() == "en" {
             LocalizationSystem.sharedInstance.setLanguage(languageCode: "fi")
         } else {
             LocalizationSystem.sharedInstance.setLanguage(languageCode: "fi")
         }
-        //Refreshes the view
+        // Refreshes the view
         viewDidLoad()
     }
     
-    //not in use
+    // Function to sign in with Facebook
     @IBAction private func loginWithReadPermissions() {
         let loginManager = LoginManager()
         loginManager.logIn(
@@ -181,7 +151,7 @@ class ViewController: UIViewController, LoginButtonDelegate {
         }
     }
     
-    //not in use
+    // Function to log out of Facebook
     @IBAction private func logOut() {
         print("--------Logout----------------------")
         let loginManager = LoginManager()
@@ -190,23 +160,26 @@ class ViewController: UIViewController, LoginButtonDelegate {
         print("logout ---------")
     }
     
-    //Not in use, signs out from Google
+    // Not in use, signs out from Google, done in AppDelegate
     @IBAction func didTapSignOut(_ sender: UIButton) {
         GIDSignIn.sharedInstance().signOut()
         print("Google Sign out")
     }
-    //Sent to the delegate when the FBLoginButton was used to login.
+    
+    // Sent to the delegate when the FBLoginButton was used to login.
     func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
         print("Did complete login via LoginButton with result \(String(describing: result)) " +
             "error\(String(describing: error))")
-        //Calls function to get user info
+        // Calls function to get user info
         self.fetchUserProfile()
     }
-    //Sent to the delegate when the FBLoginButton was used to logout.
+    
+    // Sent to the delegate when the FBLoginButton was used to logout.
     func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
         print("Logout func")
     }
     
+    // Function to comfirm login
     func loginManagerDidComplete(_ result: LoginResult) {
         print("\n\n result: \(result)")
         switch result {
@@ -216,11 +189,12 @@ class ViewController: UIViewController, LoginButtonDelegate {
             print("Login succeeded with granted permissions: \(grantedPermissions)")
         }
     }
-    //Fetches the Facebook user info
+    
+    // Fetches the Facebook user info
     func fetchUserProfile()
-    {//Requests specific parameter from Facebook
+    {// Requests specific parameter from Facebook
         let graphRequest = GraphRequest(graphPath: "me", parameters: ["fields": "id, email, name, hometown"], tokenString: AccessToken.current?.tokenString, version: Settings.defaultGraphAPIVersion, httpMethod: HTTPMethod.get)
-        //Starts a connection to the Graph API.
+        // Starts a connection to the Graph API.
         graphRequest.start(completionHandler: { (connection, result, error) -> Void in
             if ((error) != nil)
             {
@@ -240,16 +214,16 @@ class ViewController: UIViewController, LoginButtonDelegate {
                     let email = info["email"] as! String
                     print("------------------------------")
                     print(email)
-                    //Sets Person class an email
+                    // Sets Person class an email
                     personInstance.setEmail(email)
-                    //Disables Googles sign in button
+                    // Disables Googles sign in button
                     self.googleButton.isEnabled = false
                     self.continueButton?.setTitle(LocalizationSystem.sharedInstance.localizedStringForKey(key: "signed_in", comment: ""), for: .normal)
-                    //If email is succesfully set to Person class, user is logged out from Facebook
+                    // If email is succesfully set to Person class, user is logged out from Facebook
                     if personInstance.email.count > 5 {
                         let loginManager = LoginManager()
                         loginManager.logOut()
-                        //Segues the user to basic questions
+                        // Segues the user to basic questions
                         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "BasicQuestions1Age") as? BasicQuestions1
                         self.navigationController?.pushViewController(vc!, animated: true)
                     }

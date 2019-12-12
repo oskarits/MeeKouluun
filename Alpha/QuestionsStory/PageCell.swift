@@ -7,10 +7,10 @@
 //
 
 import UIKit
-//PageCell creates components to CollectionView in CollectionViewController
+// PageCell creates components to CollectionView in CollectionViewController
 class PageCell: UICollectionViewCell {
     
-    //questionTextView displays questions
+    // questionTextView displays questions
     let questionTextView: UITextView = {
         let textView = UITextView()
         textView.font = UIFont.systemFont(ofSize: 20) //font size
@@ -23,7 +23,7 @@ class PageCell: UICollectionViewCell {
         return textView
     }()
     
-    //Button1 displayes the first answer option
+    // Button1 displayes the first answer option
     let Button1: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -41,7 +41,7 @@ class PageCell: UICollectionViewCell {
         return button
     }()
     
-    //Button2 displayes the second answer option
+    // Button2 displayes the second answer option
     let Button2: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -57,7 +57,7 @@ class PageCell: UICollectionViewCell {
         return button
     }()
     
-    //Button3 displayes the third answer option
+    // Button3 displayes the third answer option
     let Button3: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -73,7 +73,7 @@ class PageCell: UICollectionViewCell {
         return button
     }()
     
-    //Button4 displayes the fourth answer option
+    // Button4 displayes the fourth answer option
     let Button4: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -89,7 +89,7 @@ class PageCell: UICollectionViewCell {
         return button
     }()
     
-    //Button5 displayes the fifth answer option
+    // Button5 displayes the fifth answer option
     let Button5: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -105,7 +105,7 @@ class PageCell: UICollectionViewCell {
         return button
     }()
     
-    //ResultButton takes user to results after all questions have been answered
+    // ResultButton takes user to results after all questions have been answered
     let resultButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -120,7 +120,7 @@ class PageCell: UICollectionViewCell {
         return button
     }()
     
-    //Indicates current page
+    // Indicates current page
     let pageControl: UIPageControl = {
         let pc = UIPageControl()
         pc.translatesAutoresizingMaskIntoConstraints = false
@@ -134,7 +134,7 @@ class PageCell: UICollectionViewCell {
         return pc
     }()
     
-    //Initializes the collectionview frame
+    // Initializes the collectionview frame
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .clear
@@ -146,7 +146,7 @@ class PageCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented!")
     }
     
-    //Adding components to view and setting up layouts
+    // Adding components to view and setting up layouts
     private func setupLayout() {
         /*Adds all the component to the list of subviews.*/
         self.contentView.addSubview(questionTextView)
@@ -157,25 +157,25 @@ class PageCell: UICollectionViewCell {
         self.contentView.addSubview(Button5)
         self.contentView.addSubview(resultButton)
         self.contentView.addSubview(pageControl)
-        //Adds the answer buttons to stackview with page indicator
+        // Adds the answer buttons to stackview with page indicator
         let buttonStackView = UIStackView(arrangedSubviews: [Button1, Button2, Button3, Button4, Button5, pageControl])
         buttonStackView.translatesAutoresizingMaskIntoConstraints = false
         buttonStackView.alignment = .center
         buttonStackView.distribution = .fill
-        //Sets up stackview's position in the frame
+        // Sets up stackview's position in the frame
         buttonStackView.layoutMargins = UIEdgeInsets(top: 300, left: (frame.width/2) - (300/2), bottom: 0, right: (frame.width/2) - (300/2))
         buttonStackView.isLayoutMarginsRelativeArrangement = true
         buttonStackView.axis = .vertical
         buttonStackView.spacing = 15
-        //Adds the stackview as subview
+        // Adds the stackview as subview
         self.contentView.addSubview(buttonStackView)
-        //Constraints
+        // Constraints
         questionTextView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         questionTextView.topAnchor.constraint(equalTo: topAnchor, constant: 160).isActive = true
         questionTextView.widthAnchor.constraint(equalToConstant: 300).isActive = true
         questionTextView.heightAnchor.constraint(equalToConstant: 150).isActive = true
         resultButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        //resultButton.topAnchor.constraint(equalTo: topAnchor, constant: 700).isActive = true
+        // resultButton.topAnchor.constraint(equalTo: topAnchor, constant: 700).isActive = true
         resultButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -90).isActive = true
         resultButton.widthAnchor.constraint(equalToConstant: 250).isActive = true
         resultButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
