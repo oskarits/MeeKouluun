@@ -99,13 +99,6 @@ class BasicQuestions1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         getData()
-
-        agePicker.selectRow(5, inComponent: 0, animated: true)
-        //Then
-        pickerView(agePicker, didSelectRow: (storedAge - 15), inComponent: 0)
-        //self.agePicker.selectRow(4, inComponent: 0, animated: true)
-
-        
         layer.frame = view.bounds
         let color2 = UIColor(red: 0.08, green: 0.11, blue: 0.15, alpha: 1)
         let color1 = UIColor(red: 0.19, green: 0.27, blue: 0.37, alpha: 1)
@@ -116,16 +109,6 @@ class BasicQuestions1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         self.navigationController?.isNavigationBarHidden = true
         navigationItem.hidesBackButton = true
 
-        /*
-        let layer = CAGradientLayer()
-        layer.frame = view.bounds
-        //layer.colors = [UIColor.red.cgColor, UIColor.white.cgColor]
-        layer.startPoint = CGPoint(x: 0, y: 0)
-        layer.endPoint = CGPoint(x:1, y:1)
-        //view.layer.addSublayer(layer)
-        view.layer.insertSublayer(layer, at: 0)
-        */
-        
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "BackgroundGradient")!)
         ageQuestionLabel?.text = LocalizationSystem.sharedInstance.localizedStringForKey(key: "age_question", comment: "")
         ageQuestionLabel.textColor = .white
@@ -154,22 +137,7 @@ class BasicQuestions1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     @IBOutlet weak var agePicker: UIPickerView!
     @IBOutlet weak var nextButton: UIButton!
     
-    
-    /*
-     @IBAction func BasicQuestionButton(_ sender: UIButton) {
-     Transition(sender.self)
-     print("basicQ button 1")
-     }
-     
-     @IBAction func BasicQuestionButton2(_ sender: UIButton!) {
-     Transition(sender.self)
-     print("basicQ button 2")
-     
-     }
-     private func Transition(_ sender: UIButton!) {
-     performSegue(withIdentifier: "segue1", sender: self)
-     }
-     */
+
     
     
     /*
