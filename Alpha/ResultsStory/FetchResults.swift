@@ -101,7 +101,7 @@ class FetchResults: UIViewController, UITableViewDelegate, UITableViewDataSource
                         }
                         self.results.append(result)
                         // Results are sorted after each addition
-                        self.results = self.results.sorted(by: {Int($0.score ?? 0.0) > Int($1.score ?? 0.0)})
+                        self.results = self.results.sorted(by: {Int($0.score ?? 0.0) < Int($1.score ?? 0.0)})
                     }
                     
                     print("RESPONSE: \n\(json)")

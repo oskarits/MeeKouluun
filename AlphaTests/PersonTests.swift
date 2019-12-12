@@ -29,10 +29,11 @@ class PersonTests: XCTestCase {
 
     func testCompareArray() {
         // enemy here is extroverted, creative and only a little adventurous
-        let enemyScore = [30, 27, 8]
+        let enemyScore = [3, 7, 8]
         // person here is introverted, logical and very adventurous
-        personInstance.quizScore = [0, 0, 42]
-        XCTAssertTrue(personInstance.compareScores(comparisonArray: enemyScore) == 1629.0)
+        personInstance.quizScore = [0, 0, 4]
+        print("test score \(personInstance.compareScores(comparisonArray: enemyScore))")
+        XCTAssertTrue(personInstance.compareScores(comparisonArray: enemyScore) == 74.0)
     }
     
     

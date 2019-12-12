@@ -57,7 +57,7 @@ class Main {
         for i in 0...2 {
             result += pow(Double(comparisonArray[i]) - Double(quizScore[i]) ,2)
         }
-        print(result)
+        print("score results \(result)")
         return result
     }
 }
