@@ -137,22 +137,7 @@ class BasicQuestions1: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     @IBOutlet weak var agePicker: UIPickerView!
     @IBOutlet weak var nextButton: UIButton!
     
-    
-    /*
-     @IBAction func BasicQuestionButton(_ sender: UIButton) {
-     Transition(sender.self)
-     print("basicQ button 1")
-     }
-     
-     @IBAction func BasicQuestionButton2(_ sender: UIButton!) {
-     Transition(sender.self)
-     print("basicQ button 2")
-     
-     }
-     private func Transition(_ sender: UIButton!) {
-     performSegue(withIdentifier: "segue1", sender: self)
-     }
-     */
+
     
     
     /*

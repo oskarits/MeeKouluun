@@ -58,12 +58,11 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         return cv
     }()
     let layer = CAGradientLayer()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //DeleteAllData()
         getData()
-        //check1 = xxx
-        
         
         layer.frame = view.bounds
         let color2 = UIColor(red: 0.08, green: 0.11, blue: 0.15, alpha: 1)
@@ -415,6 +414,8 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         default:
             print("button tag error")
         }
+        saveData(sender)
+        
     }
     
     //Places the tag of sender button to check1 - check10, to mark the pages questioin aswered and coloring the correct button each controllerView swipe
@@ -567,7 +568,7 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         personInstance.addToScore(check8, 0, 0)
         personInstance.addToScore(check9, 0, 0)
         personInstance.addToScore(check10, 0, 0)
-//        xxx = check1
+        //        xxx = check1
         saveData(sender)
         Transition(sender)
     }
@@ -601,9 +602,8 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
             
         }
     }
+    //Deletes all previous data
     func DeleteAllData(){
-        
-        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
         let DelAllReqVar = NSBatchDeleteRequest(fetchRequest: NSFetchRequest<NSFetchRequestResult>(entityName: "Result1"))
@@ -615,8 +615,8 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         }
     }
     
+    //Fetches core data
     func getData() {
-        
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Result1")
         request.returnsObjectsAsFaults = false
