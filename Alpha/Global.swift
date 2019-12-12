@@ -14,7 +14,7 @@ class Main {
     private(set) var age = 1
     private(set) var email = ""
     // This version has three axels: Introverted v Extroverted, Creative v Logical and Adventurous v Steady work environment
-    private(set) var quizScore = [0, 0, 0]
+    public var quizScore = [0, 0, 0]
     private var location: String?
 
     init(age: Int) {
@@ -42,9 +42,9 @@ class Main {
 
     // Hardcoded function for the current algorithm, all scores are modulod to keep in line with current score convetion
     func addToScore(_ IvE: Int = 0, _ CvL: Int = 0, _ SvA: Int = 0) {
-        quizScore[0] += (IvE%10)
-        quizScore[1] += (CvL%10)
-        quizScore[2] += (SvA%10)
+        quizScore[0] = ((quizScore[0] + IvE)%10)
+        quizScore[1] = ((quizScore[1] + CvL)%10)
+        quizScore[2] = ((quizScore[2] + SvA)%10)
         print("QuizScore \((quizScore[0], quizScore[1], quizScore[2]))")
     }
     
@@ -57,8 +57,8 @@ class Main {
         for i in 0...2 {
             result += pow(Double(comparisonArray[i]) - Double(quizScore[i]) ,2)
         }
+        print(result)
         return result
-        
     }
 }
 
