@@ -8,49 +8,49 @@
 
 import UIKit
 import CoreData
-import FacebookCore//Facebook Podfile
-import FacebookLogin//Facebook Podfile
-import GoogleSignIn//Google Podfile
+import FacebookCore// Facebook Podfile
+import FacebookLogin// Facebook Podfile
+import GoogleSignIn// Google Podfile
 
 @UIApplicationMain
-//A set of methods that are called by the singleton UIApplication object in response to important events in the lifetime of your app.
+// A set of methods that are called by the singleton UIApplication object in response to important events in the lifetime of your app.
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
-    //The backdrop for app’s user interface and the object that dispatches events to views.
+    // The backdrop for app’s user interface and the object that dispatches events to views.
     var window: UIWindow?
     
-    //Asks the delegate for the interface orientations to use for the view controllers.
+    // Asks the delegate for the interface orientations to use for the view controllers.
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask{
         return UIInterfaceOrientationMask.portrait
     }
     
-    //Tells the delegate that the launch process is almost done and the app is almost ready to run.
+    // Tells the delegate that the launch process is almost done and the app is almost ready to run.
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().clipsToBounds = false
-        //Wrapper for FBSDKCoreKit
+        // Wrapper for FBSDKCoreKit
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
-        //The client ID of the app from the Google APIs console. Must set for sign-in to work.
+        // The client ID of the app from the Google APIs console. Must set for sign-in to work.
         GIDSignIn.sharedInstance()?.clientID = "324717223565-j36smevb65kegmf4mi7dokupu9a441b6.apps.googleusercontent.com"
         GIDSignIn.sharedInstance()?.delegate = self
         return true
     }
     
-    //Asks the delegate to open a resource specified by a URL
+    // Asks the delegate to open a resource specified by a URL
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        //Returns either Facebook or Google URL
+        // Returns either Facebook or Google URL
         return ApplicationDelegate.shared.application(app, open: url, options: options) || GIDSignIn.sharedInstance().handle(url)
     }
     
-    //This class signs the user in with Google.
+    // This class signs the user in with Google.
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let error = error {
-            //Information about an error condition including a domain, a domain-specific error code, and application-specific information.
+            // Information about an error condition including a domain, a domain-specific error code, and application-specific information.
             if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
-                //Indicates there are no valid auth tokens in the keychain
+                // Indicates there are no valid auth tokens in the keychain
                 print("The user has not signed in before or they have since signed out.")
             } else {
-                //Retrieve the localized description for this error.
+                // Retrieve the localized description for this error.
                 print("\(error.localizedDescription)")
             }
             return
@@ -62,13 +62,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
          let givenName = user.profile.givenName
          let familyName = user.profile.familyName
          */
-        
-        //The Google user's full name.
+        // The Google user's full name.
         let fullName = user.profile.name
-        //The Google user's email.
+        // The Google user's email.
         let email = user.profile.email
-
-        //Checks if Person class already has an email set
+        // Checks if Person class already has an email set
         if personInstance.email.count > 1 {
             print("no email required")
         } else if personInstance.email.count <= 1{
@@ -76,23 +74,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 print(printFullName)
             }
             if let printEmail = email {
-                //Sets Person class an email
+                // Sets Person class an email
                 personInstance.setEmail(printEmail)
                 print(printEmail)
-                //Marks current user as being in the signed out state.
+                // Marks current user as being in the signed out state.
                 GIDSignIn.sharedInstance().signOut()
-                //The root view controller for the window.
+                // The root view controller for the window.
                 let rootViewController = self.window!.rootViewController as!
                 UINavigationController
-                //Sets Interface Builder storyboard resource file.
+                // Sets Interface Builder storyboard resource file.
                 let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                //Instantiates and returns the view controller with the specified identifier.
+                // Instantiates and returns the view controller with the specified identifier.
                 let BasicQuestions1 = mainStoryboard.instantiateViewController(withIdentifier: "BasicQuestions1Age") as! BasicQuestions1
-                //Pushes a view controller onto the receiver’s stack and updates the display.
+                // Pushes a view controller onto the receiver’s stack and updates the display.
                 rootViewController.pushViewController(BasicQuestions1, animated: true)
             }
         }
     }
+    
     //Actions after Google user is signed out
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
               withError error: Error!) {
